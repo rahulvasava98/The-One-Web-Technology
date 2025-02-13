@@ -1,0 +1,792 @@
+﻿@model The_One_Web_Technology.Models.courseLandingPageModelList
+@{
+
+    Layout = "~/Views/Shared/_Global_Layout.cshtml";
+
+
+}
+
+@section Header {
+    <link href="~/css/vendors/all.min.css" rel="stylesheet" />
+    <title> Course  | The One Web Technology</title>
+
+}
+
+@section meta {
+
+    <meta property="og:image:height" content="150">
+    <meta property="og:image:width" content="150">
+    <meta property="og:content" content="Web Devlopment Services We Offer" />
+    <meta property="og:title" content="The One Web Technology | Web Development" />
+    <meta property="og:description" content="At OWT, we combine creativity, technical expertise, and industry insights to deliver bespoke solutions tailored to your unique needs." />
+    <meta property="og:image" itemprop="image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*V-Jp13LvtVc2IiY2fp4qYw.jpeg" />
+
+}
+
+<style>
+    .white-font {
+        color: white;
+    }
+    
+</style>
+
+@* course landing page *@
+<section class="training">
+
+    <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
+        <div class="row">
+
+            <div class=" col-xxl-3 col-lg-3">
+                <div class="course-content  ">
+                    <div class="headings">
+                        <h2>Course Content</h2>
+                    </div>
+                    <div class="faq faq-scrollable">
+                        <!--Start Accordion List For FAQ-->
+                        <div class="faq-accordion pe-3" id="accordion">
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var item in Model.CourseModuleDetailsmstList)
+                            {
+                                @foreach(var lectureData in Model.courseLectureDetailsMstList){
+
+                                } 
+                                if (item != null)
+                                {
+                                    <div class="card mb-1 p-0 border-0">
+                                        <div class="card-header " id="heading-1">
+                                            <h3 class="mb-0 faq-title">
+                                                <button class="btn btn-link faq-btns collapsed" id=""  data-bs-toggle="collapse" data-bs-target="#collapse-@item.courseModuleId" aria-expanded="true" aria-controls="collapse-1">
+                                                    <span>
+                                                        @{
+                                                            i++;
+                                                        }
+                                                        Section @i : @item.SectionName
+                                                        @* module Name : @item.courseModuleId *@
+
+                                                    </span>
+                                                </button>
+                                            </h3>
+                                        </div>
+                                        <div class="collapse lectureContainer" id="collapse-@item.courseModuleId" aria-labelledby="collapse-@item.courseModuleId" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                @{
+                                                    int lectureNum = 0;
+
+                                                }
+                                                @foreach (var DataFormLectureDetails in Model.courseLectureDetailsMstList)
+                                                {
+
+                                                    @if (item.courseModuleId == DataFormLectureDetails.courseModuleId)
+                                                    {
+
+                                                        <div class="row">
+                                                            <div class="content-item checked">
+                                                                <span>
+                                                                    <span style="cursor: pointer;" onclick="PlayLecture(this)">
+
+                                                                        @{
+                                                                            lectureNum++;
+                                                                        }
+                                                                        <span>
+                                                                            <a class="Active lecutureClassLink @DataFormLectureDetails.courseLectureId" id="lecutrename_@DataFormLectureDetails.courseLectureId" onclick="GetLectureLink(@DataFormLectureDetails.courseLectureId,@Model.courseId,@Model.courseModuleId)">
+                                                                                @* <span class="courseLectureId">
+                                                                                    @DataFormLectureDetails.courseLectureId
+                                                                                </span> *@
+                                                                                <span class="lectureNum">
+                                                                                    @lectureNum.
+                                                                                </span>
+                                                                                <span class="LectureName">
+                                                                                    @DataFormLectureDetails.LectureName
+                                                                                </span>
+                                                                            </a>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="content-items">
+                                                                <div class="col-xxl-6 col-md-6">
+                                                                    <span class="time"><i class="fa-solid fa-video"></i> 7min</span>
+                                                                </div>
+                                                                <div class="col-xxl-6 col-md-6">
+
+                                                                    <button class="resources-btn"><i class="fa-regular fa-folder-open"></i> Resources</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                }
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-9 col-lg-9">
+                <div class="tutor-course-details-page space-top space-extra-bottom container">
+                    <div class="course-single " style="border:none !important">
+                        <div class="course-single-top" style="border:none;">
+                            <div class="course-img">
+                                <iframe width="100%" height="415px" id="videoframe" src="https://www.youtube.com/embed/@Model.LectureLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="course-single-bottom">
+                                <div class="course-tab-wrap tutor-course-details-tab">
+
+                                    <ul class="nav course-tab" id="courseTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true">
+                                                <i class="fa-regular fa-bookmark"></i>
+                                                Overviews
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link " id="curriculum-tab" data-bs-toggle="tab" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">
+                                                <i class="fa-solid fa-book"></i>
+                                                Q&A
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link " id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">
+                                                <i class="fa-regular fa-user"></i>
+                                                Announcement
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link " id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">
+                                                <i class="fa-solid fa-star"></i>
+                                                Reviews
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="productTabContent">
+                                        <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
+                                            <div class="course-description">
+                                                <div class="tutor-course-details-content">
+                                                    <h5 class="h5">
+                                                        About The Course
+                                                    </h5>
+
+                                                    <p>
+                                                        The main objective of <strong>Front-End</strong> Training is to expose students to the working environment of the Industry. So, it will enable students to understand the theories studied with more detailed and hands on practice within a real job situation.
+                                                        <br /><br />
+                                                        With the active involved preparation, Trainees learns about the Industrial demands, skill set and work ethics. At the mean time it gives the Trainee an opportunity to put into practice what he or she has learned at university. The industry introduction increases the undergraduate’s work life through added eagerness and responsibility, gives a long lasting learning experience. It provides an opportunity to engage with the profession to which they aspire in a realistic work environment, appreciate and understand the practical application of their theoretical knowledge also work with professional mentors.
+                                                    </p>
+
+                                                    <div class="row d-flex mt-25">
+                                                        <div class="col-lg-6 mg">
+                                                            <div class="checklist mb-4">
+                                                                <ul>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Core Technologies
+
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Frameworks and Libraries
+
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Tools and Methodologies
+
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 mg">
+                                                            <div class="checklist">
+                                                                <ul>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Advanced Topics
+
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Learning Resources
+                                                                    </li>
+
+
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <strong>
+                                                        Career Prospects
+                                                    </strong><br>
+                                                    Completing a Fornt-End course can open up various career opportunities, such as:
+                                                    <div class="row d-flex mt-25">
+                                                        <div class="col-lg-6 mg">
+                                                            <div class="checklist mb-4">
+                                                                <ul>
+
+
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Front-End Developer
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Web Designer
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 mg">
+                                                            <div class="checklist">
+                                                                <ul>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Web Developer
+                                                                    </li>
+
+                                                                    <li><i class="fa-solid fa-check"></i>Side Builder</li>
+
+
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <strong>Why OWT ?</strong>
+                                                    <div class="row d-flex mt-25">
+                                                        <div class="col-lg-12 mg">
+                                                            <div class="checklist mb-4">
+                                                                <ul>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>A Three (06) Months Internship / Training Program.
+
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>This unique training program enhance the employability skills of the trainees by assigning them industry endorsed projects.
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>It helps trainees acquainted with corporate culture of IT Industry.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Lectures by Industry Experts to help the trainees get aware about latest technologies.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Practical oriented sessions conducted for the Trainees.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>This unique training consists of 90% practical session and 10% theoretical session.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i> Placement assistance in Core IT Companies across Pan India.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i> Our content is professionally designed to cover the core as well as the advanced level of the Technologies like .Net/Java/PHP/Android/Python.
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa-solid fa-check"></i>Special HR Sessions for the Trainees to help them in enhancing the personality of individuals and crack interviews.
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    @* </p> *@
+                                                </div>
+
+
+
+                                                <h5 class="h5">Objective of JavaScript Training</h5>
+
+                                                <p>
+                                                    The main objective of <strong>JavaScript</strong> Training is to expose students to the working environment of the Industry. So, it will enable students to understand the theories studied with more detailed and hands on practice within a real job situation.
+                                                    <br /><br />
+                                                    With the active involved preparation, Trainees learns about the Industrial demands, skill set and work ethics. At the mean time it gives the Trainee an opportunity to put into practice what he or she has learned at university. The industry introduction increases the undergraduate’s work life through added eagerness and responsibility, gives a long lasting learning experience. It provides an opportunity to engage with the profession to which they aspire in a realistic work environment, appreciate and understand the practical application of their theoretical knowledge also work with professional mentors.
+                                                </p>
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade " id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+                                            <div class="course-curriculam">
+
+                                                <h5 class="h5">
+                                                    Featured questions in this course
+
+                                                </h5>
+
+                                                <div class="faq">
+                                                    <!--Start Accordion List For FAQ-->
+                                                    <div class="faq-accordion " id="accordion">
+                                                        <div class="card mb-2">
+                                                            <div class="card-header " id="heading-1">
+                                                                <h3 class="mb-0 faq-title">
+                                                                    <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#couresQueation-1" aria-expanded="true" aria-controls="collapse-1">
+                                                                        1.  What is HTML?
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse " id="couresQueation-1" aria-labelledby="couresQueation-1" data-bs-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <p class="faq-answer">
+                                                                        HTML stands for Hyper Text Markup Language. It is a markup language that consists of different tags. It is used to define the structure of the web pages.
+                                                                    </p>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card mb-2">
+                                                            <div class="card-header " id="heading-2">
+                                                                <h3 class="mb-0 faq-title">
+                                                                    <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#couresQueation-2" aria-expanded="true" aria-controls="collapse-2">
+                                                                        2.  What is CSS?
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse " id="couresQueation-2" aria-labelledby="couresQueation-2" data-bs-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <p class="faq-answer">
+                                                                        CSS, which stands for the Cascading Style Sheets. It helps to design and style the web page to make it attractive for users. CSS provides us a lot of selectors to select the HTML elements and style them according to the requirements. Some of the CSS selectors are Element Selectors, Class Selectors and Id Selectors.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card mb-2">
+                                                            <div class="card-header " id="heading-3">
+                                                                <h3 class="mb-0 faq-title">
+                                                                    <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#couresQueation-3" aria-expanded="true" aria-controls="collapse-3">
+                                                                        3. What is the purpose of z-index property in CSS?
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse " id="couresQueation-3" aria-labelledby="couresQueation-3" data-bs-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <p class="faq-answer">
+                                                                        The z-index property is used to control the stacking order of the elements that are positioned using the position property in CSS. The higher or the positive values will make the element appear on the top of the other elements while the negative or the lower values make them appear behind the elements with higher values.
+
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card mb-2">
+                                                            <div class="card-header " id="heading-4">
+                                                                <h3 class="mb-0 faq-title">
+                                                                    <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#couresQueation-4" aria-expanded="true" aria-controls="collapse-4">
+                                                                        4. What is JavaScript?
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse " id="couresQueation-4" aria-labelledby="couresQueation-4" data-bs-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <p class="faq-answer">
+                                                                        JavaScript is a high level scripting language. It is a dynamically typed language. JavaScript is used to add the dynamic elements and styles to the HTML document to make the web page more interactive and attractive. JavaScript is used in both frontend as well as backend.
+                                                                        <br />
+                                                                        There are a lot of frameworks and libraries of JavaScript available that can be used in frontend like ReactJS, Vue.JS, AngularJS, NextJS etc. There is only one framework of JavaScript available for the backend development which is Node.JS.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card mb-2">
+                                                            <div class="card-header " id="heading-5">
+                                                                <h3 class="mb-0 faq-title">
+                                                                    <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#couresQueation-5" aria-expanded="true" aria-controls="collapse-5">
+                                                                        5. Namespaces in JavaScript
+                                                                    </button>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="collapse " id="couresQueation-5" aria-labelledby="couresQueation-5" data-bs-parent="#accordion">
+                                                                <div class="card-body">
+                                                                    <p class="faq-answer">
+                                                                        Namespaces in JavaScript are the basic programming paradigm that provides encapsulation to some variables of functions. So that, if the functions and variables with same names are defined the program at some other place do not collapse and work as expected. You can also use the objects to achieve the same effect.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade " id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
+                                            <div class="course-author">
+
+                                                <div class="course-instructor  mb-24">
+                                                    <div class="course-author-box mb-25">
+                                                        <div class="auhtor-img">
+                                                            <img fetchpriority="high" src="~/assets/images/logo/owt-logo.png" alt="86d033e2d42a0631cc4f58b82dd01de9?s=96&amp;d=mm&amp;r=g" width="277" height="277">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h3 class="author-name"><a class="text-inherit" href="">The One Web Technology</a></h3>
+                                                            <p class="author-degi"></p>
+                                                            <p class="author-text"></p>
+                                                            <div class="author-meta">
+
+
+                                                                <span><i class="fa-solid fa-file-video"></i>10 Courses </span>
+
+
+                                                                <span><i class="fa-solid fa-users"></i>21 Students </span>
+
+                                                            </div>
+                                                            <div class="th-social">
+                                                                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                                                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-twitter" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                                                                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-linkedin" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                                                                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-earth" title="Website"><i class="fa-solid fa-earth-asia"></i></a>
+                                                                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-github" title="Github"><i class="fa-brands fa-github"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade " id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                            <div class="course-Reviews">
+
+                                                <div class="tutor-pagination-wrapper-replaceable">
+
+                                                    <div class="tutor-review-card">
+                                                        <div class="tutor-review-summary">
+                                                            <div class="tutor-row tutor-gx-xl-5 tutor-align-center">
+                                                                <div class="tutor-col-lg-auto tutor-text-center tutor-mb-16 tutor-mb-lg-0">
+                                                                    <div class="tutor-review-summary-average-rating">
+                                                                        4.0
+                                                                    </div>
+
+                                                                    <div>
+                                                                        <div class="tutor-d-inline-block">
+                                                                            <div class="tutor-ratings tutor-ratings-lg">
+                                                                                <div class="tutor-ratings-stars">
+                                                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-fs-6 tutor-color-secondary tutor-mt-12 tutor-total-rating-count">
+                                                                        Total 							2							 Ratings
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="tutor-col-lg">
+                                                                    <div class="tutor-review-summary-ratings">
+                                                                        <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                            <div class="tutor-col-auto">
+                                                                                <div class="tutor-ratings">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-regular fa-star"></i>
+                                                                                    </div>
+                                                                                    <div class="tutor-ratings-average">
+                                                                                        5
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col">
+                                                                                <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 50%">
+                                                                                    <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                                <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">1 Rating</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                            <div class="tutor-col-auto">
+                                                                                <div class="tutor-ratings">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-regular fa-star"></i>
+                                                                                    </div>
+                                                                                    <div class="tutor-ratings-average">
+                                                                                        4
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col">
+                                                                                <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                                    <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                                <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                            <div class="tutor-col-auto">
+                                                                                <div class="tutor-ratings">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-regular fa-star"></i>
+                                                                                    </div>
+                                                                                    <div class="tutor-ratings-average">
+                                                                                        3
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col">
+                                                                                <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 50%">
+                                                                                    <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                                <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">1 Rating</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                            <div class="tutor-col-auto">
+                                                                                <div class="tutor-ratings">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-regular fa-star"></i>
+                                                                                    </div>
+                                                                                    <div class="tutor-ratings-average">
+                                                                                        2
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col">
+                                                                                <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                                    <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                                <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                            <div class="tutor-col-auto">
+                                                                                <div class="tutor-ratings">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-regular fa-star"></i>
+                                                                                    </div>
+                                                                                    <div class="tutor-ratings-average">
+                                                                                        1
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col">
+                                                                                <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                                    <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                                <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tutor-hr" area-hidden="true"></div>
+
+                                                        <div class="tutor-reviews tutor-card-list tutor-pagination-content-appendable">
+                                                            <div class="th-comments-wrap ">
+                                                                <ul class="comment-list">
+                                                                    <li class="review th-comment-item  5 years">
+                                                                        <div class="th-post-comment">
+
+                                                                            <div class="comment-avater tutor-avatar tutor-avatar-xl">
+                                                                                <div class="tutor-ratio tutor-ratio-1x1"><span class="tutor-avatar-text">A</span></div>
+                                                                            </div>
+
+                                                                            <div class="comment-content">
+
+                                                                                <h4 class="name">Anonymous </h4>
+                                                                                <span class="commented-on"><i class="fa-regular fa-clock"></i>5 years ago</span>
+                                                                                <div class="tutor-ratings tutor-ratings-">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                Amazing Tutor, Many thanks for the course. You have explained the course so nicely. I thoroughly enjoyed the course and will be looking forward to your new courses.
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="review th-comment-item  5 years">
+                                                                        <div class="th-post-comment">
+
+                                                                            <div class="comment-avater tutor-avatar tutor-avatar-xl">
+                                                                                <div class="tutor-ratio tutor-ratio-1x1"><span class="tutor-avatar-text">A</span></div>
+                                                                            </div>
+
+                                                                            <div class="comment-content">
+
+                                                                                <h4 class="name">Anonymous </h4>
+                                                                                <span class="commented-on"><i class="fa-regular fa-clock"></i>5 years ago</span>
+                                                                                <div class="tutor-ratings tutor-ratings-">
+                                                                                    <div class="tutor-ratings-stars">
+                                                                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                This is the best course online that you can get. I learn online everything about web development, but this is amazing. Thank's Jonas, you are my Hero. You give me a good knowledge of Html, CSS and Javascript.
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* Lecture_window *@
+
+<script>
+
+    function GetLectureLink(Linkid, courseId, courseModuleId) {
+        let LinkHolder
+        $.ajax({
+
+            type: "POST",
+            url: "@Url.Action("returnLetureLinkAction", "training")",
+            data: {
+                Id: Linkid
+            },
+            success: function (Data) {
+                var dataaaModuleId = courseModuleId
+                var createLink = `https://www.youtube.com/embed/` + Data.lectureLink;
+                document.getElementById("videoframe").src = createLink;
+
+                LinkHolder = Data.lectureLink;
+                
+                var url = window.location.href;
+                console.log(Data.id);
+                console.log(Data);
+                var id = Data.id;
+                var chid = courseId;
+                var moduleId = Data.courseModuleId
+                    ;
+                if (id != null && chid != null)
+                    {
+                    url = `?id=${chid}&chid=${id}&module=${moduleId}`;
+                }
+                window.history.pushState({}, '', url);
+
+            },
+            error: function () {
+
+                console.log("Error");
+
+            }
+        });
+
+    // function GetLectureLink(Linkid, courseId, courseModuleId) {
+         
+        
+
+    }
+
+    
+    console.log(window.location.href);
+
+    if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+
+        console.log("outsideFunction After Reload");
+        
+        let linkData = window.location.href
+
+        var newUrl = new URL(linkData);
+        let getModuleFromurl = newUrl.searchParams.get("module");
+        let getchidFromUrl = newUrl.searchParams.get("chid");
+        console.log("GetModuleFromUrl     " + getModuleFromurl);
+        console.log("getchidFromUrl       " + getchidFromUrl);
+
+        let getLectureLinkByClassName = document.getElementsByClassName("lecutureClassLink");
+        console.log(getLectureLinkByClassName);
+        let GetModuleId = getModuleFromurl;
+
+        console.log("GetModuleId  " + GetModuleId)
+        console.log(linkData);
+        let lectureIdgetFromurl = getchidFromUrl;
+       
+        
+       
+        console.log("lectureIdgetFromurlTwodigit       " + lectureIdgetFromurl);
+        let transferLectureid = lectureIdgetFromurl
+        console.log("transferLectureid" + transferLectureid + "typeof" + typeof (transferLectureid));
+        console.log("transferLectureid  " + transferLectureid.length);
+        document.getElementById("lecutrename_" + transferLectureid);
+       
+       
+            let getAnchorTagUsingUrl = document.getElementById(`lecutrename_${transferLectureid}`);
+            console.log("getAnchorTagUsingUrl id    " + getAnchorTagUsingUrl.id);
+
+            let SpliteIdOfLecture = getAnchorTagUsingUrl.id.split("_");
+            console.log(" SpliteIdOfLecture " + SpliteIdOfLecture);
+
+
+            if (SpliteIdOfLecture[1] == lectureIdgetFromurl) {
+
+                console.log("collapse-" + GetModuleId);
+                let findCollaspaseId = `collapse-${GetModuleId}`;
+                console.log(findCollaspaseId);
+                let getCollapseELement = document.getElementById(`collapse-${GetModuleId}`);
+                console.log(getCollapseELement);
+                let collapseClassCollection = getCollapseELement.classList
+                console.log(collapseClassCollection);
+
+                for (let step = 0; step < collapseClassCollection.length; step++) {
+                    console.log(collapseClassCollection[step]);
+                    if (collapseClassCollection[step] == "show") {
+                        console.log("Remove Show");
+                    }
+                    else if (collapseClassCollection[step] != "show") {
+                        console.log("Add Show");
+                        console.log(getCollapseELement);
+                        getCollapseELement.classList.add('show');
+
+                    }
+                }
+                console.log(classListOfElementForArray);
+
+
+            }
+            else {
+                console.log("Id Not Matches");
+            }      
+                
+    }
+    else {
+        console.log("outsideFunction ReloadPage was not reloaded.");
+    }
+
+
+</script>

@@ -1,0 +1,138 @@
+﻿@model IEnumerable<The_One_Web_Technology.Models.trainingRegistrationModel>
+@{
+    ViewData["Title"] = "TrainingregistrationDataShow";
+}
+
+<section class="trainingregistrationDataShow" style="margin-top:100px;">
+    <div class="container">
+<table class="table">
+    <thead>
+        <tr>    
+            <th>id</th>
+            <th>Fname</th>
+            <th>Lname</th>
+            <th>PhoneNumber</th>
+            <th>Email</th>
+            <th>Education Qualification</th>
+            <th>Location</th>
+            <th>your Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.firstName</td>
+                <td>@item.lastName</td>
+                <td>@item.phoneNumber</td>
+                <td>@item.Email</td>
+                <td>@item.educationQualification</td>
+                <td>@item.location</td>
+                <td>@item.yourMessage</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
+</section>
+
+<style>
+    .admin_link_title {
+        color: var(--clr-main);
+        font-size: 1.2rem;
+    }
+
+    .admin_list_btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+    }
+
+    .custom_content_wrapper{
+        padding:33px;
+    }
+</style>
+
+<section class="training">
+    <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
+        <div class="row">
+            <div class=" col-xxl-3 col-lg-3">
+
+
+
+                <div class="course-content  " style="height:80vh;">
+                    <div class="headings">
+                        <h2>Studetn Data</h2>
+                    </div>
+                    <div class="faq">
+                        <!--Start Accordion List For FAQ-->
+                        <div class="faq-accordion " id="accordion">
+                            <div class="card mb-1 p-0 border-0">
+                                <div class="card-header " id="heading-1">
+                                    <h3 class="mb-0 faq-title" style="text-align:center;">
+                                        <button class="admin_list_btn">
+                                            <span class="admin_link_title">Student Details</span>
+                                        </button>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-xxl-9 col-lg-9">
+                <div class="custom_content_wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="col-3">
+                                        @item.id
+                                    </td>
+                                    <td class="col-6">
+                                         <p>First Name : @item.firstName</p>                                        
+                                         <p>   
+                                           Last Name : @item.lastName
+                                        </p>
+                                        <p>    
+                                            Phone Number : @item.phoneNumber
+                                        </p>
+                                        <p>    
+                                            Email : @item.Email
+                                        </p>
+                                        <p>
+                                            Education Qualification : @item.educationQualification
+                                        
+                                        </p>
+                                        <p>
+                                            Location : @item.location
+                                        </p>
+                                        <p>
+                                            Messages : @item.yourMessage
+                                        </p>
+                                    </td>
+                                    <td class="col-3">
+                                        Edit
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

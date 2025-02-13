@@ -1,0 +1,84 @@
+﻿@model The_One_Web_Technology.Models.courseRequestHandleModelList
+@{
+    ViewData["Title"] = "courseRequestHandleModelList";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}    
+@* <section> *@
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>cRequestId</th>
+                <th>studentId</th>
+                <th>courseDetailsId</th>
+                <th>courseName</th>
+                <th>courseRequestTIme</th>
+                <th>Course Status</th>
+            </tr>
+        </thead>
+        <tbody>           
+            @foreach (var item in Model.courseRequestHandleModelLists)
+            {
+                <tr>
+                    <td>@item.cRequestId</td>
+                    <td>@item.studentRequestedId</td>
+                    <td>@item.courseDetailsId</td>
+                    <td>@item.courseRequestedName</td>
+                    <td>@item.courseRequestTIme</td>
+                    <td>                        
+                        @foreach(var coursePaymentData in Model.coursePaymentLists)
+                        {
+                            @if(item.cRequestId == coursePaymentData.cRequestId)
+                            {
+                                @if (coursePaymentData.PaymentStatus == true)
+                                {
+                                    <a class="btn btn-primary">
+                                        <span id="@item.cRequestId">Active</span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary">
+                                        <span id="@item.cRequestId">Pending</span>
+                                    </a>
+                                }
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+@* </section> *@
+
+
+@section scripts{
+
+    <script>
+       // url: "@Url//.Action("UpdateCourseAccessStatusData", "admin")",
+           
+        // function getCourseAccessStatusData(cstatue, cid) {
+        //     $.ajax({
+        //         type: "post",
+        //         data: {
+        //             cvalue: cstatue,
+        //             id: cid
+        //         },
+        //         success: function (data) {
+        //             let findcrId = data.cRequestId
+        //             console.log(data.courseAccesstatus);
+        //             if (data.courseAccesstatus = true) {
+        //                 document.getElementById(findcrId).innerText = "Active";
+        //             }
+        //             else if(data.courseAccesstatus = false){
+        //                 document.getElementById(findcrId).innerText = "Pending";
+        //             }
+        //         },
+        //         error: function (data) {
+        //             console.log("Not Worked");
+        //         }
+        //     })
+        // }
+    </script>
+
+}
+

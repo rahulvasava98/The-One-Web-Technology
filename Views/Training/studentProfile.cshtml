@@ -1,0 +1,631 @@
+﻿@model The_One_Web_Technology.Models.trainingRegistrationModelList
+@{
+    ViewData["Title"] = "studentProfile";
+}
+
+@section Header {
+    <title>Student Profile || The One Web Technology</title>
+    <link rel="stylesheet" href="~/css/about-custom.css" />
+    <link rel="stylesheet" href="~/css/userProfile.css" />
+    
+}
+<section class="studentprofile_section">
+    <header class="tp-navigation">
+        <nav class="tp-navigation-main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="tp-navigation-category-wrapper py-3">
+                            <div class="menu-item has-sub-menu text-end">
+                                <span class="sp_nav_option">
+                                    <a class=" menu-link" href="#">Categories</a>
+                                    <span class="categories_list_container">
+                                        <ul class="sp-navigation-menu">
+                                            <li class="sp-menu-sub-link">
+                                                <a href="#" class="sp-menu-link">
+                                                    Development
+                                                </a>
+                                                @* sub-menu *@
+                                                <ul class="sp-menu-sub-menu">
+                                                    <li class="second-menu-link">
+                                                        <a href="#" class="sp-menu-link">
+                                                            Web Development
+                                                        </a>
+                                                        <ul class="third-child-menu-list">
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+                                                                        React JS
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+                                                                    Angular
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+                                                                    .net Core
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Data Science
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Mobile Development
+
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Programming Languages
+
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                @* sub-menu *@
+                                            </li>
+
+                                            <li class="sp-menu-sub-link">
+                                                <a href="#" class="sp-menu-link">
+                                                    Bussiness
+                                                </a>
+                                                @* sub-menu *@
+                                                <ul class="sp-menu-sub-menu">
+                                                    <li class="sp-menu-sub-link">
+                                                        <a href="#" class="sp-menu-link">
+                                                            Sales
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Management
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Human Resources
+
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                                @* sub-menu *@
+                                            </li>
+                                            <li class="sp-menu-sub-link">
+                                                <a href="#" class="sp-menu-link">
+                                                    Marketing
+                                                </a>
+                                                @* sub-menu *@
+                                                <ul class="sp-menu-sub-menu">
+                                                    <li class="sp-menu-sub-link">
+                                                        <a href="#" class="sp-menu-link">
+                                                            Branding
+
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Paid Advertising
+                                                        </a>
+
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Content Marketing
+
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                @* sub-menu *@
+                                            </li>
+
+                                        </ul>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="tp-navigation-category-wrapper py-2">
+                            <div class="tp-navigation-search">
+
+                                <form action="/">
+                                    <div class="tp_search_input_container">
+                                        <input type="hidden" name="name" value="" />
+
+                                        <input class="tp_search_input" id="tp_navigation_serch_input" type="text" name="name" placeholder="Search For Anything" />
+                                        <button class="tp-navigation-search-btn">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="tp-navigation-category-wrapper py-3">
+                                    <div class="menu-item has-sub-menu text-center">
+                                        <span class="sp_nav_option">
+                                            <a class="menu-link" href="#">My Learning</a>
+                                            <span class="categories_list_container">
+                                                <ul class="sp-navigation-menu">
+                                                    <li>
+                                                        <a href="#" class="sp-menu-link">
+                                                            Web Development
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-between ">
+                                    @* <div class="col-3"> *@
+                                    <div class="wishlist-button-main-wrapper py-3">
+                                        <div class="wishlist_btn_container">
+                                            <span class="sp_nav_option">
+                                                <span class="sp_nav_icon_list_container">
+                                                    <a asp-action="courseWishlist" asp-controller="training">
+                                                        <i class="sp_nav_icon fa-regular fa-heart"></i>
+                                                    </a>
+                                                </span>
+                                                <span class="categories_list_container">
+                                                    <ul class="sp-navigation-menu">
+                                                        <li>
+                                                            <a href="#" class="sp-menu-link">
+                                                                WishList Is Empty
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    @* </div> *@
+                                    @* <div class="col-3"> *@
+                                    <div class="tp-navigation-cart-wrapper py-3">
+                                        <div class="tp-navigation-cart-container">
+                                            <span class="sp_nav_option">
+                                                <span class="sp_nav_icon_list_container">
+                                                    <i class="sp_nav_icon fa-solid fa-cart-shopping"></i>
+                                                </span>
+                                                <span class="categories_list_container">
+                                                    <ul class="sp-navigation-menu">
+                                                        <li>
+                                                            <a href="#" class="sp-menu-link">
+
+                                                                Your Cart Is Empty
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </span>
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    @* </div> *@
+                                    @* <div class="col-3"> *@
+                                    <div class="tp-navigation-notification-wrapper py-3">
+                                        <div class="tp-navigation-notification-container">
+
+                                            <span class="sp_nav_option">
+                                                <span class="sp_nav_icon_list_container">
+                                                    <i class="sp_nav_icon fa-regular fa-bell"></i>
+                                                </span>
+                                                <span class="categories_list_container">
+                                                    <ul class="sp-navigation-menu">
+                                                        <li>
+                                                            <a href="#" class="sp-menu-link">
+
+                                                                <span class="notification_text">
+                                                                    Notifications
+                                                                </span>
+                                                                <span class="">
+
+                                                                </span>
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </span>
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    @* </div> *@
+                                    @* <div class="col-3"> *@
+                                    <div class="tp-navigation-username-wrapper py-3">
+                                        <div class="tp-navigation-username-container">
+                                            <div class="navigation-username-text">
+
+
+                                                <span class="sp_nav_option">
+                                                    <span class="navigation-username">
+                                                        Rv
+                                                    </span>
+                                                    <span class="categories_list_container">
+                                                        <ul class="sp-navigation-menu">
+                                                            <li style="padding:0 10px;height:80px;">
+                                                                <a href="#" class="sp-menu-link">
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <div class="profile-logo-container">
+                                                                                <div class="profile-logo-wrapper">
+                                                                                    <span class="profile-logo-navigation-username">
+                                                                                        Rv
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-8">
+                                                                            <div class="profile-text-container">
+                                                                                <div class="profile-text-wrapper p-2">
+                                                                                    <div class="menu-profile-text-container">
+                                                                                        <h7>
+                                                                                            My Profile
+                                                                                        </h7>
+                                                                                        <p>
+                                                                                            rahul@gmail.com
+                                                                                        </p>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                            </li>
+                                                            <hr />
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+
+                                                                    My learning
+                                                                </a>
+
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+
+                                                                    My Cart
+                                                                </a>
+
+                                                            </li>
+                                                            <li>
+                                                                <a asp-action="courseWishlist" class="sp-menu-link">
+
+                                                                    WishList
+                                                                </a>
+
+                                                            </li>
+                                                            <hr />
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+
+                                                                    Public Profile
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="sp-menu-link">
+                                                                    Edit Profile
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </span>
+
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @* </div> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="traineePage-main-content my-5">
+        <div class="container">
+            <div class="row" style="--bs-gutter-x:0 !important;">
+                <div class="col-sm-12 col-md-3 sp-sidenav-border">
+                    <div class="profile-menu-wrapper">
+                        <div class="profile-details-side-nav">
+                            <div class="profile-details-side-nav-main">
+                                <div class="profile-avatar-main">
+                                    <div class="profile-avatar-container">
+                                        <div class="profile-avatar-wrapper">
+                                            <div class="profile-avatar-holder">
+                                                <div class="profile-avatar-details">
+                                                    <div class="profile-avatar">
+                                                        Rv
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile-username">
+                                    <div class="text-center fw-bolder">
+                                        Rahul vasava
+                                    </div>
+                                </div>
+                                <div class="profile-side-nav-menu">
+
+                                    <div class="profile-side-nav-menu-main">
+                                        <div class="profile-side-nav-wrapper">
+                                            <ul class="profile-side-nav-unordered-list">
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        View public profile
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                       Edit Profile
+                                                    </a>
+
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Photo
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" onclick="showReferralUserdata()" class="profile-side-nav-link">
+                                                        Referred Users
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Account Security
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Subscriptions
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Payment methods
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Notifications
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="profile-side-nav-link">
+                                                        Close account
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9">
+                    <div class="profile-details-wrapper profile-details-border">
+                        <div class="profile-details-heading-main profile-heading-main-border">
+                            <div class="container">
+                                <div class="profile-details-heading-wrapper py-3">
+                                    <div class="text-center wow fadeInUp" data-wow-delay=".6s">
+                                        <h1>Public Profile</h1>
+                                        <p>Add information about yourself</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-details-edit-main">
+
+@*                             @foreach(var item in Model.id)
+                            {
+                                <a asp-action="editspecificFeild" asp-route-id="@item.id">
+                                    Edit
+                                </a>
+                            } *@
+                            
+
+                            @* add edit profile form start  *@
+                            <div class="profile-details-edit-wrapper">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="studentIdContainer">
+                                                <h5 class="p-3">Referral Id : @Model.id</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="contact-form-panel py-5">
+                                                <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                                                    <div class="custom-form-area input-boxed">
+                                                        <!--Form To have user messages-->
+                                                        <div class="row">
+                                                            <div class="col-10 m-auto">
+                                                                <form id="trainingUseDataEditForm" class="main-form" asp-action="studentProfile" enctype="multipart/form-data">
+                                                                    <span class="done-msg"></span>
+                                                                    <div class="row ">
+                                                                        @* email    *@
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input type="hidden" asp-for="id" />
+                                                                                <input type="hidden" asp-for="referenceId"/>
+                                                                                <input type="hidden" asp-for="referenceCode"/>
+                                                                                <input class="text-input" type="text" asp-for="firstName"/>
+                                                                                <label class="input-label"> First Name <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        @* contact  end  *@
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="lastName" />
+                                                                                <label class="input-label"> Last Name <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="phoneNumber" readonly />
+                                                                                <label class="input-label"> Phone <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="Email" readonly />
+                                                                                <label class="input-label"> Email <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="educationQualification"/>
+                                                                                <label class="input-label"> Education Qualification <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="location"/>
+                                                                                <label class="input-label"> Location <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="yourMessage" />
+                                                                                <label class="input-label"> Your Message <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <div class="   input-wrapper">
+                                                                                <input class="text-input" type="text" asp-for="trainingRegistrationPassword" />
+                                                                                <label class="input-label"> Password <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-12">
+                                                                            <div class="input-wrapper">
+                                                                                <input type="text" asp-for="tOTP"/>
+                                                                                <input class="text-input" asp-for="fileUrl" readonly />
+
+                                                                                <input class="text-input" type="file" asp-for="formFile" accept=".pdf"/>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-12 submit-wrapper">                                                                            
+                                                                            <button class=" btn-solid" type="submit">Submit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+                                                                @* list  *@
+
+                                                                <table style=" display:none; border:1px solid; border-left:none;" id="usereferrelDataTable" class="table" >
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="border:1px solid;">
+                                                                                <ul>
+                                                                                    <li>Id</li>
+                                                                                </ul>                                                                        
+                                                                            </th>
+                                                                            <th style="border:1px solid;">
+                                                                                <ul>
+                                                                                    <li>Data</li>
+                                                                                </ul>
+                                                                                
+                                                                            </th>
+                                                                            <th style="border:1px solid;">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        referral Data
+                                                                                    </li>
+                                                                                </ul>
+
+                                                                                
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var item in Model.trainingRegistrationModelLists)
+                                                                        {
+                                                                            <tr>
+                                                                                <td style="border:1px solid;">
+                                                                                    @item.id                        
+                                                                                </td>
+                                                                                <td style="border:1px solid;">
+                                                                                    <ul>
+                                                                                        <li>firstName : @item.firstName</li>
+                                                                                        <li>lastName : @item.lastName</li>
+                                                                                        <li>phoneNumber :@item.phoneNumber </li>
+                                                                                        <li>Email : @item.Email </li>
+                                                                                        <li>Education Qualification : @item.educationQualification</li>
+                                                                                        <li>Location : @item.location </li>
+                                                                                        <li>Your message : @item.yourMessage </li>
+                                                                                        <li>TrainingRegistrationPassword : @item.trainingRegistrationPassword </li>                                                                                       
+                                                                                    </ul>
+                                                                                </td>
+                                                                                <td style="border:1px solid;">
+                                                                                    <ul>
+                                                                                        <li>referenceId : @item.referenceId </li>
+                                                                                        <li>referenceCode :@item.referenceCode</li>
+                                                                                    </ul>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    </tbody>
+                                                                </table>
+                                                              
+                                                                @* list end *@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            @* add edit profile form end *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+
+   
+    function showReferralUserdata() {
+        document.getElementById("usereferrelDataTable").style.display = "block";
+        document.getElementById("trainingUseDataEditForm").style.display = "none";
+        console.log("displayStudentData");
+    }
+</script>

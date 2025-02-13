@@ -1,0 +1,633 @@
+﻿@model The_One_Web_Technology.Models.courseDetailsModelList
+@{
+    ViewData["Title"] = "courseCollectionView";
+    Layout = "~/Views/Shared/_Global_Layout.cshtml";
+}
+
+<style>
+
+    .offline_course_card_img_container {
+        max-height: 216px !important;
+        max-width: 415px !important;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+    }
+
+    /* 
+    .offline_course_card .offline_course_card_img_container > img {
+        width: 100%;
+        transition: 1s ease;
+        object-fit: cover;
+    }
+
+    .offline_course_card:hover .offline_course_card_img_container > img {
+        transform: scale(1.1);
+    } 
+    */
+
+    .course_thumbnail_img-card{
+        width: 100%;
+        transition: 1s ease;
+        object-fit: cover;
+    }
+
+    .offline_course_card:hover .course_thumbnail_img-card{
+        transform: scale(1.1);
+    }
+    .course_like_btn{
+            background-color:transparent;
+            border:none;
+    }
+
+   /*  .course_like_btn i{
+        color:white;
+    } */
+    
+    .activeLikeBtn{
+        color:red;
+        background-color:aquamarine;
+    }
+
+    .customlikeadd{
+        fill: var(--clr-white);
+    }
+
+
+</style>
+
+
+
+
+
+@section Header {
+    <title>OfflineCoures | The One Web Technology</title>
+    <link rel="stylesheet" href="~/css/about-custom.css" />
+}
+
+@* banner start *@
+<section class="offlinecoures_section">
+    @* swiper start *@
+    <section class="page-hero hero-swiper-slider fade-effect  d-flex align-items-center" id="page-hero">
+        <div class="particles-js  dots" id="particles-js"></div>
+        <!--Start  Swiper JS slider-->
+        <div class="slider swiper-container">
+            <div class="swiper-wrapper ">
+                <!--first slider-->
+                <div class="swiper-slide">
+                    <div class="slide-bg-img" data-bg-img="~/~/assets/images/hero/hero-bg-3.jpg" alt="hero-bg-3">
+                        <div class="overlay-color" data-bg-opacity=".35"></div>
+                    </div>
+                    <div class="container">
+                        <div class="hero-text-area  content-always-light   ">
+                            <div class="row">
+                                <div class="col-12 col-lg-7">
+                                    <div class="col-12    ">
+                                        <div class="pre-title">
+                                            Location
+                                        </div>
+                                    </div>
+                                    <div class="col-12  col-md-8  col-lg-7  ">
+                                        <h3 class="slide-title  ">
+                                            Our
+                                            <span class="featured-text">Location</span>
+                                            <span class="design-element rounded-shape stripes"></span>
+                                        </h3>
+                                    </div>
+                                    <div class="col-10 col-md-8  col-lg-6   ">
+                                        <p class="slide-subtitle ">
+                                            FF/37,Alankar Complex,<br />
+                                            Aurobindo Ghosh Rd, near <br />
+                                            DairyDen Circle, Near Sayajigunj <br />
+                                            Police Station, Sarod, Sayajiganj,<br />
+                                            Vadodara,Gujarat 390 005
+                                        </p>
+                                    </div>
+                                    <div class="col-12   ">
+                                        <div class="cta-links-area">
+                                            <a class=" btn-solid cta-link cta-link-primary " asp-controller="home" asp-action="trainingInqurieForm">start now</a>
+                                            <a class=" btn-outline cta-link  " asp-action="contactus" asp-controller="home">Contact us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-5">
+                                    <div class="map_container">
+                                        <div class="map-box  wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                                            @* <div class="mapouter"> *@
+                                            @* <div class="gmap_canvas"> *@
+                                            <iframe class="map-iframe offlinecoures_slider_iframe" id="gmap_canvas" width="500px" height="350px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.177285964198!2d73.18138507405057!3d22.30913394257754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5294346ef7%3A0xe8ba3a370eea9224!2sThe%20One%20Web%20Technology%3A%20Your%20Digital%20Transformation%20Partner!5e0!3m2!1sen!2sin!4v1714975204013!5m2!1sen!2sin"></iframe>
+                                            @* </div> *@
+                                            @* </div> *@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    @* swiper End  *@
+</section>
+@* banner end *@
+
+
+
+@* offline coureses start  *@
+
+@* remove comment below select *@
+<section class="offline_courses_section">
+    <div class="container">
+
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class="pre-title       wow fadeinup" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeinup;">offline courses</span>
+                <h2 class="title    wow fadeinup" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeinup;"> our <span class="hollow-text">job</span>-ready courses</h2>
+            </div>
+        </div>
+        <div class="row">
+            @* card collection *@
+            @foreach (var item in Model.courseDetailsModelLists)
+            {
+                @* <div class="course_card_link">
+                    <a asp-controller="Training" asp-action="courseIntroduction" asp-route-id="@item.courseId"> *@
+                        @* whole card link start *@
+                        <div class="col-12 col-lg-4 col-md-6">
+                            <a asp-controller="Training" asp-action="courseIntroduction" asp-route-id="@item.courseId">
+                            <div class="offline_course_card">
+                                <div class="offline_course_card_img_container ">
+                                    <img class="course_thumbnail_img-card" src="@item.courseWallpaper" alt="fullstack_development">
+                                </div>
+                                <div class="card_content_container m-3">
+                                    <div class="my-2">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="course_btn">
+                                                @item.courseCategories
+                                            </span>
+                                            <span class="course_like_icon">
+                                                @{
+                                                    int courseId = @item.courseId;
+                                                    bool likeStatus = @item.courselikedstatus;
+
+                                                }
+                                                @{
+
+                                                    var studentId = 1;
+                                                    var data = Model.courseLikeModels.Where(x => x.courseIds == item.courseId && x.userIds == studentId && x.courselikedstatus == true).FirstOrDefault();
+                                                    var dataForUnlike = Model.courseLikeModels.Where(x => x.courseIds == item.courseId && x.userIds == studentId && x.courselikedstatus == false).FirstOrDefault();
+                                                    @if (data != null)
+                                                    {
+                                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                                                        </svg>
+                                                    }
+                                                    else if (dataForUnlike != null)
+                                                    {
+                                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                                                        </svg>
+                                                    }
+                                                    else
+                                                    {
+                                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                                                        </svg>
+                                                    }
+                                                }
+
+                                                @{
+
+                                                }
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="card_heading">
+                                        <h4 class="course_card_heading">
+                                            @item.courseName
+                                            <br /> Training
+                                        </h4>
+                                    </div>
+                                    <div class="course_reviews">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <span class="review_count">105 Reviews</span>
+                                    </div>
+                                    <div class="course_duration my-2">
+                                        <h6 class="course_duration_heading">6 Months Training</h6>
+                                    </div>                                    
+                                </div>
+                            </div>
+                    </a>
+                        </div>
+
+                        @* whole card link end *@
+                    @* </a>
+                </div> *@
+                
+                
+              
+            }
+            @* card collection end *@
+
+        </div>
+
+
+    </div>
+</section>
+
+@* offline coureses end  *@
+
+@* offlinecourses_feature_component start *@
+<section class="offlinecourses_feature_component">
+    <div class="container">
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                    Master <span class="hollow-text">Top Skills</span> With The One Web Technology
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="feature_content_component_container">
+                    <p class="subtitle   wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                        The One Web Technolgy  is the Vernacular Upskilling Edtech platform. By offering expert mentorship with our tech-powered courses in the first language of Indians, we equip learners with the skills to thrive in the global workforce.
+
+                    </p>
+                    <p class="subtitle   wow fadeInUp pb-4" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                        If you are from the Cultural City of Vadodara and looking for the best platform for Digital Marketing, Web Development, App Development, Cyber Security, Programming Languages, Data Science, and more courses, then The One Web Techlonogy is your trusted source.
+
+                    </p>
+
+                    <h6 class="offlinecourses_requirement_heading">
+                        You must choose WsCube Tech to upskill and upgrade yourself, if you are a:
+                    </h6>
+                    <div class="d-flex">
+                        <ul class="offlinecourses_feature_component__unorderList">
+                            <li><i class="fa-solid fa-circle-check"></i>student</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Fresher</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Working Professional</li>
+                            <li><i class="fa-solid fa-circle-check"></i>College dropout</li>
+                        </ul>
+                        <ul class="offlinecourses_feature_component__unorderList ms-5">
+                            <li><i class="fa-solid fa-circle-check"></i>Diploma</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Graduate</li>
+                            <li><i class="fa-solid fa-circle-check"></i>Job Seeker</li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cta-area mb-3">
+                        <p class="wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                            For more information about any training program, feel free to get in touch with our team.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="offlinecourses_feature_component_img my-2">
+                    <div class="offlinecourses_feature_component_img_container">
+                        <img src="https://marketplace.canva.com/EAFNlUJs5g4/2/0/1600w/canva-white-simple-certificate-of-appreciation-Fcz7KkZ5YaU.jpg" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* offlinecourses_feature_component end *@
+@* offline_courese_process start  *@
+<section class="offline_courese_process">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4 d-flex align-items-center">
+
+                <div class="offline_courese_process_title_container">
+                    <div class="sec-heading  ">
+                        <div class="content-area">
+                            <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                                How does
+                                <span class="hollow-text">this </span>program work?
+                            </h2>
+                            @* <h2 class="title  why wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                            The One,
+                            <span class="hollow-text">Web Technology</span>
+                            </h2> *@
+                            <div class="">
+                                <a class=" btn-solid cta-link cta-link-primary " href="/home/trainingInqurieForm">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-8">
+                <div class="offline_courese_process_card_container">
+                    @* card one  *@
+                    <div class="offline_courese_process_card">
+                        <div class="offline_courese_process_card_bg_layers">
+                            <span class="remove-extra-border">
+
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="offline_courese_process_card_icon_container">
+                                <i class="fa-regular fa-lightbulb process_icon"></i>
+                            </div>
+                            <div class="offline_courese_process_card_text">
+                                <div class="offline_courese_process_card_title_container">
+                                    <h4>Learn</h4>
+                                    <p>
+                                        Upskill yourself with leading professionals to gain insights from their vast experience.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* card two *@
+                    <div class="offline_courese_process_card">
+                        <div class="offline_courese_process_card_bg_layers">
+                            <span class="remove-extra-border">
+
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <div class="offline_courese_process_card_icon_container">
+                                <i class="fa-solid fa-code process_icon"></i>
+                            </div>
+                            <div class="offline_courese_process_card_text">
+                                <div class="offline_courese_process_card_title_container">
+                                    <h4>Practice</h4>
+                                    <p>
+                                        Sharpen your skills by learning through course , live projects, and regular assessments and quizzes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* card three  *@
+                    <div class="offline_courese_process_card">
+                        <div class="offline_courese_process_card_bg_layers">
+                            <span class="remove-extra-border">
+
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="offline_courese_process_card_icon_container">
+                                <i class="fa-solid fa-question process_icon"></i>
+                            </div>
+                            <div class="offline_courese_process_card_text">
+                                <div class="offline_courese_process_card_title_container">
+                                    <h4>Ask</h4>
+                                    <p>
+                                        Resolve your queries with our industry experts any time.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* card four  *@
+                    <div class="offline_courese_process_card">
+                        <div class="offline_courese_process_card_bg_layers">
+                            <span class="remove-extra-border">
+
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <div class="offline_courese_process_card_icon_container">
+                                <i class="fa-solid fa-diagram-project process_icon"></i>
+                            </div>
+                            <div class="offline_courese_process_card_text">
+                                <div class="offline_courese_process_card_title_container">
+                                    <h4>Build</h4>
+                                    <p>
+                                        Craft a diverse portfolio and appealing resume, and optimize LinkedIn to showcase your data analytics skills.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@* offline_courese_process_card_icon_container end  *@
+
+@* review start  *@
+<section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
+    <div class="overlay-photo-image-bg parallax" data-bg-img="~/assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25" alt="sections-bg-img1" style="opacity: 0.25;"> </div>
+    <div class="container">
+        <div class="sec-heading  centered ">
+            <div class="content-area">
+                <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">testimonials</span>
+                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Students <span class="hollow-text">Reviews</span></h2>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-10  mx-auto">
+                <div class="swiper-container wow fadeInUp swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" data-wow-delay="0.2s" style="cursor: grab; visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <div class="swiper-wrapper" id="swiper-wrapper-043762c4891e7fb5" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-2252px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" role="group" aria-label="1 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/3.png" alt="third Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Absolutely fantastic! This course is a treasure trove for beginners diving into front-end development. The content is brilliantly structured, and I wholeheartedly recommend it to anyone eager to start their journey in this field. A definite must for aspiring developers!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--First Slide-->
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" role="group" aria-label="2 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/1.png" alt="First Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Hey Vivek here I loved this course as it helped me not only in doing coding stuffs but also motivated me to be discipline because every new thing you learn requires time and a lot of practise which comes with discipline . I know lot of people will tell you that this course is extremely outdated yes i agree that some parts are outdated but recently they updated the course with postgres , flex and grid . According to me you should research on the outdated content by yourself and make a part of your learning it will definitely help you and it will also boost your confidence and your learnings .
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Second Slide-->
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="3 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/2.png" alt="second Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                The training is absolutely amazing and so well presented with amazing analogies and well thought out explanations, and loved it soooo much, the only thing I was hoping to get out of it was DEPLOYMENT of any sort besides the Web3 deployment, I would have loved to learn from Owt how to Deploy a normal Web app with node modules etc..... to Heroku, or Azure, or any other source of deployment to make our small web projects live , but THANK YOU Kuldeep sir you really really got me started and exposed to such a load of information and ideas and basic motivation and simple words of wisdom
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--third Slide-->
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" role="group" aria-label="4 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/3.png" alt="third Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                The One Web Technology has been instrumental in helping us navigate complex IT challenges. Their team's expertise and
+                                                professionalism have made them a valuable partner for our organization. I would highly recommend their services to
+                                                anyone looking for reliable IT solutions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="5 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/1.png" alt="First Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Working with The One Web Technology has been a game-changer for our business. Their team developed a custom software solution
+                                                that streamlined our operations and improved efficiency. Their attention to detail and commitment to excellence is truly
+                                                commendable.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--navigation buttons-->
+                    <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-043762c4891e7fb5">
+                        <div class="left-arrow">
+                            <i class="bi bi-chevron-left icon "></i>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-043762c4891e7fb5">
+                        <div class="right-arrow">
+                            <i class="bi bi-chevron-right icon "></i>
+                        </div>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* review end  *@
+
+@* <i class="fa-solid fa-heart"></i> *@
+@* <i class="fa-regular fa-heart"></i> *@
+ 
+<script>
+
+    // function fillColor(getData,getId){
+        // console.log(getdata.children[0].setAttribute);
+        // getdata.children[0].setAttribute("fill","red");
+        // // let findData = getData.children[0];
+        
+        
+        // let setData = document.getElementById("customlike");
+        // let findElement = getId;
+        // document.getElementById("customlike").classList.toggle("customlikeadd");
+        // console.log(getId); 
+        // console.log(getData);
+
+
+        // console.log(setData);
+        
+        
+
+        //  setData.toggle("customlikeadd");
+
+        // document.getElementById("customlike").toggle("")
+
+        // let likeBtn = document.querySelector("i");       
+        // likeBtn('.activeLikeBtn')?.classList.remove('activeLikeBtn');
+        // likeBtn.classList.add('activeLikeBtn');
+        // console.log(likeBtn);
+        // let getLikeData = getData;
+        // let like = document.getElementById("customlike");
+
+        // like.classList.add("customlikeadd");
+
+        // fillColor
+        // console.log(document.getElementsByClassName("offline_course_card"));
+    // }
+    //  
+        
+    // $(document).ready(function () {
+    //     $("#like_action").click(function (getId) {
+    //         console.log(getId);
+    //         $.ajax({
+    //             type: "post",
+    //             data: { id: getId },
+    //             sucess: fuction(getId){
+    //             console.log(getId);
+    //         },
+    //             Error: fuction(getId){
+    //             console.log("error");
+    //         }
+
+    //             });
+    //     });
+    
+</script>

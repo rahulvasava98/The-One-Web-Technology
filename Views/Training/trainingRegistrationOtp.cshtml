@@ -1,0 +1,72 @@
+﻿@model The_One_Web_Technology.Models.trainingRegistrationModel
+@{
+    ViewData["Title"] = "trainingRegistrationOtp";
+}
+
+<section class="service_Registration_Form_container mega-section my-5">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="contact-form-panel">
+                    @* <div class="sec-heading centered    ">
+                    <div class="content-area">
+                    <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Service Registration</h2>
+                    </div>
+                    </div> *@
+                    <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                        <div class="custom-form-area input-boxed">
+
+                            <!--Form To have user messages-->
+
+                            <form class="main-form" asp-action="trainingRegistrationOtp">
+                                <span class="done-msg"></span>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 m-auto">
+                                        <div class="input-wrapper">
+                                            @* <input class="text-input" type="number" asp-for="tOTP" placeholder="Enter OTP" /> *@
+                                            <input class="text-input" type="number" asp-for="tOTP" placeholder="Enter OTP"/>
+                                        </div>
+                                    </div>
+                                    @* upload resume start  *@
+                                    <div class="col-12 submit-wrapper text-center">
+                                        <button class=" btn-solid" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@if (TempData["otpNotMatched"] != null)
+{
+    <div id="popupAlert" class="alert alert-success fade show otppopup" role="alert">
+        @TempData["otpNotMatched"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+@if (TempData["sendLoginOtp"] != null)
+{
+    <div id="popupAlert" class="alert alert-success fade show otppopup" role="alert">
+        @TempData["sendLoginOtp"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+
+@* @section scripts{
+        <script>
+            window.setTimeout(function () {
+
+                $('#popupAlert').alert('close');
+
+                },2.5 * 5000);
+       </script>
+} *@

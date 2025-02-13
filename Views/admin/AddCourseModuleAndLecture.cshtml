@@ -1,0 +1,520 @@
+﻿@model The_One_Web_Technology.Models.CourseModuleAndLectureModelList
+@{
+    ViewData["Title"] = "AddCourseModuleAndLecture";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+<style>
+
+    .addedPositionOfAlert {
+        position: absolute !important;
+        right: 3rem !important;
+        top: 7rem !important;
+    }
+
+    .admin-custom-header {
+        background: #f8f8f8;
+        padding: 15px;
+    }
+
+    .admin-custom-heading {
+        font-size: 1.2rem;
+    }
+
+    .admin-custom-btn-container a {
+        color: var(--bs-white);
+    }
+
+    .admin-custom-card-data {
+        background: #f8f8f8;
+    }
+
+    .admin-custom-card-heading {
+        line-height: 2.1;
+        font-size: 1rem;
+    }
+    .movesvg{
+        transform : rotate(180deg);
+        transition: 1s ease;
+    }
+
+</style>
+
+<section class="admin-add-module-section">
+    <div class="container">
+        @* header *@
+        <div class="admin-custom-header rounded mb-5">
+            <div class="admin-custom-header-wrapper">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="admin-custom-heading-container">
+                            <h1 class="admin-custom-heading my-1">
+                                Add Module
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="admin-custom-btn-container">
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModuleData">
+                                Add Module 
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* body *@
+        <div class="container">
+            @foreach (var moduleData in Model.courseModuleList)
+            {
+                <div class="admin-custom-card-data p-2 rounded mb-3">
+                    @*removed function for testing onclick="collapseLectures(this)" *@
+                    <div  data-bs-toggle="collapse" href="#collapse-@moduleData.courseModuleId" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="admin-custom-card-heading-container">
+                                    <h4 class="admin-custom-card-heading" id="sectionNameHeading">
+                                        <span class="sectionName">
+                                            @moduleData.SectionName
+                                        </span>
+                                        <span class = "FromMouleListcourseModuleId">
+                                            @* @moduleData.courseModuleId *@
+                                        </span> 
+                                       @*  <span class="tempDataModuleId">
+                                            @TempData["getModuleId"]
+                                        </span> *@
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="admin-custom-btn-container text-end" id="getSectionElement">
+                                    <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#editModuleData" onclick="FetchModuleData(@moduleData.courseModuleId)">
+                                        <svg width="18px" height="18px" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>edit_cover [#fff1481]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -359.000000)" fill="#fff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z" id="edit_cover-[#fff1481]"> </path> </g> </g> </g> </g></svg>
+                                    </a>
+                                    @* onclick="GetLectureData(@lectureData.courseLectureId)" *@
+                                    <a class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#AddLectureData" onclick="getModuleData(@moduleData.courseModuleId)">
+                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#ffff" stroke-width="2.4" stroke-linecap="round"></path> <path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="#ffff" stroke-width="2.4" stroke-linecap="round"></path> </g></svg>
+                                    </a>
+                                    <a class="btn btn-primary m-1" asp-action="deleteModuleAndrelatedLecture" asp-route-id="@moduleData.courseModuleId">
+                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12V17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 12V17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 7H20" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    </a>
+                                    @* <a class="btn btn-primary">
+                                        <svg class="svgOfdownArrow" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 9L14 14.1599C13.7429 14.4323 13.4329 14.6493 13.089 14.7976C12.7451 14.9459 12.3745 15.0225 12 15.0225C11.6255 15.0225 11.2549 14.9459 10.9109 14.7976C10.567 14.6493 10.2571 14.4323 10 14.1599L5 9" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    </a> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse" id="collapse-@moduleData.courseModuleId">
+                        <div class="card card-body">
+                            <div class="admin-custom-data-container">
+                                <table class="table pt-2">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Name</th>
+                                            <th>Link</th>
+                                            <th>Upload Time and Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lecture_container">
+                                        @{
+                                            int i = 0;
+                                        }
+                                        @foreach (var lectureData in Model.courseLectureList)
+                                        {
+
+                                            if (moduleData.courseModuleId == lectureData.courseModuleId)
+                                            {
+                                                {
+                                                    i++;
+                                                }
+                                                <tr>
+                                                    @* <td>@i<td> *@
+                                                    <td>@lectureData.courseLectureId</td>
+                                                    <td>@lectureData.LectureName</td> 
+                                                    <td>@lectureData.LectureLink</td>
+                                                    <td>@lectureData.LectureUploadDate</td>                                                    
+                                                    <td>
+                                                        <div class="d-flex justify-content-around align-items-center">
+                                                            <span>
+                                                                <a onclick="GetLectureData(@lectureData.courseLectureId)" data-bs-toggle="modal" data-bs-target="#editLectureData">
+                                                                    <svg width="24px" height="24px" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>edit_cover [#7367f01481]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -359.000000)" fill="#7367f0"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z" id="edit_cover-[#7367f01481]"> </path> </g> </g> </g> </g></svg>
+                                                                </a>
+                                                            </span>
+                                                            <span>
+                                                                <a asp-action="DeleteLectureDataFromAddCourseModuleAndLecture" onclick="DeleteLecture(@lectureData.courseModuleId)" asp-controller="admin" asp-route-id="@lectureData.courseLectureId">
+                                                                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12V17" stroke="#7367f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 12V17" stroke="#7367f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 7H20" stroke="#7367f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#7367f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#7367f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            }
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+            
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- #region name -->
+@* Edit Lecture *@
+<div class="modal fade" id="editLectureData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Lecture</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control" type="hidden" asp-for="courseLectureId" />
+                            <input class="form-control mb-2" placeholder="Enter Lecture Name" asp-for="LectureName">
+                        </div>
+                        <div>
+                            <input class="form-control mb-2" placeholder="Enter Link" asp-for="LectureLink" />
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control" asp-for="courseModuleId">
+                                @foreach (var item in Model.courseModuleList)
+                                {
+                                 
+                                    <option value="@item.courseModuleId">@item.SectionName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="updateButton" onclick="editUsingAjax()">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- #endregion -->
+
+<!-- #region name -->
+@* add lecture  *@
+<div class="modal fade" id="AddLectureData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Lecture</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @* AddLectureDataFromAddCourseModuleAndLecture *@
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control mb-2" id="addLectureLectureName" placeholder="Enter Lecture Name" asp-for="LectureName">
+                        </div>
+                        <div>
+                            <input class="form-control mb-2" id="addLectureLectureLink" placeholder="Enter Link" asp-for="LectureLink" />                            
+                        </div>
+                        <div class="col-12">
+                            <select id="fetchModuleIdToAddLect" class="form-control" asp-for="courseModuleId">
+                                @foreach (var item in Model.courseModuleList)
+                                {
+                                    <option value="@item.courseModuleId">@item.SectionName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="addLectureUsingAjax()">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- #endregion -->
+
+@* edit module  *@
+<div class="modal fade" id="editModuleData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Module</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="editExitingModule">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control" id="courseMoudelForEdit" type="hidden" asp-for="courseModuleId"/>
+                            <input class="form-control mb-2" placeholder="Enter Section Name" asp-for="SectionName">
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control" asp-for="courseId">
+                                @foreach (var item in Model.courseDetailsList)
+                                {
+                                    <option value="@item.courseId">@item.courseName</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* add Model to add Module  *@
+
+<div class="modal fade" id="AddModuleData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Module</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="addNewModule">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control mb-2" placeholder="Enter Section Name" asp-for="SectionName">
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control" asp-for="courseId">
+                                @foreach (var item in Model.courseDetailsList)
+                                {
+                                    <option value="@item.courseId">@item.courseName</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>               
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@* alert Message *@
+
+@if (TempData["AddLectureMessage"] != null)
+    {
+        <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+            @TempData["AddLectureMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+
+@if(TempData["DeleteLecture"] != null){
+<div id="popupAlert" class="alert alert-danger fade show addedPositionOfAlert" role="alert">
+    @TempData["DeleteLecture"]
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
+
+@if(TempData["ModuleDelete"] !=null){
+    <div id="popupAlert" class="alert alert-danger fade show addedPositionOfAlert" role="alert">
+        @TempData["ModuleDelete"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["AddModule"] != null)
+{
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["AddModule"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["EditModule"] != null)
+{
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["EditModule"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@section Scripts{
+    <script>
+
+        // window.setTimeout(function () {
+
+        //     $('#popupAlert').alert('close');
+
+        // }, 3000);
+
+
+        // has error upcomment after find error
+
+        // function collapseLectures(anchor) {
+        //     let getSvg = anchor.children[0];
+
+        //     let firstParentchildren = getSvg.children[1];
+        //     let secondParentChildren = firstParentchildren.children[0];
+        //     let thirdPsrentChildren = secondParentChildren.children[3];
+        //     let fourthParentchildren = thirdPsrentChildren.children[0];
+        //     console.log(fourthParentchildren);
+        //     console.log(fourthParentchildren.classlist);
+
+
+        // }
+
+        // get Module Data
+        function FetchModuleData(mid) {
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetModuleDetails", "admin")",
+                data: {
+                    id: mid
+                },
+                success: function (data) {
+                    console.log("success");
+                    console.log(data);
+
+                    document.getElementById("SectionName").value = data.sectionName
+                    document.getElementById("courseId").value = data.courseId
+                    document.getElementById("courseMoudelForEdit").value = data.courseModuleId
+
+                },
+                error: function () {
+                    console.log("from FetchModuleData function error ");
+                }
+
+            });
+            console.log(mid);
+        }
+
+        // giveValueToModel
+        function getModuleData(mid) {
+            console.log(document.getElementById("fetchModuleIdToAddLect"));
+            console.log(mid);
+            document.getElementById("fetchModuleIdToAddLect").value = mid;
+            
+        }
+        
+        //list Using Function
+        
+        // function listUsingFunvtion() {
+                
+        // }
+        
+        // adding Lecture Using Ajax
+        function addLectureUsingAjax(){
+            let getLectureData = {
+                LectureName: document.getElementById("addLectureLectureName").value,
+                LectureLink: document.getElementById("addLectureLectureLink").value,
+                courseModuleId: document.getElementById("fetchModuleIdToAddLect").value
+            }
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("AddLectureUsingAjaxMe", "admin")",
+                data: getLectureData,
+                success: function (lectureMst) {
+                    console.log("Added Data SuccessFully");
+                },
+                error: function () {
+                    console.log("Error");
+                }
+            });
+        }
+
+
+
+        //get Lecture Data
+        function GetLectureData(Lid) {
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetLectureDetailsFromModuleAndLectureV", "admin")",
+                data: {
+                    id: Lid
+                },
+                success: function (data) {
+                    // console.log("Get Data");
+                    // console.log(data);
+                    document.getElementById("courseLectureId").value = data.courseLectureId
+                    document.getElementById("LectureLink").value = data.lectureLink
+                    document.getElementById("LectureName").value = data.lectureName
+                    document.getElementById("courseModuleId").value = data.courseModuleId
+                },
+                error: function () {
+                    console.log("Error");
+                }
+            });
+        }
+
+             
+        // edit using Ajax      
+        // function UpdateDataUsingAjax(lecureId) {
+        function editUsingAjax() {
+            // e.preventDefault();
+            //object for GetDataOf Lecture Edit
+            var data = {
+                courseLectureId: document.getElementById("courseLectureId").value,
+                LectureName: document.getElementById("LectureName").value,
+                LectureLink: document.getElementById("LectureLink").value,
+                courseModuleId: document.getElementById("courseModuleId").value
+            }
+
+           
+
+            console.log(data);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("updateUsingAjax", "admin")",
+                data: data,
+                success: function (courselectureMst) {
+                    console.log("data successfully get");    
+                    
+                },
+                error: function() {
+                    console.log("Error");
+                }
+            });
+        }
+
+            let currentUrl = window.location.href;
+            console.log(currentUrl);
+            let currentUrlParams = new URLSearchParams(currentUrl);
+            let courseModuleId = currentUrlParams.get('courseModuleId');
+            console.log(courseModuleId);
+            console.log(document.getElementById(`collapse-${courseModuleId}`));
+            let getElement = document.getElementById(`collapse-${courseModuleId}`);
+            getElement.classList.add('show');
+
+    </script>
+} 

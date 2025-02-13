@@ -1,0 +1,86 @@
+﻿@model IEnumerable<The_One_Web_Technology.Models.contactModel>
+@{
+    ViewData["Title"] = "ContactUsListView";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+<style>
+    .admin_link_title {
+        color: var(--clr-main);
+        font-size: 1.2rem;
+    }
+
+    .admin_list_btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+    }
+
+    .custom_content_wrapper {
+        padding: 33px;
+    }
+</style>
+
+<section class="training">
+    <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+                <div class="custom_content_wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Description</th>
+                                @* <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Subject</th> *@
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="col-3">
+                                        @item.Id
+                                    </td>
+                                    <td class="col-6">
+                                        <p>First Name : @item.Fname</p>
+                                        <p>
+                                            Last Name : @item.Lname
+                                        </p>
+                                       
+                                        <p>
+                                            Email : @item.email
+                                        </p>
+                                        <p>
+                                            Subject : @item.subject
+
+                                        </p>
+                                        <p>
+                                            Message : @item.message
+                                        </p>
+                                       
+                                    </td>
+                                    <td class="col-3">
+
+
+                                        <a href="#" style="margin: 0 50px;">Edit</a>
+
+                                        <a href="#">Remove</a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

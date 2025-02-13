@@ -1,0 +1,91 @@
+﻿@model IEnumerable<The_One_Web_Technology.Models.serviceRegistrationModel>
+
+@{
+    ViewData["Title"] = "serviceReferenceList";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+
+}
+
+<style>
+    ul {
+        list-style: none;
+    }
+
+</style>
+
+<section>
+    <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+                <div class="custom_content_wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.clientId
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                First Name: @item.clientfirstName
+
+                                            </li>
+                                            <li>
+                                                Last Name : @item.clientlastName
+
+                                            </li>
+                                            <li>
+                                                Email : @item.clientemail
+
+                                            </li>
+                                            <li>
+                                                Service : @item.clientservice
+
+                                            </li>
+                                            <li>
+                                                Location : @item.clientlocation
+
+                                            </li>
+                                            <li>
+                                                Message :  @item.clientmessage
+                                            </li>
+                                            <li>
+                                                Password : @item.clientPassword
+                                            </li>
+                                            <li>
+                                                ReferenceId : @item.clientReferenceId
+                                            </li>
+                                            <li>
+                                                ReferenceCode : @item.clientReferenceCode
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a href="#">Edit</a>
+                                        <a href="#">Remove</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,226 @@
+﻿/* studentProfile start */
+.sp-sidenav-border {
+    border: 1px solid var(--clr-main);
+    border-right: none;
+}
+.profile-details-border {
+    border: 1px solid var(--clr-main);
+}
+.profile-heading-main-border {
+    border-bottom: 1px solid var(--clr-main);
+}
+.placeholder {
+    padding-right: 10px;
+}
+
+.tp-navigation {
+    margin-top: 100px;
+    box-shadow: 0 5px 10px -10px #ffffff;
+}
+
+.tp_search_input_container {
+    position: relative;
+}
+
+.tp_search_input {
+    background: transparent;
+    border: 1px solid;
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    color: white;
+}
+
+    .tp_search_input::placeholder {
+        padding-left: 10px;
+    }
+
+    .tp_search_input[type=text] {
+        padding-left: 10px;
+    }
+
+.tp-navigation-search-btn {
+    position: absolute;
+    background: transparent;
+    right: 0;
+    top: 0;
+    padding: 5px 20px;
+    height: 40px;
+    border-left: 1px solid;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    color: white;
+}
+
+    .tp-navigation-search-btn:active {
+        border: none;
+    }
+
+    .tp-navigation-search-btn:focus-visible {
+        border: none;
+    }
+
+.navigation-username-text {
+}
+
+
+
+/* categories  */
+.sp_nav_option {
+    position: relative;
+    padding: 20px 0;
+    transition: 3s ease;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.categories_list_container {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    z-index: 2;
+    display: none;
+}
+
+.sp-navigation-menu {
+    background-color: var(--clr-main);
+    width: 260px;
+    padding: 5px 0;
+    text-align: start;
+    line-height: 30px;
+}
+
+.sp-menu-link {
+    color: var(--clr-white);
+    font-weight: 500;
+    transition: 1s ease;
+    display: block;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+
+    .sp-menu-link:hover {
+        color: var(--clr-black);
+    }
+
+.sp-menu-sub-link {
+    position: relative;
+}
+
+.sp-menu-sub-menu {
+    width: 200px;
+    padding-left: 0;
+    background-color: var(--clr-main);
+    position: absolute;
+    top: 0;
+    left: 101%;
+    display: none;
+}
+
+.sp-menu-sub-link:hover .sp-menu-sub-menu {
+    display: block;
+}
+
+.second-menu-link {
+    position: relative;
+}
+
+.third-child-menu-list {
+    width: 200px;
+    padding-left: 0;
+    background-color: var(--clr-main);
+    position: absolute;
+    top: 0;
+    left: 101%;
+    display: none;
+}
+
+.second-menu-link:hover .third-child-menu-list {
+    display: block;
+}
+
+.sp_nav_option:hover .sp_nav_icon {
+    color: var(--clr-main);
+}
+
+.sp_nav_option:hover .categories_list_container {
+    display: block;
+    transition: 3s ease;
+}
+
+/* learning  */
+/* profile  */
+.navigation-username {
+    font-size: 1rem;
+    background-color: black;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+}
+
+.profile-logo-wrapper {
+    padding: 10px 0;
+}
+
+.profile-logo-navigation-username {
+    font-size: 1.2rem;
+    background-color: black;
+    padding: 0.50rem 0.8rem;
+    border-radius: 50%;
+}
+
+.profile-text-container {
+    line-height: 1.4;
+}
+
+.menu-profile-text-container p {
+    font-size: 0.8rem;
+    margin-bottom: 0rem;
+}
+
+/* profile-side-nav */
+
+.profile-avatar-container {
+}
+
+.profile-avatar-wrapper {
+    padding: 1.6rem;
+}
+
+.profile-avatar-details {
+    font-size: 2.2rem !important;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-avatar {
+    padding: 2rem 2.3rem;
+    background: #2d2f31;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-side-nav-wrapper {
+    padding: 20px 0;
+}
+
+.profile-side-nav-unordered-list {
+    padding-left: 0rem;
+    line-height: 2;
+}
+
+.profile-side-nav-link {
+    padding-left: 1rem;
+    display: block;
+}
+
+    .profile-side-nav-link:hover {
+        background-color: var(--clr-main);
+        color: var(--clr-black);
+    }

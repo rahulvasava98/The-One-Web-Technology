@@ -1,0 +1,160 @@
+﻿@model The_One_Web_Technology.Models.trainingRegistrationModel
+@{
+    ViewData["Title"] = "TrainingregistrationForm";
+}
+
+@section header {
+    <title>TrainingregistrationForm | The One Web Technology  </title>
+}
+
+<section class="contact-us-form-section  mega-section my-5">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="contact-form-panel">
+                    <div class="sec-heading centered    ">
+                        <div class="content-area">
+                            <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Training Registration Form</h2>
+                        </div>
+                    </div>
+                    <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                        <div class="custom-form-area input-boxed">
+                            <!--Form To have user messages-->
+                            <form class="main-form" asp-action="TrainingregistrationForm" enctype="multipart/form-data">
+                                <span class="done-msg"></span>
+                                <div class="row ">
+                                    @* name start *@
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="firstName"/>
+                                            <label class="input-label"> First name <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="firstName">
+
+                                                </span>    
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="lastName" />
+                                            <label class="input-label">Last name <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="lastName">
+
+                                            </span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    @* name end *@
+
+                                    @* contact start  *@
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="phoneNumber"/>
+                                            <label class="input-label"> Phone Number <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="phoneNumber">
+
+                                            </span>    
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="email" asp-for="Email"/>
+                                            <label class="input-label"> E-mail <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="Email"></span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    @* contact  end  *@
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="password" asp-for="trainingRegistrationPassword" />
+                                            <label class="input-label"> Password <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="trainingRegistrationPassword"></span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="educationQualification" />
+                                            <label class="input-label"> Education qualification <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="educationQualification">
+
+                                            </span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    @* id,reference id and code  *@
+                                    @* <div class="col-12 col-lg-6"> *@
+                                        @* <div class="   input-wrapper"> *@
+                                            @* <input type="hidden" asp-for="id"/> *@
+
+
+                                            <input class="text-input" type="hidden" asp-for="referenceId" />
+
+
+                                            @* <label class="input-label"> referenceID  <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span> *@
+                                        @* </div> *@
+                                    @* </div> *@
+                                    @* <div class="col-12 col-lg-6"> *@
+                                        @* <div class="   input-wrapper"> *@
+
+
+                                            
+                                            
+                                            @* <input class="text-input" type="hidden" asp-for="referenceCode" /> *@
+
+
+                                            @* <label class="input-label">  referenceCode <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span> *@
+                                        @* </div> *@
+                                    @* </div> *@
+                                    @* reference id and code end *@
+
+                                    
+                                    <div class="col-12 ">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="location" />
+                                            <label class="input-label"> Location <span class="req">*</span>
+                                            <span class="text-danger" asp-validation-for="location">
+
+                                            </span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 ">
+                                        <div class="   input-wrapper">
+                                            <textarea class=" text-input" asp-for="yourMessage" placeholder="In which field you want to pursue you internship"></textarea>
+                                            <label class="input-label"> your message <span class="req">*</span>
+                                             <span class="text-danger" asp-validation-for="yourMessage"></span>    
+                                            </label><span class="b-border"></span><i></i><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    @* upload resume start  *@
+
+                                    <div class="col-12">
+                                        <div class="input-wrapper">
+                                            <input type="file" asp-for="formFile" accept=".pdf">
+                                            <label class="input-label" for="msg-subject"> Upload resume <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="formFile">
+
+                                                </span>    
+                                            </label><span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+                                    @* upload resume end  *@
+                                    <div class="col-12 submit-wrapper">
+                                        <button class=" btn-solid" type="submit">Send your message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,161 @@
+﻿@model The_One_Web_Technology.Models.categoriesModelList
+@{
+    ViewData["Title"] = "categoriesList";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddCategoriesModal">
+                    Add Service
+                </button>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Categories Name</th>
+            <th>Categories Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model.categoriesList)
+        {
+            <tr>               
+                <td>@i
+                    @{
+                        i++;
+                    }
+                    
+                </td>
+                <td>@item.categoriesName</td>
+                <td>
+                    <div class="form-check form-switch">
+                        <input asp-for="categoriestatus" class="form-check-input" onchange="Updatecategories(this.checked,@item.categoriesId)" checked="@item.categoriestatus" type="checkbox" role="switch">
+                    </div>
+                </td>
+                
+                <td class="d-flex justify-content-around">
+                    <a onclick="categoriesEdit(@item.categoriesId)" data-bs-toggle="modal" data-bs-target="#EditCategoriesModal">
+                        Edit
+                    </a>
+                    <a asp-action="categoriesDeleteData" asp-route-id="@item.categoriesId">
+                        Delete
+                    </a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="EditCategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Categories</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="categoriesEdit">
+                <div class="modal-body">
+                        <input type="hidden" asp-for="categoriesId"/>
+                    <div>
+                        <input type="text" asp-for="categoriesName" placeholder="Enter Course Categories" />
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add Modal -->
+<div class="modal fade" id="AddCategoriesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="categorieAdd">
+                <div class="modal-body">
+                    <div>
+                        <input type="text" asp-for="categoriesName" placeholder="Enter Course Categories" />
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // function categoriesEdit(data,id) {
+    //     var rowData = data.parentElement.parentElement; 
+    //     document.getElementById("categoriesName").value = rowData.children[1].innerText;
+    //     document.getElementById("categoriestatus").checked = rowData.children[2].firstElementChild.firstElementChild.checked;
+    //     document.getElementById("categoriesId").value = id;
+        
+    //     console.log(data.parentElement.parentElement);                      
+    // }
+
+    function categoriesEdit(getId) {
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("categoriesDetails", "admin")",
+            data: {id : getId},
+            success:function(data){
+                document.getElementById("categoriesName").value = data.categoriesName;
+                document.getElementById("categoriesId").value = data.categoriesId;
+                console.log(data);
+            },
+            error:function(data){
+                console.log("error");
+            }
+        });
+    }
+
+    function Updatecategories(getstatus,getid){
+        $.ajax({
+            type:"Post",
+            url: "@Url.Action("categoriesStatus", "admin")",
+            data: { 
+                id : getid, 
+                findStatus: getstatus
+            },
+            success:function(data){
+                console.log("data");
+            },
+            error:function(data){
+
+            }
+        });
+    }
+   
+</script>
+
+
+
+
+
+

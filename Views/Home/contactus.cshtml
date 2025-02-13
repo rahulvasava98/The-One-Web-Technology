@@ -1,0 +1,537 @@
+﻿@model The_One_Web_Technology.Models.contactModel
+@{
+	ViewData["Title"] = "faq";
+	Layout = "~/Views/Shared/_Global_Layout.cshtml";
+}
+@section header {
+	<title>Contactus | The One Web Technology  </title>
+}
+@section meta {
+
+	<meta property="og:image:height" content="150">
+	<meta property="og:image:width" content="150">
+	<meta property="og:content" content="Contact Us" />
+	<meta property="og:title" content=" Contact Us | The One Web Technology " />
+	<meta property="og:description" content="Our Offices Around The World" />
+	<meta property="og:image" itemprop="image" content="https://dummyimage.com/600x400/000/fff" />
+
+}
+
+<!-- Start inner Page hero-->
+
+<!-- End inner Page hero-->
+<!-- Start contact-us -->
+<section class="contact-us  mega-section  pb-0 inner-page-hero" id="contact-us">
+	<div class="container">
+		<section class="locations-section  mega-section ">
+			<div class="sec-heading centered  ">
+				<div class="content-area">
+					<h2 class=" title    wow fadeInUp" data-wow-delay=".4s">our offices around the world</h2>
+				</div>
+			</div>
+			<div class=" contact-info-panel ">
+				<div class="info-section ">
+					<div class="row">
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".4s ">
+								<h3 class="location-title">VADODARA(HEAD OFFICE) </h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address">
+									<a href="https://maps.app.goo.gl/qJ5VoAnfUjWF94n27">
+										FF/37, Alankar Complex, Aurobindo <span id="dots">...</span><span id="more">  Ghosh Rd, near DairyDen circle, Near Sayajigunj Police Station, Sarod, Sayajiganj, Vadodara, Gujarat 390005</span>
+									</a><button onclick="myFunction()" id="myBtn" class="bg-transparent mybutton border-0">Read more</button>
+
+								
+									</p>
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".8s">
+								<h3 class="location-title">US</h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address"><a href="https://maps.app.goo.gl/qJ5VoAnfUjWF94n27">189 Bexley Ln, Piscataway, NJ 08854, United States</a></p>
+
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+								<h3 class="location-title">CANADA</h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address">1576 Coram Crescent,  Mississauga,  ON , L4X1K9,  Canada</p>
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+								<h3 class="location-title">INDORE</h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address"></p>
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+								<h3 class="location-title">AHMEDABAD</h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address"></p>
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+								<h3 class="location-title">HIMMATNAGAR</h3>
+								<div class="line-on-side "> </div>
+								<p class="location-address"></p>
+								<div class="location-card  ">
+									<i class="flaticon-email icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">email:</h4><a class="email link" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com.</a>
+									</div>
+								</div>
+								<div class="location-card  ">
+									<i class="flaticon-phone-call icon"></i>
+									<div class="card-content">
+										<h4 class="content-title">phone:</h4><a class="tel link" href="tel:9033961309">+91 90339 61309</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contact-us-form-section  mega-section  ">
+			<div class="row">
+				<div class="col-12 ">
+					<div class="contact-form-panel">
+						<div class="sec-heading centered    ">
+							<div class="content-area">
+								<h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Have any questions? Let's answer them</h2>
+							</div>
+						</div>
+						<div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+							<div class="custom-form-area input-boxed">
+								<!--Form To have user messages-->
+								<form class="main-form" asp-action="inquiryform">
+									<span class="done-msg"></span>
+									<div class="row ">
+										@* name start *@
+										<div class="col-12 col-lg-6">
+											<div class="input-wrapper">
+												<input class="text-input" type="text" asp-for="Fname" />
+												<label class="input-label"> First name <span class="req">*</span></label>
+												<span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+
+										<div class="col-12 col-lg-6">
+											<div class="   input-wrapper">
+												<input class="text-input" type="text" asp-for="Lname" />
+												<label class="input-label">Last name <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+										@* name end *@
+
+										@* contact start  *@
+										<div class="col-12">
+											<div class="   input-wrapper">
+												<input class="text-input" type="email" asp-for="email" />
+												<label class="input-label"> Email <span class="req">*</span></label>
+												<span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+										@* contact  end  *@
+
+										@* services dropdown start*@
+										<div class="col-12">
+											<div class="form-group input-wrapper">
+												<label class="input-label" for="msg-subject"> Select Services <span class="req">*</span></label>
+												<select class="form-control" asp-for="subject">
+													<option>select</option>
+													<option>Web Devlopment</option>
+													<option>Digital Marketing</option>
+													<option>Software Development</option>
+													<option>SEO services</option>
+													<option>Bussiness Consulting</option>
+													<option>web domain and hosting</option>
+													<option>embedded system</option>
+													<option>bulk emials and message</option>
+												</select>
+											</div>
+										</div>
+										@* services dropdown end*@
+
+
+										<div class="col-12 ">
+											<div class="   input-wrapper">
+												<textarea class=" text-input" asp-for="message"></textarea>
+												<label class="input-label"> your requirement <span class="req">*</span></label>
+												<span class="b-border"></span><i></i><span class="error-msg"></span>
+											</div>
+										</div>
+										<div class="col-12 submit-wrapper">
+											<button class=" btn-solid" type="submit">Send your message</button>
+										</div>
+
+
+
+
+									</div>
+								</form>
+							@* 	<form class="main-form" id="contact-us-form" action="https://amincode.com/html/flex-it/php/send-mail.php" method="post">
+									<span class="done-msg"></span>
+									<div class="row ">
+										<div class="col-12 col-lg-6">
+											<div class="   input-wrapper">
+												<input class="text-input" id="user-name" name="UserName" type="text" />
+												<label class="input-label" for="user-name"> Name <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<div class="   input-wrapper">
+												<input class="text-input" id="user-email" name="UserEmail" type="email" />
+												<label class="input-label" for="user-email"> E-mail <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+										<div class="col-12 ">
+											<div class="   input-wrapper">
+												<input class="text-input" id="msg-subject" name="subject" type="text" />
+												<label class="input-label" for="msg-subject"> Subject <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+											</div>
+										</div>
+										<div class="col-12 ">
+											<div class="   input-wrapper">
+												<textarea class=" text-input" id="msg-text" name="message"></textarea>
+												<label class="input-label" for="msg-text"> your message <span class="req">*</span></label><span class="b-border"></span><i></i><span class="error-msg"></span>
+											</div>
+										</div>
+										<div class="col-12 submit-wrapper">
+											<button class=" btn-solid" id="submit-btn" type="submit" name="UserSubmit">Send your message</button>
+										</div>
+									</div>
+								</form> *@
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="map-section  elf-section">
+			<div class="sec-heading  centered   ">
+				<div class="content-area">
+					<h2 class=" title    wow fadeInUp" data-wow-delay=".4s">find us on google maps</h2>
+				</div>
+			</div>
+			<div class="map-box  wow fadeInUp" data-wow-delay=".6s">
+				<div class="mapouter">
+					<div class="gmap_canvas">
+						<iframe class="map-iframe" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.177285964198!2d73.18138507405057!3d22.30913394257754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5294346ef7%3A0xe8ba3a370eea9224!2sThe%20One%20Web%20Technology%3A%20Your%20Digital%20Transformation%20Partner!5e0!3m2!1sen!2sin!4v1714975204013!5m2!1sen!2sin"></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+</section>
+<!-- End contact-us -->
+<!-- Start  faq-1 section-->
+<section class="faq mega-section" id="faq">
+	<div class="shape-top-left"></div>
+	<div class="shape-bottom-right"></div>
+	<div class="pattern-top-end-dir"></div>
+	<div class="pattern-bottom-start-dir"></div>
+	<div class="container">
+		<div class="sec-heading  centered ">
+			<div class="content-area">
+				<span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">FAQs</span>
+				<h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>frequently </span> asked questions </h2>
+			</div>
+		</div>
+		<!--Start Accordion List For FAQ-->
+		<div class="faq-accordion " id="accordion">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-8 ">
+					<div class="card mb-2">
+						<div class="card-header " id="heading-1">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">Do you have any training or internship programs available? </button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-1" aria-labelledby="collapse-1" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+
+									Yes, We offer various opportunities  for internship and training , hands-on experience and skill development , website development,  software development including website designing  digital marketing and HR training.
+
+
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="card mb-2">
+						<div class="card-header " id="heading-2">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">Do your hosting plans allow for upgrades as my website traffic grows?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-2" aria-labelledby="collapse-2" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									Our hosting plans are designed to be scalable. This means that if your website experiences increased traffic in the future, you can easily upgrade your plan to accommodate that growth. We understand the importance of a smooth-running website, and we're here to support your success.
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="card mb-2">
+						<div class="card-header " id="heading-3">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">Is SSL certification included with your hosting packages?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-3" aria-labelledby="collapse-3" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									You'll be glad to know that SSL certification comes with all our hosting packages at <abbr title="The One Web Technology">OWT</abbr>, boosting security and customer confidence at no extra charge. If you have any further questions or need assistance, please feel free to <a class="menu-link" asp-controller="Home" asp-action="contactus">contact us. </a>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-lg-8 ">
+					<div class="card mb-2">
+						<div class="card-header " id="heading-4">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">If you do offer internships, are they typically paid or unpaid positions?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-4" aria-labelledby="collapse-4" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									We do offer internships at <abbr title="The One Web Technology">OWT</abbr>. Our internships are usually paid positions because we believe in fairly compensating our interns for the valuable contributions they make. If you have any further questions or need additional information, please feel free to reach out to us.
+
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card mb-2">
+						<div class="card-header " id="heading-6">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">Are you open to working with startups on web hosting solutions? </button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-6" aria-labelledby="collapse-6" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									We are more than happy to collaborate with startups and offer top-notch web hosting solutions at <abbr title="The One Web Technology">OWT</abbr>. Our customized hosting services are created to cater to the specific requirements of startups, ensuring scalability, reliability, and support to fuel the growth of your business. Feel free to reach out to us for further information on how we can support your startup.
+
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+				<div class="col-12 col-lg-8 ">
+					<div class="card mb-2">
+						<div class="card-header " id="heading-7">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">Do you offer additional services for small website changes, or would these be considered self-service updates?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-7" aria-labelledby="collapse-7" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									We offer additional services for small website changes at <abbr title="The One Web Technology">OWT</abbr>. While most updates can be made through our user-friendly self-service tools, our team is available to assist with any changes you need. Feel free to contact us for more information or assistance.
+
+
+
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card mb-2">
+						<div class="card-header " id="heading-9">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-9" aria-expanded="false" aria-controls="collapse-9"> In addition to internships, do you provide corporate training programs for employee development?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-9" aria-labelledby="collapse-9" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+									In addition to internships, we provide corporate training programs for employee development at <abbr title="The One Web Technology">OWT</abbr>. Our programs enhance skills and knowledge across various IT domains, tailored to meet your organization's specific needs. For more details, please <a class="menu-link" asp-controller="Home" asp-action="contactus">contact us. </a>
+
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-12 col-lg-8 ">
+
+					<div class="card mb-2">
+						<div class="card-header " id="heading-11">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-11" aria-expanded="false" aria-controls="collapse-11">Do any of your IT training programs culminate in industry certifications?</button>
+							</h3>
+						</div>
+						<div class="collapse " id="collapse-11" aria-labelledby="collapse-11" data-bs-parent="#accordion">
+							<div class="card-body">
+								<p class="faq-answer">
+
+									Yes, We provide IT training programs at <abbr title="The One Web Technology">OWT</abbr> lead to industry certifications, providing participants with the skills and credentials to advance their IT careers. For more information on available certifications, please
+									<a class="menu-link" asp-controller="Home" asp-action="contactus">contact us. </a>
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="card mb-2">
+						<div class="card-header " id="heading-12">
+							<h3 class="mb-0 faq-title">
+								<button class="btn btn-link faq-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-12" aria-expanded="false" aria-controls="collapse-12">Do you offer any job placement assistance after completing your training programs?</button>
+							</h3>
+						</div>
+						<div class="collapse" id="collapse-12" aria-labelledby="collapse-12" data-bs-parent="#accordion" style="">
+							<div class="card-body">
+								<p class="faq-answer">
+
+									We offer job placement assistance after completing our training programs at <abbr title="The One Web Technology">OWT</abbr>. Our career services team provides support with resume building, interview preparation, and connecting graduates with potential employers to help them transition into the workforce. For more details, please <a class="menu-link" asp-controller="Home" asp-action="contactus">contact us. </a>
+
+
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End  faq-1 section-->
+<div class="container">
+<section class="take-action elf-section has-dark-bg" id="take-action">
+	<div class="overlay-photo-image-bg  " data-bg-img="assets/images/sections-bg-images/2.jpg" data-bg-opacity=".25"> </div>
+	<div class="cta-wrapper">
+		<div class="container">
+			<div class="sec-heading  centered mb-0 ">
+				<div class="content-area">
+					<span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">contact us</span>
+					<h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Grow with us</h2>
+					<p class="subtitle   wow fadeInUp " data-wow-delay=".6s">Our team is committed to providing prompt and personalized assistance to ensure your satisfaction.</p>
+				</div>
+			</div>
+			<!--Start .see-more-area-->
+			<div class=" see-more-area wow fadeInUp" data-wow-delay="0.8s"><a class=" btn-solid cta-link" asp-controller="Home" asp-action="contactus">contact us</a></div>
+			<!--End Of .see-more-area        -->
+		</div>
+	</div>
+</section>
+</div>
+
+
+<script>
+	function myFunction() {
+		var dots = document.getElementById("dots");
+		var moreText = document.getElementById("more");
+		var btnText = document.getElementById("myBtn");
+
+		if (dots.style.display === "none") {
+			dots.style.display = "inline";
+			btnText.innerHTML = "Read more";
+			moreText.style.display = "none";
+		} else {
+			dots.style.display = "none";
+			btnText.innerHTML = "Read less";
+			moreText.style.display = "inline";
+		}
+	}
+</script>

@@ -1,0 +1,837 @@
+﻿@model The_One_Web_Technology.Models.courseDetailsModel
+@{
+
+    Layout = "~/Views/Shared/_Global_Layout.cshtml";
+
+
+}
+
+@section Header {
+    <link href="~/css/vendors/all.min.css" rel="stylesheet" />
+    <title> Full-Stack Course  | The One Web Technology</title>
+
+}
+
+@section meta {
+
+    <meta property="og:image:height" content="150">
+    <meta property="og:image:width" content="150">
+    <meta property="og:content" content="Web Devlopment Services We Offer" />
+    <meta property="og:title" content="The One Web Technology | Web Development" />
+    <meta property="og:description" content="At OWT, we combine creativity, technical expertise, and industry insights to deliver bespoke solutions tailored to your unique needs." />
+    <meta property="og:image" itemprop="image" content="https://miro.medium.com/v2/resize:fit:720/format:webp/1*V-Jp13LvtVc2IiY2fp4qYw.jpeg" />
+
+}
+
+@* training course section*@
+
+<section class="training">
+
+    <div class="breadcumb-wrapper" data-overlay="title" data-opacity="8">
+        <div class="breadcumb-shape background-image">
+        </div>
+        <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" style="right: 30px; bottom: 30px;">
+            <img src="~/assets/images/subtraining/breadcumb_shape_1_2.png" alt="shape" />
+        </div>
+        <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" style="left: 50px; bottom: 80px;">
+
+            <img src="~/assets/images/subtraining/breadcumb_shape_1_3.png" alt="shape" />
+        </div>
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Full - Stack Course</h1>
+                <ul class="breadcumb-menu">
+                    <li>
+                        <a asp-controller="home" asp-action="index">Home</a>
+                        <i b-vexwhsukdk class=" bi bi-arrow-right icon "></i>
+                    </li>
+                    <li>
+                        <a asp-action="training" asp-controller="Home">Training Course</a>
+                        <i b-vexwhsukdk class=" bi bi-arrow-right icon "></i>
+                    </li>
+                    <li>The One Web Technology Pvt Ltd.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="tutor-course-details-page space-top space-extra-bottom container">
+        <div class="row">
+            <div class="col-xxl-9 col-lg-8">
+                <div class="course-single">
+                    <div class="course-single-top">
+                        <div class="course-img">
+
+                            <iframe width="100%" height="315px" src="https://www.youtube.com/embed/OFuzcY9aJK8?si=cLapNnrX7i8i1HiD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="course-meta style2">
+                            <span><i class="fa fa-solid fa-user"></i>Students: 2</span>
+                            <span><i class="fa fa-eye"></i>Views:  1494</span>
+                        </div>
+
+                        @* dynamic data  *@
+                        <h2 class="course-title">@Model.courseName</h2>
+                        <ul class="course-single-meta">
+
+                            <li class="course-single-meta-author">
+                                <img src="~/assets/images/logo/owt-logo.png" width="96" height="96" alt="Avatar" class="avatar avatar-96 wp-user-avatar wp-user-avatar-96 photo avatar-default">            <span>
+                                    <span class="meta-title">Instructor </span>
+                                    <a href="https://theonewebtechnology.com/">
+                                        @Model.courseInstructor
+                                    </a>
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="meta-title">Category</span>
+                                <s.pan class="meta-title">@Model.courseCategories</s.pan>
+                            </li>
+
+                            <li>
+                                <span class="meta-title">Last Update</span>
+                                <a asp-action="training" asp-controller="Home">17 May, 2024</a>
+                            </li>
+                            <li>
+                                <span class="meta-title">Reviews</span>
+                                <div class="course-rating">
+                                    <div class="tutor-ratings tutor-ratings margin_star">
+                                        <div class="tutor-ratings-stars">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class="course-single-bottom">
+                        <div class="course-tab-wrap tutor-course-details-tab">
+
+                            <ul class="nav course-tab" id="courseTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                        Overviews
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link " id="curriculum-tab" data-bs-toggle="tab" href="#curriculum" role="tab" aria-controls="curriculum" aria-selected="false">
+                                        <i class="fa-solid fa-book"></i>
+                                        Curriculum
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link " id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false">
+                                        <i class="fa-regular fa-user"></i>
+                                        Instructor
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link " id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">
+                                        <i class="fa-solid fa-star"></i>
+                                        Reviews
+                                    </a>
+                                </li>
+                            </ul>
+
+
+
+                            <div class="tab-content" id="productTabContent">
+                                <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
+                                    <div class="course-description">
+                                        <div class="tutor-course-details-content">
+                                            <h5 class="h5">
+                                                About The Course
+                                            </h5>
+
+                                            <p>
+                                                A    <strong>
+                                                    Full - Stack
+                                                </strong> courseis designed to teach individuals how to develop both the front-end and back-end parts of web applications. This means you will learn how to build complete, functional web applications from start to finish. Here's an overview of what a typical full stack course might cover:<br>
+
+                                                <div class="row d-flex mt-25">
+                                                    <div class="col-lg-6 mg">
+                                                        <div class="checklist mb-4">
+                                                            <ul>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Front-End Development
+
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Back-End Development
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>DevOps and Deployment
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 mg">
+                                                        <div class="checklist">
+                                                            <ul>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Tools and Methodologies
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Additional Skills
+                                                                </li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <strong>
+                                                    Career Prospects
+                                                </strong><br>
+                                                Completing a full stack course can open up various career opportunities, such as:
+                                                <div class="row d-flex mt-25">
+                                                    <div class="col-lg-6 mg">
+                                                        <div class="checklist mb-4">
+                                                            <ul>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Full Stack Developer
+
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Front-End Developer
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Back-End Developer
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 mg">
+                                                        <div class="checklist">
+                                                            <ul>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Web Developer
+                                                                </li>
+
+                                                                <li><i class="fa-solid fa-check"></i>DevOps Engineer</li>
+
+
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <strong>Why OWT ?</strong>
+                                                <div class="row d-flex mt-25">
+                                                    <div class="col-lg-12 mg">
+                                                        <div class="checklist mb-4">
+                                                            <ul>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>A Three (06) Months Internship / Training Program.
+
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>This unique training program enhance the employability skills of the trainees by assigning them industry endorsed projects.
+                                                                </li>
+
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>It helps trainees acquainted with corporate culture of IT Industry.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Lectures by Industry Experts to help the trainees get aware about latest technologies.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Practical oriented sessions conducted for the Trainees.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>This unique training consists of 90% practical session and 10% theoretical session.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i> Placement assistance in Core IT Companies across Pan India.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i> Our content is professionally designed to cover the core as well as the advanced level of the Technologies like .Net/Java/PHP/Android/Python.
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa-solid fa-check"></i>Special HR Sessions for the Trainees to help them in enhancing the personality of individuals and crack interviews.
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </p>
+                                        </div>
+
+
+
+                                        <h5 class="h5">Objective of Full-Stack Training</h5>
+
+                                        <p>
+                                            The main objective of <strong>Full-Stack</strong> Training is to expose students to the working environment of the Industry. So, it will enable students to understand the theories studied with more detailed and hands on practice within a real job situation.
+                                            <br /><br />
+                                            With the active involved preparation, Trainees learns about the Industrial demands, skill set and work ethics. At the mean time it gives the Trainee an opportunity to put into practice what he or she has learned at university. The industry introduction increases the undergraduate’s work life through added eagerness and responsibility, gives a long lasting learning experience. It provides an opportunity to engage with the profession to which they aspire in a realistic work environment, appreciate and understand the practical application of their theoretical knowledge also work with professional mentors.
+                                        </p>
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade " id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
+                                    <div class="course-curriculam">
+
+                                        <h5 class="h5">
+                                            The Course Curriculam
+                                        </h5>
+
+                                        <div class="faq">
+                                            <!--Start Accordion List For FAQ-->
+                                            <div class="faq-accordion " id="accordion">
+                                                <div class="card mb-2">
+                                                    <div class="card-header " id="heading-1">
+                                                        <h3 class="mb-0 faq-title">
+                                                            <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">Front-End Development</button>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse " id="collapse-1" aria-labelledby="collapse-1" data-bs-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <p class="faq-answer">
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10  col-md-10">
+                                                                        Video Link (90.12 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="playvideo">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10  col-md-10">
+                                                                        Tutorials (18
+                                                                        .15 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="courselanding">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card mb-2">
+                                                    <div class="card-header " id="heading-2">
+                                                        <h3 class="mb-0 faq-title">
+                                                            <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">Back-End Development</button>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse " id="collapse-2" aria-labelledby="collapse-2" data-bs-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <p class="faq-answer">
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Video Link (93.12 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="playvideo">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Tutorials (19
+                                                                        .15 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="courselanding">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card mb-2">
+                                                    <div class="card-header " id="heading-3">
+                                                        <h3 class="mb-0 faq-title">
+                                                            <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
+                                                                DevOps and Deployment
+                                                            </button>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse " id="collapse-3" aria-labelledby="collapse-3" data-bs-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <p class="faq-answer">
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Video Link (90.12 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="playvideo">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Tutorials (18
+                                                                        .15 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="courselanding">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card mb-2">
+                                                    <div class="card-header " id="heading-4">
+                                                        <h3 class="mb-0 faq-title">
+                                                            <button class="btn btn-link  faq-btn  collapsed " data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
+                                                                Tools and Methodologies
+                                                            </button>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="collapse " id="collapse-4" aria-labelledby="collapse-4" data-bs-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <p class="faq-answer">
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Video Link (90.12 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="playvideo">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <br />
+                                                                <div class="row">
+                                                                    <div class="col-xxl-10 col-md-10">
+                                                                        Tutorials (18
+                                                                        .15 MIN)
+                                                                    </div>
+                                                                    <div class="col-xxl-2 col-md-2 ">
+                                                                        <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                                                            <a asp-controller="Training" asp-action="courselanding">
+                                                                                <span class="btn-icon tutor-icon-cart-filled"></span>
+                                                                                <span>Start</span>
+                                                                            </a>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div><div class="tab-pane fade " id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
+                                    <div class="course-author">
+
+                                        <div class="course-instructor  mb-24">
+                                            <div class="course-author-box mb-25">
+                                                <div class="auhtor-img">
+                                                    <img fetchpriority="high" src="~/assets/images/logo/owt-logo.png" alt="86d033e2d42a0631cc4f58b82dd01de9?s=96&amp;d=mm&amp;r=g" width="277" height="277">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h3 class="author-name"><a class="text-inherit" href="">@Model.courseInstructor</a></h3>
+                                                    <p class="author-degi"></p>
+                                                    <p class="author-text"></p>
+                                                    <div class="author-meta">
+
+
+                                                        <span><i class="fa-solid fa-file-video"></i>10 Courses </span>
+
+
+                                                        <span><i class="fa-solid fa-users"></i>21 Students </span>
+
+                                                    </div>
+                                                    <div class="th-social">
+                                                        <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                                        <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-twitter" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                                                        <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-linkedin" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                                                        <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-earth" title="Website"><i class="fa-solid fa-earth-asia"></i></a>
+                                                        <a href="" target="_blank" rel="noopener noreferrer nofollow" class="tutor-icon-brand-github" title="Github"><i class="fa-brands fa-github"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="tab-pane fade " id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                    <div class="course-Reviews">
+
+                                        <div class="tutor-pagination-wrapper-replaceable">
+
+                                            <div class="tutor-review-card">
+                                                <div class="tutor-review-summary">
+                                                    <div class="tutor-row tutor-gx-xl-5 tutor-align-center">
+                                                        <div class="tutor-col-lg-auto tutor-text-center tutor-mb-16 tutor-mb-lg-0">
+                                                            <div class="tutor-review-summary-average-rating">
+                                                                4.0
+                                                            </div>
+
+                                                            <div>
+                                                                <div class="tutor-d-inline-block">
+                                                                    <div class="tutor-ratings tutor-ratings-lg">
+                                                                        <div class="tutor-ratings-stars">
+                                                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="tutor-fs-6 tutor-color-secondary tutor-mt-12 tutor-total-rating-count">
+                                                                Total 							2							 Ratings
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tutor-col-lg">
+                                                            <div class="tutor-review-summary-ratings">
+                                                                <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                    <div class="tutor-col-auto">
+                                                                        <div class="tutor-ratings">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </div>
+                                                                            <div class="tutor-ratings-average">
+                                                                                5
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col">
+                                                                        <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 50%">
+                                                                            <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                        <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">1 Rating</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                    <div class="tutor-col-auto">
+                                                                        <div class="tutor-ratings">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </div>
+                                                                            <div class="tutor-ratings-average">
+                                                                                4
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col">
+                                                                        <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                            <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                        <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                    <div class="tutor-col-auto">
+                                                                        <div class="tutor-ratings">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </div>
+                                                                            <div class="tutor-ratings-average">
+                                                                                3
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col">
+                                                                        <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 50%">
+                                                                            <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                        <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">1 Rating</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                    <div class="tutor-col-auto">
+                                                                        <div class="tutor-ratings">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </div>
+                                                                            <div class="tutor-ratings-average">
+                                                                                2
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col">
+                                                                        <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                            <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                        <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tutor-row tutor-align-center tutor-review-summary-rating">
+                                                                    <div class="tutor-col-auto">
+                                                                        <div class="tutor-ratings">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </div>
+                                                                            <div class="tutor-ratings-average">
+                                                                                1
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col">
+                                                                        <div class="tutor-progress-bar tutor-ratings-progress-bar" style="--tutor-progress-value: 0%">
+                                                                            <span class="tutor-progress-value" area-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tutor-col-auto tutor-col-lg-auto">
+                                                                        <span class="tutor-fs-6 tutor-color-secondary tutor-individual-star-rating">0 Rating</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tutor-hr" area-hidden="true"></div>
+
+                                                <div class="tutor-reviews tutor-card-list tutor-pagination-content-appendable">
+                                                    <div class="th-comments-wrap ">
+                                                        <ul class="comment-list">
+                                                            <li class="review th-comment-item  5 years">
+                                                                <div class="th-post-comment">
+
+                                                                    <div class="comment-avater tutor-avatar tutor-avatar-xl">
+                                                                        <div class="tutor-ratio tutor-ratio-1x1"><span class="tutor-avatar-text">A</span></div>
+                                                                    </div>
+
+                                                                    <div class="comment-content">
+
+                                                                        <h4 class="name">Hardik </h4>
+                                                                        <span class="commented-on"><i class="fa-regular fa-clock"></i>5 years ago</span>
+                                                                        <div class="tutor-ratings tutor-ratings-">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        Amazing Tutor, Many thanks for the course. You have explained the course so nicely. I thoroughly enjoyed the course and will be looking forward to your new courses.
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="review th-comment-item  5 years">
+                                                                <div class="th-post-comment">
+
+                                                                    <div class="comment-avater tutor-avatar tutor-avatar-xl">
+                                                                        <div class="tutor-ratio tutor-ratio-1x1"><span class="tutor-avatar-text">A</span></div>
+                                                                    </div>
+
+                                                                    <div class="comment-content">
+
+                                                                        <h4 class="name">Pranav </h4>
+                                                                        <span class="commented-on"><i class="fa-regular fa-clock"></i>5 years ago</span>
+                                                                        <div class="tutor-ratings tutor-ratings-">
+                                                                            <div class="tutor-ratings-stars">
+                                                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        This is the best course online that you can get. I learn online everything about web development, but this is amazing. Thank's Jonas, you are my Hero. You give me a good knowledge of Html, CSS and Javascript.
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            @* side *@
+            <div class="col-xxl-3 col-lg-4">
+                <aside class="sidebar-area">
+                    <div class="widget widget_info  ">
+
+                        <div class="course-about">
+
+                            <div class="th-video">
+
+                                <iframe width="100%" height="145" src="https://www.youtube.com/embed/OFuzcY9aJK8?si=cLapNnrX7i8i1HiD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <span class="h4 course-price"> ₹ 20000 <span class="tag">34% Off</span></span>
+
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                <button type="submit" name="add-to-cart" value="2654" class="th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal" fdprocessedid="8qs5u5">
+                                    <span class="btn-icon tutor-icon-cart-filled"></span>
+                                    <span>Add to cart</span>
+                                </button>
+                            </form>
+
+                            <!-- Course Info -->
+                            <h3 class="widget_title 2">Course Information</h3>
+                            <div class="info-list">
+                                <ul>
+                                    <li>
+                                        <i class="fa-solid fa-tag"></i>	                <strong>Course level:</strong>
+                                        <span>@Model.courseLevel</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-user"></i>		                <strong>Instructor: </strong>
+                                        <span>@Model.courseInstructor</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-clock"></i>		                <strong>Duration:</strong>
+                                        <span><span class="tutor-meta-level"> 18</span><span class="tutor-meta-value tutor-color-secondary tutor-mr-4">h</span><span class="tutor-meta-level"> 20</span><span class="tutor-meta-value tutor-color-secondary tutor-mr-4">m</span> </span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-arrows-rotate"></i>	                <strong>Last Updated:</strong>
+                                        <span>May 17, 2019 </span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-puzzle-piece"></i>                                            <strong>Quizze:</strong>
+                                        <span>1</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <a data-tutor-modal-target="tutor-course-share-opener" href="#" class="th-btn style6 mt-35 mb-0" style="margin-top:20px;">
+                                <i class="fa-solid fa-share-nodes"></i> &nbsp; Share This Course
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="widget widget_info tutor-mt-24">
+                        <div class="tutor-course-details-widget">
+                            <h3 class="tutor-course-details-widget-title tutor-fs-5 tutor-color-black tutor-fw-bold tutor-mb-16">
+                                Material Includes
+                            </h3>
+                            <ul class="tutor-course-details-widget-list tutor-fs-6 tutor-color-black">
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>18 hours on-demand video</span>
+                                </li>
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>10 articles</span>
+                                </li>
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>1 downloadable resource</span>
+                                </li>
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>Full lifetime access</span>
+                                </li>
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>Access on mobile and TV</span>
+                                </li>
+                                <li class="tutor-d-flex tutor-mb-12">
+                                    <i class="fa-solid fa-circle"></i>                                        <span>Certificate of Completion</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><div class="widget widget_info tutor-mt-24">
+                        <div class="tutor-course-details-widget">
+                            <h3 class="tutor-course-details-widget-title tutor-fs-5 tutor-color-black tutor-fw-bold tutor-mb-16">
+                                Requirements
+                            </h3>
+                            <ul class="tutor-course-details-widget-list tutor-fs-6 tutor-color-black" style="text-align:left;">
+                                <li class="tutor-d-flex tutor-mb-12"><i class="fa-solid fa-circle"></i><span>No coding experience is necessary to take this course! I take you from beginner to expert!</span></li>
+                                <li class="tutor-d-flex tutor-mb-12"><i class="fa-solid fa-circle"></i><span>Any computer and OS will work — Windows, macOS or Linux. We will set up your text editor the course.</span></li>
+                                <li class="tutor-d-flex tutor-mb-12"><i class="fa-solid fa-circle"></i><span>A basic understanding of HTML and CSS is a plus, but not a must! The course includes a 5-minutes HTML and CSS crash course.</span></li>
+                            </ul>
+                        </div>
+
+
+                    </div><div class="widget widget_info tutor-mt-24">
+                        <div class="tutor-course-details-widget">
+                            <h3 class="tutor-course-details-widget-title tutor-fs-5 tutor-fw-bold tutor-color-black tutor-mb-16">
+                                Tags
+                            </h3>
+                            <div class="tutor-course-details-widget-tags">
+                                <ul class="tutor-tag-list">
+                                    <li><a href="#"> business </a></li>
+                                    <li><a href="#"> plan </a></li>
+                                    <li><a href="#"> project </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+

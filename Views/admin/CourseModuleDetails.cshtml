@@ -1,0 +1,184 @@
+﻿@model The_One_Web_Technology.Models.courseModuleModelList
+@{
+    ViewData["Title"] = "CourseModuleDetails";
+    Layout = "~/Views/Shared/_admin_layout.cshtml"; 
+}
+<style>
+    
+</style>
+
+<h1>CourseModuleDetails</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddModuleDetailsModal">
+                Add Section Details
+            </button>
+        </tr>
+        <tr>
+            <th>courseModuleId</th>
+            <th>SectionName</th>
+            <th>courseId</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.courseModuleList)
+        {
+            <tr>
+                <td>@item.courseModuleId</td>
+                <td>@item.SectionName</td>
+                <td>@item.courseId</td>
+                <td>
+                    <a class="btn" onclick="getModuleData(@item.courseModuleId)" data-bs-toggle="modal" data-bs-target="#EditModuleDetailsModal">Edit</a>
+
+                    <a class="btn btn-primary" asp-action="DeleteModuleData" asp-route-id="@item.courseModuleId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+@* edit Data *@
+
+<div class="modal fade" id="EditModuleDetailsModal" tabindex="-1" aria-labelledby="EditModuleDetailsModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Module Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form asp-action="EditDetails">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <input class="form-control" type="text" asp-for="courseModuleId" />
+                        </div>
+                        <div class="col-12 mb-2">
+                            <input class="form-control" type="text" asp-for="SectionName" />
+                        </div>
+                        <div class="col-12">
+                            <select class="form-control" asp-for="courseId">
+
+                                @foreach (var item in Model.courseDetailsMstsList)
+                                {
+                                    <option value="@item.courseId">@item.courseName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@* Add Data *@
+
+<div class="modal fade" id="AddModuleDetailsModal" tabindex="-1" aria-labelledby="AddModuleDetailsModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Module Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <form asp-action="AddCourseModule">
+                <div class="modal-body">
+                   <div class="row">
+                       <div class="col-12 mb-2">
+                                <input class="form-control" type="text" asp-for="SectionName" placeholder="Enter Section Name"/>
+                       </div>
+                       <div class="col-12">
+                           <select class="form-control" asp-for="courseId">
+                              
+                                @foreach(var item in Model.courseDetailsMstsList)
+                                {
+                                    <option value="@item.courseId">@item.courseName</option>
+                                }
+                            </select>
+                       </div>
+                   </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal HTML Structure -->
+@if (TempData["ModuleEdited"] != null)
+{
+    @* alert - success alert - dismissible *@
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["ModuleEdited"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["AddSection"] != null){
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["AddSection"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["SectionDeleted"] != null){
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["SectionDeleted"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!-- Script to show the popup -->
+
+<script>
+   
+    // window.setTimeout(function () {
+        
+    //         $('#popupAlert').alert('close');
+            
+    // }, 3000);
+
+  
+    function getModuleData(moduleId) {
+        console.log(moduleId);
+        $.ajax({
+            type:"post",
+            url: "@Url.Action("GetModuleDetails","admin")",
+            data:{
+                id : moduleId
+            },
+            success:function(data){
+                document.getElementById("courseModuleId").value = data.courseModuleId;
+                document.getElementById("SectionName").value = data.sectionName;
+                console.log(Data.courseId);
+                document.getElementById("courseId").value = data.courseId;
+            },
+            error:function(){
+                console.log("error");
+            }
+
+
+        });
+    }
+</script>

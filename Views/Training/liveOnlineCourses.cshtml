@@ -1,0 +1,378 @@
+﻿@{
+    ViewData["Title"] = "liveOnlineCourses";
+}
+
+@section Header {
+    <title>liveonlineCoures | The One Web Technology</title>
+    <link rel="stylesheet" href="~/css/about-custom.css" />
+
+}
+@* banner start *@
+<section class="offlinecoures_section">
+    @* swiper start *@
+    <section class="page-hero hero-swiper-slider fade-effect  d-flex align-items-center" id="page-hero">
+        <div class="particles-js  dots" id="particles-js"></div>
+        <!--Start  Swiper JS slider-->
+        <div class="slider swiper-container">
+            <div class="swiper-wrapper ">
+                <!--first slider-->
+                <div class="swiper-slide">
+                    <div class="slide-bg-img" data-bg-img="~/~/assets/images/hero/hero-bg-3.jpg" alt="hero-bg-3">
+                        <div class="overlay-color" data-bg-opacity=".35"></div>
+                    </div>
+                    <div class="container">
+                        <div class="hero-text-area  content-always-light   ">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="col-12    ">
+                                        <div class="pre-title">
+                                            Online Live Courses
+                                        </div>
+                                    </div>
+                                    <div class="col-12  col-md-8  col-lg-7  ">
+                                        <h3 class="slide-title  ">
+                                            Get the quality
+                                            <span class="featured-text"> courses </span>
+                                            <span class="featured-text">for your future </span>
+
+                                            @* <span class="design-element rounded-shape stripes">for yout future</span> *@
+                                        </h3>
+                                    </div>
+                                    @* <div class="col-10 col-md-8  col-lg-6   ">
+                                    <p class="slide-subtitle ">
+                                    FF/37,Alankar Complex,<br />
+                                    Aurobindo Ghosh Rd, near <br />
+                                    DairyDen Circle, Near Sayajigunj <br />
+                                    Police Station, Sarod, Sayajiganj,<br />
+                                    Vadodara,Gujarat 390 005
+
+                                    </p>
+                                    </div> *@
+                                    <div class="col-12   ">
+                                        <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary " asp-controller="home" asp-action="trainingInqurieForm">start now</a><a class=" btn-outline cta-link  " asp-action="contactus" asp-controller="home">Contact us</a></div>
+                                    </div>
+                                </div>
+                                @* <div class="col-5">
+                                <div class="map_container">
+                                <div class="map-box  wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                                <iframe class="map-iframe offlinecoures_slider_iframe" id="gmap_canvas" width="500px" height="350px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.177285964198!2d73.18138507405057!3d22.30913394257754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5294346ef7%3A0xe8ba3a370eea9224!2sThe%20One%20Web%20Technology%3A%20Your%20Digital%20Transformation%20Partner!5e0!3m2!1sen!2sin!4v1714975204013!5m2!1sen!2sin"></iframe>
+                                </div>
+                                </div>
+                                </div> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    @* swiper End  *@
+</section>
+@* banner end *@
+
+@* offline coureses start  *@
+<section class="offline_courses_section" id="offline_courses">
+    <div class="container">
+
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">Online Live Courses</span>
+                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"> our <span class="hollow-text">Job</span>-ready Courses</h2>
+            </div>
+        </div>
+        <div class="row">
+            @* first card *@
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="offline_course_card">
+                    <div class="offline_course_card_img_container">
+                        <img src="~/assets/images/training/explore_coures/fullstack_1.png" alt="fullstack_development">                        
+                    </div>
+                    <div class="card_content_container m-3">
+                        <div class="my-2">
+                            <span class="course_btn">
+                                Web Development
+                            </span>
+                        </div>
+                        <div class="card_heading">
+                            <h4>Fullstack Web Development <br /> Training</h4>
+                        </div>
+                        <div class="course_reviews">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="review_count">80 Reviews</span>
+                        </div>
+                        <div class="course_duration my-2">
+                            <h6>6 Months Training</h6>
+                        </div>
+                        <div class="course_details_link d-flex justify-content-end">
+                            <a class="my-2" asp-action="fullstackcourse">
+                                course details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* second card *@
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="offline_course_card">
+                    <div class="offline_course_card_img_container">
+                        <img src="~/assets/images/training/explore_coures/front_end_development.png"
+                             alt="front-end_training">
+                    </div>
+                    <div class="card_content_container m-3">
+                        <div class="my-2">
+                            <span class="course_btn">
+                                Web Development
+                            </span>
+                        </div>
+                        <div class="card_heading">
+                            <h4>FrontEnd Web Development <br /> Training</h4>
+                        </div>
+                        <div class="course_reviews">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="review_count">120 Reviews</span>
+                        </div>
+                        <div class="course_duration my-2">
+                            <h6>4 Months Training</h6>
+                        </div>
+                        <div class="course_details_link d-flex justify-content-end">
+                            
+                            <a class="my-2" asp-action="frontendcourse">
+                                course details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* third card *@
+
+            <div class="col-12 col-lg-4 col-md-6">
+                <div class="offline_course_card">
+                    <div class="offline_course_card_img_container">
+                        <img src="~/assets/images/training/explore_coures/back_end_development.png"
+                             alt="BackEndDevelopment">
+                    </div>
+                    <div class="card_content_container m-3">
+                        <div class="my-2">
+                            <span class="course_btn">
+                                Web Development
+                            </span>
+                        </div>
+                        <div class="card_heading">
+                            <h4>BackEnd Web Development <br /> Training</h4>
+                        </div>
+                        <div class="course_reviews">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="review_count">60 Reviews</span>
+                        </div>
+                        <div class="course_duration my-2">
+                            <h6>4 Months Training</h6>
+                        </div>
+                        <div class="course_details_link d-flex justify-content-end">
+                            <a class="my-2" asp-action="backendcourse">
+                                course details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* offline coureses end  *@
+
+<section class="liveOnlineCourses_feature_component_with_img">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <div class="liveOnlineCourses_feature_component_text_container">
+                    <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">Our Mission</span>
+                    <h2 class="feature_component_text_container_title my-4   wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <span class="hollow-text">
+                            One
+                        </span> Platfrom Many Courses
+                        <span class="featured-text">  For You </span>
+                    </h2>
+                    <p class="info-text wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        Synergistically integrate orthogonal synergy rather than visionary expertise. Credibly supply bleeding-edge deliverables after robust action items generate principle centered
+                    </p>
+                    <ul class="offlinecourses_feature_component__unorderList wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <li><i class="fa-solid fa-circle-check"></i>Easy Online Learning Platform</li>
+                        <li><i class="fa-solid fa-circle-check"></i>98% Course Completitation Rates</li>
+                        <li><i class="fa-solid fa-circle-check"></i>Friendly Enviroments & Teachers</li>
+                    </ul>
+                    <div class="cta-area my-5 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <a class=" btn-solid reveal-start" href="#offline_courses">Learn More</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                <div class="liveOnlineCourses_feature_component_img_details">
+                    <div class="liveOnlineCourses_feature_component_img_container  d-flex justify-content-around ">
+                        <div class="liveOnlineCourses_feature_component_img_1 liveOnlineCourses_feature_component_img wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <img class="rounded" src="~/assets/images/training/liveCoursesOnline/livecourseonline_1.jpg" alt="student-img-1" />
+                        </div>
+                        <div class="liveOnlineCourses_feature_component_img_2 liveOnlineCourses_feature_component_img wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <img class="rounded" src="~/assets/images/training/liveCoursesOnline/livecourseonline_2.jpg" alt="student-img-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* review start  *@
+<section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
+    <div class="overlay-photo-image-bg parallax" data-bg-img="~/assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25" alt="sections-bg-img1" style="opacity: 0.25;"> </div>
+    <div class="container">
+        <div class="sec-heading  centered ">
+            <div class="content-area">
+                <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">testimonials</span>
+                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Students <span class="hollow-text">Reviews</span></h2>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-10  mx-auto">
+                <div class="swiper-container wow fadeInUp swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events" data-wow-delay="0.2s" style="cursor: grab; visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <div class="swiper-wrapper" id="swiper-wrapper-043762c4891e7fb5" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-2252px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" role="group" aria-label="1 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/3.png" alt="third Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Absolutely fantastic! This course is a treasure trove for beginners diving into front-end development. The content is brilliantly structured, and I wholeheartedly recommend it to anyone eager to start their journey in this field. A definite must for aspiring developers!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--First Slide-->
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" role="group" aria-label="2 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/1.png" alt="First Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Hey Vivek here I loved this course as it helped me not only in doing coding stuffs but also motivated me to be discipline because every new thing you learn requires time and a lot of practise which comes with discipline . I know lot of people will tell you that this course is extremely outdated yes i agree that some parts are outdated but recently they updated the course with postgres , flex and grid . According to me you should research on the outdated content by yourself and make a part of your learning it will definitely help you and it will also boost your confidence and your learnings .
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Second Slide-->
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="3 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/2.png" alt="second Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                The training is absolutely amazing and so well presented with amazing analogies and well thought out explanations, and loved it soooo much, the only thing I was hoping to get out of it was DEPLOYMENT of any sort besides the Web3 deployment, I would have loved to learn from Owt how to Deploy a normal Web app with node modules etc..... to Heroku, or Azure, or any other source of deployment to make our small web projects live , but THANK YOU Kuldeep sir you really really got me started and exposed to such a load of information and ideas and basic motivation and simple words of wisdom
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--third Slide-->
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" role="group" aria-label="4 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/3.png" alt="third Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                The One Web Technology has been instrumental in helping us navigate complex IT challenges. Their team's expertise and
+                                                professionalism have made them a valuable partner for our organization. I would highly recommend their services to
+                                                anyone looking for reliable IT solutions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="5 / 5" style="width: 1076px; margin-right: 50px;">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="/assets/images/testimonials/1.png" alt="First Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Working with The One Web Technology has been a game-changer for our business. Their team developed a custom software solution
+                                                that streamlined our operations and improved efficiency. Their attention to detail and commitment to excellence is truly
+                                                commendable.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--navigation buttons-->
+                    <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-043762c4891e7fb5">
+                        <div class="left-arrow">
+                            <i class="bi bi-chevron-left icon "></i>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-043762c4891e7fb5">
+                        <div class="right-arrow">
+                            <i class="bi bi-chevron-right icon "></i>
+                        </div>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* review end  *@

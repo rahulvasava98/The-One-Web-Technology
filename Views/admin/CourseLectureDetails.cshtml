@@ -1,0 +1,153 @@
+﻿@model The_One_Web_Technology.Models.courseLectureDetailsModelList
+@{
+    ViewData["Title"] = "CourseLectureDetails";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<h1>CourseLectureDetails</h1>
+
+<!-- Button trigger modal -->
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddLecture">
+                Add Lecture
+            </button>
+        </tr>
+        <tr>
+            <th>Lecture Id</th>
+            <th>Lecture title</th>
+            <th>Link</th>
+            <th>Upload Details</th>
+            <th>CourseModuleId</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.courseLectureDetailsLists)
+        {
+            <tr>
+                <td>@item.courseLectureId</td>
+                <td>@item.LectureName</td>
+                <td>@item.LectureLink</td>
+                <td>@item.LectureUploadDate</td>
+                <td>@item.courseModuleId</td>
+                <td>
+                    <a class=" btn " onclick="UpdateDataOFLecture(@item.courseLectureId)" data-bs-toggle="modal" data-bs-target="#EditLecture">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-dark" asp-action="deleteLectureDetails" asp-route-id="@item.courseLectureId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="EditLecture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Lecture Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="EditCourseLectureData">
+                    <div class="row">
+                        <input type="number" asp-for="courseLectureId" />
+                        <div class="col-12">
+                            <input class="form-control" type="text" asp-for="LectureName" placeholder="Enter Lecture Title" />
+                        </div>
+                        <div class="col-12">
+                            <input class="form-control" type="text" asp-for="LectureLink" placeholder="Enter Video Link">
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" asp-for="courseModuleId">
+                                @foreach(var item in Model.courseModuleDetailsMstsList){
+                                    <option value="@item.courseModuleId">@item.SectionName</option>
+                                }
+                            </select>
+                        </div>
+                        
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Add Modal -->
+<div class="modal fade" id="AddLecture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Lecture Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddLectureDetail">
+                    <div class="row">
+                        <div class="col-12">
+                            <input class="form-control" type="text" asp-for="LectureName" placeholder="Enter Lecture Title" />
+                        </div>
+                        <div class="col-12">
+                            <input class="form-control" type="text" asp-for="LectureLink" placeholder="Enter Video Link">
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" asp-for="courseModuleId">
+                                @foreach(var item in Model.courseModuleDetailsMstsList){
+                                    <option value="@item.courseModuleId">@item.SectionName</option>
+                                }
+                            </select>
+                        </div>
+                        
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    function UpdateDataOFLecture(getid) {
+        $.ajax({
+            type : "post",
+            url : "@Url.Action("GetLectureDetails","admin")",
+            data: {id : getid},
+            success: function (Data) {
+                console.log(Data);
+                document.getElementById("courseLectureId").value = Data.courseLectureId;
+                document.getElementById("LectureLink").value = Data.lectureLink;
+                document.getElementById("LectureName").value = Data.lectureName;
+                document.getElementById("courseModuleId").value = Data.courseModuleId;
+            },
+            error:function(){
+                console.log("error");
+            }
+
+        });
+    }
+</script>
+
+

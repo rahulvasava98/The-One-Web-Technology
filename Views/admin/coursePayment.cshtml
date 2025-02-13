@@ -1,0 +1,179 @@
+﻿@model The_One_Web_Technology.Models.paymentRequestModelList
+@{
+    ViewData["Title"] = "coursePayment";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+@section style{
+    <style>
+        .image-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ccc;
+            /* padding: 10px; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        /* Styling for the close button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            /* padding: 5px 10px; */
+            cursor: pointer;
+        }
+
+        /* Styling for the image */
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+}
+
+<table class="table">
+    <thead>
+        <tr style="text-align:center">
+            <td>paymentId</td>
+            <td>StudentId</td>
+            <td>courseName</td>
+            <td>courseId</td>
+            <td>cRequestId</td>
+            <td>FileUrl</td>
+            <td>courseStatus</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.coursePaymentRequestList)
+        {
+            <tr style="text-align:center">
+                <td>@item.paymentId</td>
+                <td>@item.StudentId</td>
+                <td>@item.courseName</td>
+                <td>@item.courseId</td>
+                <td>@item.cRequestId</td>
+                <td>
+                    <button class="btn" onclick="showImage(this)">
+                        <img class="payment-confirm-img" src="~/@item.FileUrl" width="150px" alt="@item.FileUrl" />
+                    </button>
+                </td>
+                <td>
+                    <div class="form-check form-switch">
+                        <input style="margin:auto" class="form-check-input" checked="@item.PaymentStatus" onchange="GetpaymentStatus(this.checked,@item.paymentId)" type="checkbox" role="switch" id="@item.paymentId">
+                        @* <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> *@
+                    </div>
+                </td>
+                <td style="width:240px;">
+                    <span class="courseStatusBtn">
+                        @if(item.PaymentStatus == true){
+                            <span class="btn btn-primary" id="courseStatusBtn_@item.paymentId">
+                                Active
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="btn btn-primary" id="courseStatusBtn_@item.paymentId">
+                                Pending
+                            </span>
+                        }
+                    </span>
+
+                    <span class="delete-btn">
+                        <a class="btn btn-danger" asp-action="DeleteCoursePaymentDetails" asp-route-id="@item.paymentId">
+                            Delete
+                        </a>
+                    </span>                    
+                </td>
+                
+            </tr>
+        }
+        
+    </tbody>
+</table>
+@if (TempData["coursePaymentDetails"] != null)
+{
+    <div id="popupAlert" class="alert alert-danger fade show addedPositionOfAlert" role="alert">
+        @TempData["coursePaymentDetails"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@section scripts{
+    <script>
+        function showImage(imgData) {
+
+            console.log(imgData.children[0].src);
+            console.log(imgData.querySelector(".payment-confirm-img").src);
+            let imageContainer =
+                document.createElement("div");
+            imageContainer.className =
+                "image-container";
+
+            let image =
+                document.createElement("img");
+            image.src = imgData.querySelector(".payment-confirm-img").src ; 
+            let closeButton =
+                document.createElement(
+                    "button"
+                );
+            // <i class="fa-solid fa-xmark"></i>
+            closeButton.textContent = "X";
+            closeButton.className =
+                "close-btn btn btn-primary waves-effect waves-light";
+            closeButton.onclick =
+                function () {
+                    document.body.removeChild(
+                        imageContainer
+                    );
+                };
+
+            imageContainer.appendChild(
+                closeButton
+            );
+            imageContainer.appendChild(image);
+
+            document.body.appendChild(
+                imageContainer
+            );
+        }
+
+        function GetpaymentStatus(coureseStatus, id) {
+            console.log(coureseStatus);
+            // var coureseStatus = Checkstatus.checked ; 
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("UpdateCourseStatus", "admin")",
+                data: { 
+                    status : coureseStatus,
+                    payId : id
+                },            
+                success: function (paymentData) {
+                    console.log(paymentData);
+                    console.log("SuccessFully Run Code");
+                    let findPaymentId = paymentData.paymentId
+
+                    console.log(document.getElementById(findPaymentId));
+                    document.getElementById(findPaymentId).checked = paymentData.paymentStatus;
+                    if (paymentData.paymentStatus == true) {
+                        document.getElementById("courseStatusBtn_" + findPaymentId).innerText = "Active";
+                        console.log("sai jokddsj jods");
+                    }
+                    else{
+                        document.getElementById("courseStatusBtn_" + findPaymentId).innerText = "Pending";
+                        console.log("jssj oks kossk ls");
+                    }
+                },
+                error: function (paymentData) {
+                    console.log("Error");
+                }
+            });
+        }
+    </script>
+}

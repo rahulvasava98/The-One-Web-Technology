@@ -1,0 +1,93 @@
+﻿@model The_One_Web_Technology.Models.trainingRegistrationModelList
+@{
+    ViewData["Title"] = "traineeReferenceList";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<style>
+    .admin_link_title {
+        color: var(--clr-main);
+        font-size: 1.2rem;
+    }
+
+    .admin_list_btn {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+    }
+
+    .custom_content_wrapper {
+        padding: 33px;
+    }
+</style>
+
+<section class="training">
+    <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+                <div class="custom_content_wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.trainingRegistrationModelLists)
+                            {
+                                <tr>
+                                    <td class="col-3">
+                                        @item.id
+                                    </td>
+                                    <td class="col-6">
+                                        <p>First Name : @item.firstName</p>
+                                        <p>
+                                            Last Name : @item.lastName
+                                        </p>
+                                        <p>
+                                            Phone Number : @item.phoneNumber
+                                        </p>
+                                        <p>
+                                            Email : @item.Email
+                                        </p>
+                                        <p>
+                                            Education Qualification : @item.educationQualification
+                                        </p>
+                                        <p>
+                                            Location : @item.location
+                                        </p>
+                                        <p>
+                                            Messages : @item.yourMessage
+                                        </p>
+                                        <p>
+                                            Password : @item.trainingRegistrationPassword
+                                        </p>
+                                        <p>
+                                            referenceID : @item.referenceId
+                                        </p>
+                                        <p>
+                                            referenceCode : @item.referenceCode
+                                        </p>
+                                    </td>
+                                    <td class="col-3">
+
+
+                                        <a href="#" style="margin: 0 50px;">Edit</a>
+
+                                        <a href="#">Remove</a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

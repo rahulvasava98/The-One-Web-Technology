@@ -1,0 +1,147 @@
+﻿@model The_One_Web_Technology.Models.serviceModelList
+@{
+    ViewData["Title"] = "ServiceListView";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add Service
+                </button>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.serviceList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" onchange="serviceStatusUpdate(this.checked,@item.Id)" checked="@item.serviceStatus" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                    </div>
+                </td>
+                <td>
+                    <a class="mx-5" onclick="serviceEdit(@item.Id)" data-bs-toggle="modal" data-bs-target="#EditModal">
+                        Edit
+                    </a>
+                    <a class="mx-5" asp-action="serviceDelete" asp-route-id="@item.Id">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* model *@
+
+<!--Edit Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="ServiceEdit">
+                <div class="modal-body">
+                    <div>
+                    <input type="hidden" asp-for="Id"/>
+                    </div> 
+                    <div>
+                        <input type="text" asp-for="Name" placeholder="Enter Service" />
+                    </div>
+                </div>
+                <div class="modal-footer"
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--Add Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Service</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="serviceAdd">
+                <div class="modal-body">    
+                    <div>
+                        <input type="text" asp-for="Name" placeholder="Enter Service" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // function serviceEdit(val,id) {
+        
+    //     let rowData = val.parentElement.parentElement;
+    //     document.getElementById("Name").value = rowData.children[1].innerText;
+    //     document.getElementById("Id").value = id ; 
+    //     console.log(document.getElementById("Name").value = rowData.children[1].innerText);
+
+    // }
+
+    function serviceEdit(getId) {
+        $.ajax({
+            type:"Post",
+            url: "@Url.Action("serviceDetails", "admin")",
+            data: { id: getId },
+            success: function(data) {
+                document.getElementById("Name").value = data.name;
+                document.getElementById("Id").value = data.id;
+                console.log(data);
+            },
+            error:function(data){
+                console.log("error");
+            }
+        });
+    } 
+
+    function serviceStatusUpdate(getstatus,getid) {
+        $.ajax({
+            type:"Post",
+            url:"@Url.Action("serviceStatus", "admin")",
+            data: { 
+                id: getid,
+                serviceStatusData : getstatus  
+            },
+            success: function(){
+                console.log("success");
+            },
+            error: function(){
+                console.log("error");
+            }
+
+        });
+    }
+</script>
+

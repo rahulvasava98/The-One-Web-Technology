@@ -1,0 +1,168 @@
+﻿@model The_One_Web_Technology.Models.serviceRegistrationModel
+@{
+    ViewData["Title"] = "DemoRegistration";
+}
+
+<h1>DemoRegistration</h1>
+<section class="service_Registration_Form_container mega-section my-5">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="contact-form-panel">
+                    <div class="sec-heading centered    ">
+                        <div class="content-area">
+                            <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Service Registration</h2>
+                        </div>
+                    </div>
+                    <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                        <div class="custom-form-area input-boxed">
+
+                            <!--Form To have user messages-->
+
+                            <form class="main-form" asp-action="DemoRegistration" method="post">
+                                <span class="done-msg"></span>
+                                <div class="row ">
+
+                                    @* <input class="text-input" type="hidden" asp-for="clientId" /> *@
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-wrapper">
+                                            @if(Model.clientReferenceCode != null){
+                                            <input class="text-input" type="hidden" asp-for="clientReferenceId" placeholder="clientReferenceId" value="@Model.clientReferenceId" />
+                                                <input class="text-input" type="hidden" asp-for="clientReferenceCode" />
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="input-wrapper">
+                                            <input class="text-input" type="hidden" asp-for="clientReferenceCode" />
+                                        </div>
+                                    </div>
+
+                                    @* name start *@
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="clientfirstName" />
+                                            <label class="input-label" asp-for="clientfirstName">
+                                                First name <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="clientfirstName"></span>
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="clientlastName" />
+                                            <label class="input-label">
+                                                Last name <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="clientlastName"></span>
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+
+                                    @* name end *@
+
+                                    @* contact start  *@
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" onchange="findDetails()" type="email" asp-for="clientemail" />
+                                            <label class="input-label">
+                                                E-mail <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="clientemail"></span>
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="   input-wrapper">
+                                            <span class="text-danger" asp-validation-for="clientPassword"></span>
+                                            <input class="text-input" type="password" asp-for="clientPassword" />
+                                            <label class="input-label">
+                                                Password
+                                                <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="clientPassword">
+
+                                                </span>
+                                            </label>
+                                            <span class="b-border"></span>
+                                            <span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+
+                                    @* contact  end  *@
+
+
+                                    <div class="col-12 ">
+                                        <div class="   input-wrapper">
+                                            <input class="text-input" type="text" asp-for="clientlocation" />
+                                            <label class="input-label">
+                                                Location <span class="req">*</span>
+                                                <span asp-validation-for="clientlocation"></span>
+                                            </label>
+                                            <span class="b-border"></span><span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group input-wrapper">
+                                            <label class="input-label" for="msg-subject"> Select Services <span class="req">*</span><span class="error-msg"></span></label>
+                                            <select class="form-control" asp-for="clientservice">
+                                                <option>select</option>
+                                                <option>Web Development</option>
+                                                <option>Digital Marketing</option>
+                                                <option>Software Development</option>
+                                                <option>SEO services</option>
+                                                <option>Bussiness Consulting</option>
+                                                <option>web domain and hosting</option>
+                                                <option>embedded system</option>
+                                                <option>bulk emails and message</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 ">
+                                        <div class="   input-wrapper">
+                                            <textarea class=" text-input" placeholder="In which field you want to pursue you internship" asp-for="clientmessage"></textarea>
+                                            <label class="input-label">
+                                                your message <span class="req">*</span>
+                                                <span class="text-danger" asp-validation-for="clientmessage"></span>
+                                            </label><span class="b-border"></span><i></i>
+                                            <span class="error-msg"></span>
+                                        </div>
+                                    </div>
+
+                                    @* upload resume start  *@
+
+                                    @*   <div class="col-12">
+                                    <div class="input-wrapper">
+                                    <input type="file" id="myFile">
+                                    <label class="input-label" for="msg-subject"> Upload resume <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+
+                                    </div>
+
+                                    </div> *@
+
+
+                                    @* upload resume end  *@
+
+
+                                    <div class="col-12 submit-wrapper">
+                                        <button class=" btn-solid" type="submit">Send your message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,736 @@
+@{
+    Layout = "_Global_Layout";
+    ViewData["Title"] = "Home Page";
+
+}
+
+@section header{
+
+    <title>Home | The One Web Technology </title>
+}
+@section meta {
+
+    <meta property="og:image:height" content="150">
+    <meta property="og:image:width" content="150">
+    <meta property="og:content" content="We Have A Digital Marketing Team That Has One Of The Most Experienced Digital Direct Response Marketing Teams In The World." />
+    <meta property="og:title" content="Homepage  | The One Web Technology " />
+    <meta property="og:description" content="The One Web Technology information technology (IT) company. Company establish in Vadodara By Mr.Kuldeepsinh VirpuraSolanki." />
+    <meta property="og:image" itemprop="image" content="~/assets/images/hero/hero-bg-1.jpg" />
+
+}
+
+<!-- Start  Page hero-->
+
+<section class="page-hero hero-swiper-slider fade-effect  d-flex align-items-center" id="page-hero">
+    <div class="particles-js  dots" id="particles-js"></div>
+    <!--Start  Swiper JS slider-->
+    <div class="slider swiper-container">
+        <div class="swiper-wrapper ">
+            <!--first slider-->
+            <div class="swiper-slide">
+                <div class="slide-bg-img" data-bg-img="~/assets/images/hero/hero-bg-1.jpg" alt="hero-bg-1">
+                    <div class="overlay-color " data-bg-opacity=".35"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-text-area  content-always-light">
+                        <div class="row ">
+                            @* <div class="col-12   ">
+                                <div class="hero-social-icons mb-3 ">
+                                    <div class="sc-wrapper dir-row sc-flat">
+                                        <ul class="sc-list">
+                                            <li class="sc-item " title="Facebook"><a class="sc-link" href="https://facebook.com/TheOneWebTechnology" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                                            <li class="sc-item " title="youtube"><a class="sc-link" href="https://www.youtube.com/theonewebtechnology814" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
+                                            <li class="sc-item " title="instagram"><a class="sc-link" href="https://instagram.com/theonewebtechnology" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
+                                            <li class="sc-item " title="twitter"><a class="sc-link" href="https://twitter.com/TheOneWebTechn1" title="social media icon"><i class="fab fa-twitter sc-icon"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> *@
+                            <div class="col-12     ">
+                                <div class="pre-title">IT solutions </div>
+                            </div>
+                            <div class="col-12 col-md-8  col-lg-7   ">
+                                <h1 class="slide-title  ">providing the best  services & IT <span class="featured-text">solutions   </span><span class="design-element rounded-shape stripes"></span></h1>
+                            </div>
+                            <div class="col-10 col-md-8  col-lg-6 ">
+                                <p class="slide-subtitle ">
+                                    From IT services, web design, development and mobile apps, through to IT, security and software.
+                                </p>
+                            </div>
+                            <div class="col-12   ">
+                                <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary  " asp-action="inquiry" asp-controller="home">start now</a><a class=" btn-outline cta-link  " asp-action="contactus" asp-controller="home">Contact us</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--second slider-->
+            <div class="swiper-slide">
+                <div class="slide-bg-img" data-bg-img="~/~/assets/images/hero/hero-bg-2.jpg" alt="hero-bg-2">
+                    <div class="overlay-color" data-bg-opacity=".35"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-text-area  content-always-light   ">
+                        <div class="row">
+                           
+                            <div class="col-12     ">
+                                <div class="pre-title">digital Marketing             </div>
+                            </div>
+                            <div class="col-12  col-md-8 col-lg-7   ">
+                                <h2 class="slide-title  ">Digital Marketing For Your growing <span class="featured-text">business </span><span class="design-element rounded-shape stripes"></span></h2>
+                            </div>
+                            <div class="col-10 col-md-8  col-lg-6   ">
+                                <p class="slide-subtitle ">
+                                    Digital Marketing offers online services from branding and shopping carts to email and mobile marketing.
+                                </p>
+                            </div>
+                            <div class="col-12   ">
+                                <div class="cta-links-area ">
+                                    <a class=" btn-solid cta-link  cta-link-primary  " asp-controller="home" asp-action="inquiry">start now</a>
+                                    <div class="play-btn-row-dir  inverted-colors">
+                                        <a class="video-link" href="https://www.youtube.com/watch?v=OFuzcY9aJK8;ab_channel=JUtah" role="button" title="play" data-fancybox="data-fancybox">
+                                            <div class="play-video-btn">
+                                                <div class="play-btn"> <i class="fas fa-play icon"></i></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--third slider-->
+            <div class="swiper-slide">
+                <div class="slide-bg-img" data-bg-img="~/~/assets/images/hero/hero-bg-3.jpg" alt="hero-bg-3">
+                    <div class="overlay-color" data-bg-opacity=".35"></div>
+                </div>
+                <div class="container">
+                    <div class="hero-text-area  content-always-light   ">
+                        <div class="row">
+                           
+                            <div class="col-12    ">
+                                <div class="pre-title">Training             </div>
+                            </div>
+                            <div class="col-12  col-md-8  col-lg-7  ">
+                                <h2 class="slide-title  ">Upskill your skills <span class="featured-text">with us</span><span class="design-element rounded-shape stripes"></span></h2> 
+                            </div>
+                            <div class="col-10 col-md-8  col-lg-6   ">
+                                <p class="slide-subtitle ">
+                                    Upskill And Advance Yourself In Master In-Demand IT Skills And Become IT Professionals.
+                                    Register Now And Lead The Tech World!
+                                </p>
+                            </div>
+                            <div class="col-12   ">
+                                <div class="cta-links-area"><a class=" btn-solid cta-link cta-link-primary " asp-controller="home" asp-action="trainingInqurieForm">start now</a><a class=" btn-outline cta-link  " asp-action="contactus" asp-controller="home">Contact us</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slides-state h-align  ">
+            <div class="slide-num curent-slide  "></div>
+            <!--Add Pagination-->
+            <div class="swiper-pagination"></div>
+            <div class="slide-num slides-count  "></div>
+        </div>
+        <!--Add Arrows -->
+        <div class="slider-stacked-arrows">
+            <div class="swiper-button-prev   ">
+                <div class="left-arrow">
+                    <i class="bi bi-chevron-left icon "></i>
+                </div>
+            </div>
+            <div class="swiper-button-next  ">
+                <div class="right-arrow">
+                    <i class="bi bi-chevron-right icon "></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  Page hero-->
+<!-- Start  services Section-->
+<section class="services services-boxed mega-section  " id="services">
+    <div class="container">
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">services</span>
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s"><span class='hollow-text'>services</span> we offer</h2>
+                <p class="subtitle   wow fadeInUp " data-wow-delay=".6s">
+                    Upskill and Advance Yourself in Master In-Demand IT Skills and Become IT Professionals. </br> Register Now and Lead the Tech World!
+                </p>
+            </div>
+            <div class=" cta-area   wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid    " asp-action="services" asp-controller="home">see all services <i class="bi bi-arrow-right icon "></i></a></div>
+        </div>
+        <div class="row gx-4 gy-4 services-row text-center">
+            <div class="col-12 col-md-6  col-lg-4 mx-auto ">
+                <!--Start First service box-->
+                <a asp-controller="services" asp-action="webdevelopment">
+                <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".1s">
+                    <div class="service-icon"><i class="flaticon-web-development font-icon"></i></div><span class="service-num hollow-text">1    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">web development</h3>
+                        <p>
+                            We combine creativity, technical expertise, and industry insights to deliver bespoke solutions tailored to your unique needs.
+                        </p>
+                    </div><a class="read-more" asp-action="webdevelopment" asp-controller="services">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End First service box   -->
+            </div>
+            <div class="col-12 col-md-6  col-lg-4 mx-auto ">
+                <!--Start Second service box-->
+                <a asp-controller="home" asp-action="digitalmarketing">
+                <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".2s">
+                    <div class="service-icon"><i class="flaticon-nanotechnology font-icon"></i></div><span class="service-num hollow-text">2    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">Digital Marketing</h3>
+                        <p class="service-text">
+                            We have a Digital Marketing team that has one of the most experienced digital direct response marketing teams in the world.
+                        </p>
+                    </div><a class="read-more" asp-action="digitalmarketing" asp-controller="home">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End Second service box-->
+            </div>
+            <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+                <!--Start Third service box-->
+                <a asp-controller="home" asp-action="training">
+                <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".3s">
+                    <div class="service-icon"><i class="flaticon-web-domain font-icon"></i></div><span class="service-num hollow-text">3    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">Training</h3>
+                        <p class="service-text">
+                            Intership exposes aspiring professionals to real-world scenarios and challenges,help them to apply their knowledge in a practical setting.
+                        </p>
+                    </div><a class="read-more" asp-action="training" asp-controller="home">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End Third service box-->
+            </div>
+            <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+                <!--Start fourth service box-->
+                <a asp-controller="services" asp-action="softwaredevelopment">
+                <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".4s">
+                    <div class="service-icon"><i class="flaticon-profile font-icon"></i></div><span class="service-num hollow-text">4    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">Software development</h3>
+                        <p class="service-text">
+                            We specialize in Software development for Web Application & Mobile Application. we have a successful track record of delivering Softwares.
+                        </p>
+                    </div><a class="read-more" asp-action="softwaredevelopment" asp-controller="services">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End fourth service box   -->
+            </div>
+            <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+                <!--Start 5th service box-->
+                <a asp-controller="services" asp-action="seooptimazation">
+                <div class="box service-box  wow fadeInUp reveal-start" data-wow-offset="0" data-wow-delay=".5s">
+                    <div class="service-icon"><i class="flaticon-search font-icon"></i></div><span class="service-num hollow-text">5    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">SEO services</h3>
+                        <p class="service-text">
+                            Our SEO service Will improve your website to increase its visibility in Google and other search engines whenever people search for your Products or Service related Keywords.
+                        </p>
+                    </div><a class="read-more" asp-action="seooptimazation" asp-controller="services">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End 5th service box-->
+            </div>
+            <div class="col-12 col-md-6  col-lg-4 mx-auto  ">
+                <!--Start 6th service box-->
+                <a asp-controller="services" asp-action="businessconsultant">
+                <div class="box service-box  wow fadeInUp  reveal-start" data-wow-offset="0" data-wow-delay=".6s">
+                    <div class="service-icon"><i class="flaticon-strategy font-icon"></i></div><span class="service-num hollow-text">6    </span>
+                    <div class="service-content">
+                        <h3 class="service-title">Business consultant</h3>
+                        <p class="service-text">
+                            Our business consultants can help you adapt to today’s market dynamics and continue to compete no matter the threats you might be facing.
+                        </p>
+                    </div><a class="read-more" asp-action="businessconsultant" asp-controller="services">read more<i class="bi bi-arrow-right icon "></i></a>
+                </div>
+                </a>
+                <!-- End 6th service box-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- End  services Section-->
+<!-- Start  about Section-->
+<section class="about mega-section" id="about">
+    <div class="container">
+        <!-- Start first about div-->
+        <div class="content-block  ">
+            <div class="row">
+                <div class="col-12 col-lg-6 d-flex align-items-center order-1 order-lg-0 about-col pad-end  wow fadeInUp " data-wow-delay="0.6s">
+                    <div class="text-area ">
+                        <div class="sec-heading  light-title ">
+                            <div class="content-area">
+                                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">trusted</span> by worldwide clients  since<span class="featured-text">  2014. <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M7.7,145.6C109,125,299.9,116.2,401,121.3c42.1,2.2,87.6,11.8,87.3,25.7"></path></svg></span></h2>
+                            </div>
+                        </div>
+                        <p class=" about-text">The One Web Technology information technology (IT) company. Company establish in Vadodara By Mr.Kuldeepsinh VirpuraSolanki.</p>
+                        <div class="info-items-list ">
+                            <div class="row ">
+                                <div class="col-6 col-xl-6">
+                                    <div class="info-item">
+                                        <i class="flaticon-medal  info-icon"></i>
+                                        <div class="info-content">
+                                            <h3 class="info-title">first on field </h3>
+                                            <p class="info-text">The company offers a range of IT services, outsourcing and business solutions. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-6">
+                                    <div class="info-item">
+                                        <i class="flaticon-game-console info-icon"></i>
+                                        <div class="info-content">
+                                            <h3 class="info-title">easy to reach </h3>
+                                            <p class="info-text">The One Web Technology delivers extensive web services ranging from custom website design to development of complex enterprise web applications.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-6">
+                                    <div class="info-item">
+                                        <i class="flaticon-map info-icon"></i>
+                                        <div class="info-content">
+                                            <h3 class="info-title">worldwide services  </h3>
+                                            <p class="info-text"> We have been delivering web development services of any complexity to clients globally. We also offer global consulting and asset leveraged solution.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-6">
+                                    <div class="info-item">
+                                        <i class="flaticon-technical-support-1  info-icon"></i>
+                                        <div class="info-content">
+                                            <h3 class="info-title">24/7 support  </h3>
+                                            <p class="info-text">Our 24/7 IT support ensures that our company remains agile, resilient, and capable of meeting the evolving needs of our clients in an increasingly digital world.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-area">
+                            <a class=" btn-solid reveal-start" asp-action="contactus" asp-controller="home">Get in touch</a>
+                            <div class="signature ">
+                                <div class="signature-name">Mr.Kuldeepsinh  Virpura</div>
+                                <div class="signature-name">CEO &amp; Founder </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-items-center order-0 order-lg-1 about-col  wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="img-area  " data-tilt>
+                        <div class="image"><img class="about-img img-fluid " loading="lazy" src="~/assets/images/about/3.png" alt="Our vision"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End first about div-->
+    </div>
+</section>
+<!-- End  about Section-->
+
+<!-- Start  stats Section-->
+<section class="stats js-stats-counter mega-section">
+    <div class="overlay-photo-image-bg" data-bg-img="~/assets/images/sections-bg-images/pattern-bg-3.jpg" data-bg-opacity=".2" alt="pattern-bg-3" style="opacity: 0.2;"></div>
+    <div class="container">
+        <div class="stats-inner">
+            <div class="row ">
+                <!--Info One-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                        <i class="flaticon-project-management stat-icon"></i>
+                        <p class="stat-num "><span class="counter" data-from="10" data-to="750" data-speed="3000" data-refresh-interval="50">750</span><span class="sign">+</span></p><span class="stat-desc">finished projects</span>
+                    </div>
+                </div>
+                <!--Info Two-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-content-management stat-icon"></i>
+                        <p class="stat-num "><span class="counter" data-from="0" data-to="23" data-speed="3000" data-refresh-interval="50">23</span><span class="sign">+</span></p><span class="stat-desc">Created jobs</span>
+                    </div>
+                </div>
+                <!--Info Three-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-user stat-icon"></i>
+                        <p class="stat-num "><span class="counter" data-from="0" data-to="200" data-speed="3000" data-refresh-interval="50">200</span><span class="sign">+</span></p><span class="stat-desc">happy customers</span>
+                    </div>
+                </div>
+                <!--Info Four-->
+                <div class="col-12 col-md-6 col-lg-3 stat-box ">
+                    <div class="stat-box-inner  " data-tilt="data-tilt">
+                        <i class="flaticon-aim stat-icon"></i>
+                        <p class="stat-num "><span class="counter" data-from="0" data-to="28" data-speed="3000" data-refresh-interval="50">28</span><span class="sign">+</span></p><span class="stat-desc">years Of exprience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  stats Section-->
+
+
+<!-- Start contact-us -->
+<section class="contact-us  mega-section  pb-0" id="contact-us">
+    <div class="container">
+        <section class="locations-section  mega-section ">
+            <div class="sec-heading centered  ">
+                <div class="content-area">
+                    <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">our offices around the world</h2>
+                </div>
+            </div>
+            <div class=" contact-info-panel ">
+                <div class="info-section ">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".4s ">
+                                <h3 class="location-title text-center">VADODARA(HEAD OFFICE) </h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+@*                                 <p class="location-address"></p>
+ *@
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".8s">
+                                <h3 class="location-title text-center">US</h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+                                @*                                 <p class="location-address"></p>
+ *@                          
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+                                <h3 class="location-title text-center">CANADA</h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+                                @*                                 <p class="location-address"></p>
+ *@                         
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+                                <h3 class="location-title text-center">INDORE</h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+                                @*                                 <p class="location-address"></p>
+ *@                             
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+                                <h3 class="location-title text-center">AHMEDABAD</h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+                                @*                                 <p class="location-address"></p>
+ *@                        
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="info-panel  wow fadeInUp" data-wow-delay=".6s">
+                                <h3 class="location-title text-center">HIMMATNAGAR</h3>
+                                <div class="line-on-side" style="margin-left:auto;margin-bottom:0px"> </div>
+                                @*                                 <p class="location-address"></p>
+ *@                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact-us-form-section  mega-section  ">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="contact-form-panel">
+                        <div class="sec-heading centered    ">
+                            <div class="content-area">
+                                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Have any questions? Let's answer them</h2>
+                            </div>
+                        </div>
+                        <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                            <div class="custom-form-area input-boxed">
+                                <!--Form To have user messages-->
+                                <form class="main-form" id="contact-us-form" action="https://amincode.com/html/flex-it/php/send-mail.php" method="post">
+                                    <span class="done-msg"></span>
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6">
+                                            <div class="   input-wrapper">
+                                                <input class="text-input" id="user-name" name="UserName" type="text" />
+                                                <label class="input-label" for="user-name"> Name <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="   input-wrapper">
+                                                <input class="text-input" id="user-email" name="UserEmail" type="email" />
+                                                <label class="input-label" for="user-email"> E-mail <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="   input-wrapper">
+                                                <input class="text-input" id="msg-subject" name="subject" type="text" />
+                                                <label class="input-label" for="msg-subject"> Subject <span class="req">*</span></label><span class="b-border"></span><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="   input-wrapper">
+                                                <textarea class=" text-input" id="msg-text" name="message"></textarea>
+                                                <label class="input-label" for="msg-text"> your message <span class="req">*</span></label><span class="b-border"></span><i></i><span class="error-msg"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 submit-wrapper">
+                                            <button class=" btn-solid" id="submit-btn" type="submit" name="UserSubmit">Send your message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="map-section  elf-section">
+            <div class="sec-heading  centered   ">
+                <div class="content-area">
+                    <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">find us on google maps</h2>
+                </div>
+            </div>
+            <div class="map-box  wow fadeInUp" data-wow-delay=".6s">
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe class="map-iframe" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.177285964198!2d73.18138507405057!3d22.30913394257754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5294346ef7%3A0xe8ba3a370eea9224!2sThe%20One%20Web%20Technology%3A%20Your%20Digital%20Transformation%20Partner!5e0!3m2!1sen!2sin!4v1714975204013!5m2!1sen!2sin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+     </div>
+</section>
+
+
+<!-- Start  testimonials Section-->
+<section class="testimonials testimonials-1-col   has-dark-bg  mega-section " id="testimonials-img-bg">
+    <div class="overlay-photo-image-bg parallax" data-bg-img="~/assets/images/sections-bg-images/1.jpg" data-bg-opacity=".25" alt="sections-bg-img1"> </div>
+    <div class="container">
+        <div class="sec-heading  centered ">
+            <div class="content-area">
+                <span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">testimonials</span>
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">customers <span class='hollow-text'>testmonials</span></h2>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-10  mx-auto">
+                <div class="swiper-container  wow fadeInUp  " data-wow-delay="0.2s">
+                    <div class="swiper-wrapper">
+                        <!--First Slide-->
+                        <div class="swiper-slide">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="~/assets/images/testimonials/1.png" alt="First Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                Working with The One Web Technology has been a game-changer for our business. Their team developed a custom software solution
+                                                that streamlined our operations and improved efficiency. Their attention to detail and commitment to excellence is truly
+                                                commendable.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Second Slide-->
+                        <div class="swiper-slide">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="~/assets/images/testimonials/2.png" alt="second Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                We engaged The One Web Technology for their digital marketing services, and we couldn't be happier with the results. Their team
+                                                helped us develop a comprehensive digital strategy that has significantly increased our online visibility and
+                                                engagement. I would highly recommend their services to anyone looking to boost their digital presence."
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--third Slide-->
+                        <div class="swiper-slide">
+                            <div class="testmonial-card d-flex align-items-center justify-content-center">
+                                <div class="testimonial-content">
+                                    <div class="customer-img "><img class="img-fluid " loading="lazy" src="~/assets/images/testimonials/3.png" alt="third Slide "></div>
+                                    <div class="customer-testimonial">
+                                        <div class="content">
+                                            <p class="testimonial-text ">
+                                                The One Web Technology has been instrumental in helping us navigate complex IT challenges. Their team's expertise and
+                                                professionalism have made them a valuable partner for our organization. I would highly recommend their services to
+                                                anyone looking for reliable IT solutions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-info ">
+                                        <div class="customer-details">
+                                            <p class="customer-name"></p>
+                                            <p class="customer-role"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--navigation buttons-->
+                    <div class="swiper-button-prev">
+                        <div class="left-arrow">
+                            <i class="bi bi-chevron-left icon "></i>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next">
+                        <div class="right-arrow">
+                            <i class="bi bi-chevron-right icon "></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End  testimonials Section-->
+<!-- Start  blog Section-->
+<section class="blog blog-home mega-section  " id="blog">
+    <div class="container ">
+        <div class="sec-heading  ">
+            <div class="content-area">
+                <span class=" pre-title       wow fadeInUp " data-wow-delay=".2s">blog</span>
+                <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">latest <span class='hollow-text'>news</span></h2>
+            </div>
+                    <div class=" cta-area  cta-area  wow fadeInUp" data-wow-delay=".8s"><a class="cta-btn btn-solid   cta-btn btn-solid  " asp-action="blog" asp-controller="Digitalmarketing">see all posts<i class="bi bi-arrow-right icon "></i></a></div>
+        </div>
+        <div class="row ">
+            <div class="col-12 ">
+                <div class="posts-grid ">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 ">
+                            <div class="post-box">
+                                <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing" title="How litespeed technology works to speed up your site ">
+                                    <div class="post-img-wrapper  "><img class=" parallax-img   post-img" loading="lazy" src="~/assets/images/blog/post-images/1.jpg" alt="post-image-1" /><span class="post-date"><span class="day">05 </span>oct 2022     </span></div>
+                                </a>
+                                <div class="post-summary">
+                                    <div class="post-info"><a class="info post-cat" href="#"> <i class="bi bi-bookmark icon"></i>hosting</a><a class="info post-author" href="#"> <i class=" bi bi-person icon"></i>Allan Moore</a></div>
+                                    <div class="post-text">
+                                        <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing">
+                                            <h2 class="post-title"> How litespeed technology works to speed up your site </h2>
+                                        </a>
+                                        <p class="post-excerpt">
+                                            We are excited to announce the launch of our new product. This innovative solution is designed to help
+                                            businesses streamline their operations and improve efficiency.
+                                        </p><a class="read-more" asp-action="blog" asp-controller="Digitalmarketing" title="How litespeed technology works to speed up your site ">read more<i class="bi bi-arrow-right icon "></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 ">
+                            <div class="post-box">
+                                        <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing" title="give your website a new look and feel with themes">
+                                    <div class="post-img-wrapper  "><img class=" parallax-img   post-img" loading="lazy" src="~/assets/images/blog/post-images/2.jpg" alt="post-image-2" /><span class="post-date"><span class="day">15 </span>sep 2022     </span></div>
+                                </a>
+                                <div class="post-summary">
+                                    <div class="post-info"><a class="info post-cat" asp-action="blog" asp-controller="Digitalmarketing"> <i class="bi bi-bookmark icon"></i>web dev</a><a class="info post-author" href="#"> <i class=" bi bi-person icon"></i>mhmd amin</a></div>
+                                    <div class="post-text">
+                                                <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing">
+                                            <h2 class="post-title"> give your website a new look and feel with themes</h2>
+                                        </a>
+                                        <p class="post-excerpt">
+                                            We are pleased to announce, a leading technology provider. This partnership will
+                                            allow us to offer our clients access to cutting-edge technologies and solutions.
+                                        </p><a class="read-more" asp-action="blog" asp-controller="Digitalmarketing" title="give your website a new look and feel with themes">read more<i class="bi bi-arrow-right icon "></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 ">
+                            <div class="post-box">
+                                <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing" title="the role of domain names in SEO world explained ">
+                                    <div class="post-img-wrapper  "><img class=" parallax-img   post-img" loading="lazy" src="~/assets/images/blog/post-images/3.jpg" alt="post-image-3" /><span class="post-date"><span class="day">27 </span>aug 2022     </span></div>
+                                </a>
+                                <div class="post-summary">
+                                    <div class="post-info"><a class="info post-cat" asp-action="blog" asp-controller="Digitalmarketing"> <i class="bi bi-bookmark icon"></i>SEO</a><a class="info post-author" href="#"> <i class=" bi bi-person icon"></i>yusuf amin</a></div>
+                                    <div class="post-text">
+                                        <a class="post-link" asp-action="blog" asp-controller="Digitalmarketing">
+                                            <h2 class="post-title"> the role of domain names in SEO world explained </h2>
+                                        </a>
+                                        <p class="post-excerpt">
+                                            We are proud to have been recognized by The One Web Technology for our outstanding contributions to the IT industry.
+                                            This recognition is a testament to our commitment to excellence.
+                                        </p><a class="read-more" asp-action="blog" asp-controller="Digitalmarketing" title="the role of domain names in SEO world explained ">read more<i class="bi bi-arrow-right icon "></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- End  blog Section-->
+
+    <div class="container">
+        <section class="take-action elf-section has-dark-bg" id="take-action">
+            <div class="overlay-photo-image-bg  " data-bg-img="assets/images/sections-bg-images/2.jpg" data-bg-opacity=".25" style="opacity: 0.25;"> </div>
+            <div class="cta-wrapper">
+                <div class="container">
+                    <div class="sec-heading  centered mb-0 ">
+                        <div class="content-area">
+                            <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">contact us</span>
+                            <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Grow with us</h2>
+                            <p class="subtitle   wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Our team is committed to providing prompt and personalized assistance to ensure your satisfaction.</p>
+                        </div>
+                    </div>
+                    <!--Start .see-more-area-->
+                    <div class="see-more-area wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class=" btn-solid cta-link" href="/Home/contactus">contact us</a></div>
+                    <!--End Of .see-more-area        -->
+                </div>
+            </div>
+        </section>
+</div>
+
+
+
+<script>
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+    }
+</script>

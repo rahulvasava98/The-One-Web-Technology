@@ -1,0 +1,364 @@
+﻿@model The_One_Web_Technology.Models.courseDetailsModel
+@{
+    ViewData["Title"] = "SubscrptionBillingPage";
+    Layout = "~/Views/shared/Payment_layout.cshtml";
+}
+<style>
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .main_subscrptionbillingpage {
+        margin-top: 95px;
+    }
+
+    .billing-details-wrapper {
+    }
+    .subscription-details-wrapper {
+        /* background-color: var(--clr-main); */
+        background-color: rgba(var(--clr-main-rgb), 0.15);
+        height:120vh;
+    }
+    .subscrptionbillingpage_primary_title{
+        font-size:1.6rem;
+    }
+    .subscrptionbillingpage_secondary_title {
+        font-size: 1.4rem;
+    }
+    .text_secure_encrypted{
+        text-align: right;
+    }
+
+    .payment_method_type_option img {
+        width: 30px;
+        object-fit: cover;
+    }
+    .payment-method-heading-container{
+        border: 1px solid var(--clr-white);
+    }
+
+    .payment-method-heading-details-wrapper {
+        padding: 10px;
+    }
+
+    .payment-method-card-number-container .card-details-input{
+        width:100%;   
+    }
+
+    .payment-method-body-container{
+        border: 1px solid var(--clr-white);
+    }
+
+    .payment-method-body-wrapper{
+        padding:10px;
+    }
+
+    .subscription-details-wrapper{
+        padding: 0 0 0 45px;
+    }
+    .qrcode-container{
+        width:250px;
+    }
+
+    .addedPositionOfAlert {
+        position: absolute !important;
+        /* right: 2rem !important; */
+        top: 1rem !important;
+    }
+</style>
+
+<section class="main_subscrptionbillingpage">
+    @* <div class="container"> *@
+        <div class="row">
+            <div class="col-7">
+                <div class="billing-details-wrapper">
+                    <div class="d-flex justify-content-end">
+                        <div class="col-6">
+                            <h2 class="subscrptionbillingpage_primary_title">
+                                Payment Details
+                            </h2>
+                            <fieldset class="qrcode-container my-5">
+                                <img width="300" height="300" src="~/img/payment_method/qr-code.jfif" alt="Alternate Text" />
+                            </fieldset>
+                            <div class="billing_details_unorderlist_container">
+                                <ul class="billing_details_unorderlist">
+                                    <li>
+                                        <svg width="35px" height="35px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="20" height="20"></rect> <g> <path d="M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z"></path> </g> </g></svg>
+                                        <span>
+                                            Hands-on learning experiences to build your skills
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg width="35px" height="35px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="20" height="20"></rect> <g> <path d="M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z"></path> </g> </g></svg>
+                                        <span>
+                                            Course recommendations to help you start learning faster
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg width="35px" height="35px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="20" height="20"></rect> <g> <path d="M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z"></path> </g> </g></svg>
+                                        <span>
+                                            after completing payment share screenshot of successful payment
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            @* addPaymentDetails *@
+                            <div class="addpaymentDetaiscontainer" >
+                            <form asp-action="AddPaymentData" enctype="multipart/form-data">
+                                    <input class="form-control" type="hidden" asp-for="courseName" value="@Model.courseName" />
+                                    <input class="form-control" type="hidden" asp-for="courseId" value="@Model.courseId" />
+                                    @* <input class="form-control" type="file" asp-for="imglink" /> *@
+
+                                <div class="input-wrapper my-2">
+                                    <input class="text-input" type="file" asp-for="imglink"  >
+                                </div>
+                                    @* th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal p-1 *@
+                                    <button type="submit" class="btn btn-dark">
+                                        submit
+                                    </button>
+                                </form>                                                                
+                            </div>
+                          @*   <div class="billing_address_detail_Container">
+                                <h2 class="subscrptionbillingpage_secondary_title">
+                                    Billing Address
+                                </h2>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group input-wrapper">
+                                            <label class="input-label" for="msg-subject"> Select Country <span class="req">*</span></label>
+                                            <select class="form-control">
+                                                <option>select</option>
+                                                <option>India</option>
+                                                <option>Usa</option>
+                                                <option>Nepal</option>
+                                                <option>Japan</option>
+                                                <option>Canada</option>
+                                                <option>Brazil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group input-wrapper">
+                                            <label class="input-label" for="msg-subject"> State / Union Territory <span class="req">*</span></label>
+                                            <select class="form-control">
+                                                <option>select</option>
+                                                <option>Gujarat</option>
+                                                <option>Delhi</option>
+                                                <option>UP</option>
+                                                <option>MP</option>
+                                                <option>Mumbai</option>
+                                                <option>Kerala</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment_method_details_container mt-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="payment_method_headingtxt">
+                                            <h2 class="subscrptionbillingpage_secondary_title">
+                                                Payment Method
+                                            </h2>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="payment-method--heading">
+                                            <p class="text_secure_encrypted">
+                                                <span class="pe-2">Secure and encrypted</span><i class="fa-solid fa-lock"></i>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="payment-method-details">
+                                    <div class="payment-method-heading-container">
+                                        <div class="payment-method-heading-details-wrapper">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="payment-method--payment-method-content">
+                                                    <div class="payment_method_header">
+                                                        <span class="payment_method_radio">
+                                                            <input type="radio" name="name" />
+                                                        </span>
+                                                        <span class="card-svg-container">
+                                                            <svg width="24px" height="24px" viewBox="0 -0.5 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-atm-card" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>914</title> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g transform="translate(1.000000, 3.000000)" fill="#ffffff"> <path d="M14.666,0.07 L1.333,0.07 C0.597,0.07 -2.27373675e-13,0.641 -2.27373675e-13,1.347 L-2.27373675e-13,1.986 L16,1.986 L16,1.347 C16,0.642 15.402,0.07 14.666,0.07 L14.666,0.07 Z" class="si-glyph-fill"> </path> <path d="M0,8.648 C0,9.379 0.597,9.971 1.333,9.971 L14.666,9.971 C15.402,9.971 16,9.379 16,8.648 L16,4.07 L2.27373675e-13,4.07 L2.27373675e-13,8.648 L0,8.648 Z M6,5.903 L10,5.903 L10,7.028 L6,7.028 L6,5.903 L6,5.903 Z M3.958,7.933 L12,7.933 L12,9.029 L3.958,9.029 L3.958,7.933 L3.958,7.933 Z" class="si-glyph-fill"> </path> </g> </g> </g></svg>
+                                                        </span>
+                                                        <span class="payment_method_text">
+                                                            New Payment Card
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="payment_method_type_container">
+                                                    <span class="payment_method_type_option">
+                                                        <img src="~/img/payment_method/card-visa.svg" alt="card-visa-icon" />
+                                                    </span>
+                                                    <span class="payment_method_type_option">
+                                                        <img src="~/img/payment_method/card-mastercard.svg" alt="master-card-icon " />
+                                                    </span>
+                                                    <span class="payment_method_type_option">
+                                                        <img src="~/img/payment_method/card-jcb.svg" alt="card-jcb-icon" />
+                                                    </span>
+                                                    <span class="payment_method_type_option">
+                                                        <img src="~/img/payment_method/card-discover.svg" alt="card-discover" />
+                                                    </span>
+                                                    <span class="payment_method_type_option">
+                                                        <img src="~/img/payment_method/card-amex.svg" alt="card-amex" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-body-container">
+                                        <div class="payment-method-body-wrapper">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="input-wrapper payment-method-card-number-container">
+                                                        <label class="input-label"> Card number</label>
+                                                        <input class="text-input card-details-input" type="text" />
+                                                        <span class="b-border"></span><span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="input-wrapper payment-method-card-number-container">
+                                                        <label class="input-label"> Expiration date </label>
+                                                        <input class="text-input card-details-input" type="text" />
+                                                        <span class="b-border"></span><span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="input-wrapper payment-method-card-number-container">
+                                                        <label class="input-label"> Security Code </label>
+                                                        <input class="text-input card-details-input" type="text" />
+                                                        <span class="b-border"></span><span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-wrapper payment-method-card-number-container">
+                                                        <label class="input-label"> Name on card </label>
+                                                        <input class="text-input card-details-input" type="text" />
+                                                        <span class="b-border"></span><span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-wrapper payment-method-card-number-container">
+                                                        <input class="text-input" type="checkbox" />
+                                                        <label class="input-label"> Save card as per new RBI guidelines for future payments.</label>
+                                                        <span class="b-border"></span><span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="subscription-details-wrapper">
+                    <div class="d-flex justify-content-start">
+                        <div class="col-6">
+                            <h2 class="subscrptionbillingpage_primary_title">
+                                summary
+                            </h2>
+                            <div class="subscription-details-container">
+                                <div class="subscription-access-details">
+                                    <div class="course-details-container">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="courseDetails_list">
+                                                Course Name :
+                                            </p>
+                                            <span class="courseDetails_courseName">
+                                                @Model.courseName
+                                            </span>
+                                        </div>                                        
+                                    </div>
+                                    <div class="course-details-container">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="courseDetails_list">
+                                                Course Instructor :
+                                            </p>
+                                            <span class="courseDetails_courseName">
+                                                @Model.courseInstructor
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="course-details-container">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="courseDetails_list">
+                                                Course Level :
+                                            </p>
+                                            <span class="courseDetails_courseName">
+                                                @Model.courseLevel
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="d-flex justify-content-between">
+                                        <p class="course-access-duration">
+                                            Lifetime Access :
+                                        </p>
+                                        <span class="course-access-price">
+                                            ₹19800
+                                        </span>
+                                    </div>                                    
+                                    <hr />
+                                </div>
+                                <div class="subscription-total-payment">
+                                    <div class="d-flex justify-content-between">
+                                        <p>
+                                            Total :
+                                        </p>
+                                        <span>
+                                            ₹19800/-
+                                        </span>
+                                    </div>
+                                    
+                                 </div>
+                                <div class="subscription-terms-text-container">
+                                    <p>
+                                        <strong>Cancel anytime</strong> by visiting the Subscriptions page in your account.
+                                    </p>
+                                    <p>
+                                        By clicking Completing payment you agree to our Terms and are enrolling in automatic payments of the subscription fee of ₹19,800 that will start today and continue until you cancel. No refunds or credits for partial subscription periods unless required by law.
+                                    </p>
+                                 </div>
+                                 <div class="">
+
+                                 </div>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    @* </div> *@
+
+</section>
+
+@if(TempData["RequesSent"] != null){
+
+    <div id="popupAlert" class="alert alert-success fade show addedPositionOfAlert" role="alert">
+        @TempData["RequesSent"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+@section scripts {
+    <script>
+        window.setTimeout(function () {
+
+            $('#popupAlert').alert('close');
+
+        }, 3000);
+    </script>
+}

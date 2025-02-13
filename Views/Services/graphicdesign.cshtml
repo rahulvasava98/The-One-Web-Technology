@@ -1,0 +1,33 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Global_Layout.cshtml";
+
+}
+
+@section Header {
+    <title> Graphic Design | The One Web Technology</title>
+}
+
+<!-- Start inner Page hero-->
+<section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+    <div class="overlay-photo-image-bg parallax" data-bg-img="~/assets/images/hero/inner-page-hero.jpg" data-bg-opacity="1"></div>
+    <div class="overlay-color" data-bg-opacity=".75"></div>
+    <div class="container">
+        <div class="hero-text-area centerd">
+            <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">Upcoming</h1>
+            <nav aria-label="breadcrumb ">
+                <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="index"><i class="bi bi-house icon "></i>home</a></li>
+                    <li class="breadcrumb-item active">
+                        <a class="breadcrumb-link" asp-controller="Home" asp-action="graphicdesign">
+                            Graphic Design
+                        </a>
+                    </li>
+
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- End inner Page hero-->

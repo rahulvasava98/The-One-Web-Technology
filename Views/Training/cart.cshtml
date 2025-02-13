@@ -1,0 +1,327 @@
+﻿@model The_One_Web_Technology.Models.cartModelList
+@{
+    ViewData["Title"] = "cart";    
+}
+
+<style>
+
+   
+    .cart-banner {
+        margin-top: 96px;
+        background-color: var(--clr-main-variation);
+    }
+
+    .cart_coursethumbnail > img{
+        width: 173px;
+        object-fit: contain;
+    }
+    .cart_total_checkoutBtn_container > button{
+        width:100%;
+    }
+    .font-size-quinary{
+        font-size:1.1rem;
+    }
+    .cart_contentList_wrapper > table > tbody > tr {
+        border-bottom: 0.1rem solid var(--clr-dark-grey);
+    }
+
+    
+    
+    
+</style>
+
+
+<section class="cart-section">
+    <div class="cart-banner">
+        <div class="container">
+            <div class="cart_heading">
+                <div class="text-center wow fadeInUp" data-wow-delay=".6s">
+                    <div class="col-12">
+                        <h1 class="cart_primary_heading text-start py-5">
+                            Shopping Cart
+                        </h1>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cart_content_container_wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    @* list 1 *@
+                    <div class="cart_contentList">
+                        <div class="cart_contentList_wrapper">
+                            <table class="table">
+                                <tbody>
+                                    @* list start *@
+                                    @foreach(var item in Model.cartModelLists)
+                                    {
+                                        <tr class="wow fadeInUp">
+                                            <td class="cart_coursethumbnail_container">
+                                                <div class="cart_coursethumbnail">
+                                                    <img src="@item.courseWallpaper" alt="backenddevelopment" />
+                                                </div>
+                                            </td>
+                                            <td class="cart_courseDetails_container">
+                                                <div class="cart_courseDetails_division">
+                                                    <h5 class="heading_cart_coure">@item.courseName</h5>
+                                                    <p class="course_intructor">By @item.courseInstructor</p>
+                                                    <p class="cartcourserating_para">
+                                                        <span class="cart_courseRating">
+                                                            <span class="course_rating pl-3">
+                                                                4.9
+                                                            </span>
+                                                            <i class="fa-solid fa-star"></i>
+                                                            <i class="fa-solid fa-star"></i>
+                                                            <i class="fa-solid fa-star"></i>
+                                                            <i class="fa-solid fa-star"></i>
+                                                            <i class="fa-solid fa-star"></i>
+                                                        </span>
+                                                        <span>
+                                                            (567 ratings)
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td class="cart_courseActionbtns_container">
+                                                <div class="cartActionBtn-container">
+                                                    <button class="btn">
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                                <div class="cartActionBtn-container">
+                                                    <button class="btn">
+                                                        Save for Later
+                                                    </button>
+                                                </div>
+                                                <div class="cartActionBtn-container">
+                                                    <button class="btn">
+                                                        Move to Wishlist
+                                                    </button>
+                                                </div>
+
+                                            </td>
+                                            <td class="cart_courseprice_container">
+                                                <p class="cart_discouted_price">
+                                                    ₹ <span class="cart-courseDiscounted-price">399</span> <i class="fa-solid fa-tag"></i>
+                                                </p>
+                                                <s class="original_price">
+                                                    ₹ 3999
+                                                </s>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    @* list end *@
+                                    <tr class="wow fadeInUp">
+                                        <td class="cart_coursethumbnail_container">
+                                            <div class="cart_coursethumbnail">
+                                                <img src="~/assets/images/training/Backend-Development.jpg" alt="backenddevelopment"/>
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseDetails_container">
+                                            <div class="cart_courseDetails_division">
+                                                <h5 class="heading_cart_coure">javascript - complete guide (2024)</h5>
+                                                <p class="course_intructor">By Kuldeep Sir</p>
+                                                <p class="cartcourserating_para">                                                  
+                                                <span class="cart_courseRating">
+                                                        <span class="course_rating pl-3">
+                                                            4.9
+                                                        </span>    
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                </span> 
+                                                <span>
+                                                    (567 ratings)
+                                                </span>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseActionbtns_container">
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Remove
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Save for Later
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Move to Wishlist
+                                                </button>
+                                            </div>
+                                            
+                                        </td>
+                                        <td class="cart_courseprice_container">
+                                            <p class="cart_discouted_price">
+                                                ₹ <span class="cart-courseDiscounted-price">399</span> <i class="fa-solid fa-tag"></i>
+                                            </p>
+                                            <s class="original_price">
+                                                ₹ 3999
+                                            </s>
+                                        </td>
+                                    </tr>
+                                    <tr class="wow fadeInUp">
+                                        <td class="cart_coursethumbnail_container">
+                                            <div class="cart_coursethumbnail">
+                                                <img src="~/assets/images/training/Backend-Development.jpg" alt="backenddevelopment" />
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseDetails_container">
+                                            <div class="cart_courseDetails_division">
+                                                <h5 class="heading_cart_coure">javascript - complete guide (2024)</h5>
+                                                <p class="course_intructor">By Kuldeep Sir</p>
+                                                <p class="cartcourserating_para">
+                                                    <span class="cart_courseRating">
+                                                        <span class="course_rating pl-3">
+                                                            4.9
+                                                        </span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        (567 ratings)
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseActionbtns_container">
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Remove
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Save for Later
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Move to Wishlist
+                                                </button>
+                                            </div>
+
+                                        </td>
+                                        <td class="cart_courseprice_container">
+                                            <p class="cart_discouted_price">
+                                                ₹ <span class="cart-courseDiscounted-price">399</span> <i class="fa-solid fa-tag"></i>
+                                            </p>
+                                            <s class="original_price">
+                                                ₹ 3999
+                                            </s>
+                                        </td>
+                                    </tr>
+                                    <tr class="wow fadeInUp">
+                                        <td class="cart_coursethumbnail_container">
+                                            <div class="cart_coursethumbnail">
+                                                <img src="~/assets/images/training/Backend-Development.jpg" alt="backenddevelopment" />
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseDetails_container">
+                                            <div class="cart_courseDetails_division">
+                                                <h5 class="heading_cart_coure">javascript - complete guide (2024)</h5>
+                                                <p class="course_intructor">By Kuldeep Sir</p>
+                                                <p class="cartcourserating_para">
+                                                    <span class="cart_courseRating">
+                                                        <span class="course_rating pl-3">
+                                                            4.9
+                                                        </span>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </span>
+                                                    <span>
+                                                        (567 ratings)
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="cart_courseActionbtns_container">
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Remove
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Save for Later
+                                                </button>
+                                            </div>
+                                            <div class="cartActionBtn-container">
+                                                <button class="btn">
+                                                    Move to Wishlist
+                                                </button>
+                                            </div>
+
+                                        </td>
+                                        <td class="cart_courseprice_container">
+                                            <p class="cart_discouted_price">
+                                                ₹ <span class="cart-courseDiscounted-price">399</span> <i class="fa-solid fa-tag"></i>
+                                            </p>
+                                            <s class="original_price">
+                                                ₹ 3999
+                                            </s>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>                 
+                </div>
+                <div class="col-sm-12 col-md-4 cart-itemTotal-order">
+                    <div class="cart_itemTotal">
+                        <div class="cart_itemTotal_wrapper">
+                            <div class="cart_total_details class=" wow fadeInUp" mx-2">
+                                <h5 class="cart_total_text_heading font-size-quinary">
+                                    Total
+                                </h5>
+                                <h2 class="cart_total_dicountedPrice">
+                                    ₹ <span id="cart_dicounted_price">798</span>
+                                </h2>
+                                <h5 class="cart_total_originalPrice font-size-quinary">
+                                    <s>
+                                        ₹ 7998
+                                    </s>
+                                </h5>
+                                <h5 class="cart_total_discountpercentage font-size-quinary">
+                                    88% off
+                                </h5>
+                                <div class="cart_total_checkoutBtn_container">                                    
+                                    <button class=" th-btn tutor-btn-primary tutor-btn-lg tutor-btn-block tutor-add-to-cart-button tutor-open-login-modal py-2">
+                                        <span class="btn-icon tutor-icon-cart-filled"></span>
+                                        <span>Buy Now</span>
+                                    </button>
+                                </div>
+                                <hr />
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</section>
+<script>
+    window.onload = function() {
+        console.log(document.getElementsByClassName("cart-courseDiscounted-price"));
+    }
+</script>
+
+

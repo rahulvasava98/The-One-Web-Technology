@@ -1,0 +1,483 @@
+﻿@{
+    ViewData["Title"] = "courseWishlist";
+}
+<style>    
+    .courseWishlist_banner_section {
+        margin-top: 96px;
+        background-color: var(--clr-main-variation);
+    }
+
+    .courseWishlist_tab_list {
+        list-style: none;
+    }
+
+    .tab_1_schedule_learning_card {
+        border: 1px solid var(--clr-semi-dark);
+    }
+
+    .tab_1_schedule_learning_wrapper {
+        padding: 20px;
+    }
+
+    .coursewishlist_secondary_para {
+        width: 80%;
+    }
+
+    .tab_1_card_para {
+        color: var(--clr-semi-dark);
+        font-size: 0.9rem;
+    }
+
+    .tab_1_card_content_container {
+        padding: 10px;
+    }
+
+    .tab_1_card_course_rating i {
+        font-size: 0.9rem;
+    }
+
+    .tab_1_all_courses_card_container {
+        margin-top: 50px;
+    }
+
+    .tab_1_courses_card_container {
+        border: 1px solid var(--clr-main);
+        overflow: hidden;
+    }
+
+    .tab_1_all_courses_card {
+        margin-top: 50px;
+    }
+
+    .btn-model-heading-wrapper {
+        text-align: center;
+    }
+
+    .btn-model-close-btn-wrapper {
+        text-align: center;
+    }
+
+    .modal-content {
+        background-color: transparent !important;
+    }
+
+    .btn-close i {
+        color: var(--clr-white);
+    }
+
+    .leave-rating-model-star {
+        text-align: center;
+    }
+
+        .leave-rating-model-star i {
+            font-size: 2rem;
+            padding: 1rem;
+            /* font-weight:900; */
+        }
+
+    .leave-rating-model-star-container {
+        padding: 4rem;
+    }
+
+    .third_tab_search_btn {
+        /* background-color:transparent; */
+        border: none;
+        background-color: #09aff4;
+        padding: 6px 10px;
+    }
+
+
+    .coursewishlist_tab_third_search {
+        background-color: transparent;
+        border: 1px solid var(--clr-main);
+        padding: 5px 10px;
+        /* border-radius:8px; */
+        color: var(--clr-white);
+    }
+
+        .coursewishlist_tab_third_search:focus-visible {
+            outline: none;
+        }
+
+    .wishlist_thumbnail_images_container {
+        max-width: 304px;
+        max-height: 170px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .wishlist_thumbnail_icon {
+        position: absolute;
+        font-size: 1.3rem;
+        top: 5px;
+        right: 10px;
+    }
+
+    .courseWishList_mylist_tab {
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .courseWishlist_tab_link {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.5s;
+        color: var(--clr-white);
+    }
+
+        .courseWishlist_tab_link.active {
+            background-color: var(--clr-main);
+        }
+
+    .coursewishlite_tab_content {
+        display: block;
+        transition: 0.5s;
+    }
+
+</style>
+<section class="courseWishlist_section">
+    @* banner start *@
+    <div class="courseWishlist_banner_section">
+        <div class="container">
+            <div class="courseWishlist_banner">
+                <div class="profile-details-heading-wrapper py-5">
+                    <div class="text-center wow fadeInUp" data-wow-delay=".6s">
+                        <div class="col-12">
+                            <h1 class="courseWishlist_primary_heading text-start">
+                                My learning
+                            </h1>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="courseWishlist_tab_container">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-11">
+                            <div  class="courseWishlist_group">
+                                <button class="courseWishlist_tab_link" onclick="wihslistTab(event,'allcourses')">
+                                    All Courses
+                                </button>
+                  
+                                <button href="#" class="courseWishlist_tab_link" onclick="wihslistTab(event,'myLists')">
+                                    My Lists
+                                </button>
+                                <button href="#" class="courseWishlist_tab_link" onclick="wihslistTab(event,'wishlist')">
+                                    Wishlist
+                                </button>                            
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-sm-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* banner end *@
+    
+    @* tab start *@
+
+    <div class="coursewishlite_tab_content my-5" id="allcourses">
+        <div class="container">
+            <div class="coursewishlist_tab_1_body">
+                <div class="coursewishlist_tab_1_wrapper">
+                    <div class="tab_1_schedule_learning_card">
+                        <div class="tab_1_schedule_learning_wrapper">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-12">
+                                    <div class="coursewishlist_tab_1_icon_container text-center">
+                                        <svg fill="#ffffff" width="45px" height="45px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M14,13a2,2,0,1,1-3-1.723V7a1,1,0,0,1,2,0v4.277A1.994,1.994,0,0,1,14,13Zm6.06-7.461a11,11,0,1,1-16.12,0l-.672-.747A3.672,3.672,0,0,1,2,5,1,1,0,0,1,2,3c.785,0,1-.215,1-1A1,1,0,0,1,5,2a3.513,3.513,0,0,1-.28,1.417l.706.784A10.923,10.923,0,0,1,11,2.051V1a1,1,0,0,1,2,0V2.051A10.923,10.923,0,0,1,18.574,4.2l.706-.784A3.513,3.513,0,0,1,19,2a1,1,0,0,1,2,0c0,.785.215,1,1,1a1,1,0,0,1,0,2,3.672,3.672,0,0,1-1.268-.208ZM21,13a9,9,0,1,0-9,9A9.01,9.01,0,0,0,21,13Z"></path></g></svg>
+                                    </div>
+                                </div>
+                                <div class="col-lg-11 col-md-12">
+                                    <div class="coursewishlist_schedule_container">
+                                        <div class="coursewishlist_schedule_wrapper">
+                                            <h4 class="coursewishlist_secondary_heading">
+                                                Schedule learning time
+                                            </h4>
+                                            <p class="coursewishlist_secondary_para">
+                                                Learning a little each day adds up. Research shows that students who make learning a habit are more likely to reach their goals. Set time aside to learn and get reminders using your learning scheduler.
+                                            </p>
+                                            <div class="coursewishlist_btn_container">
+                                                <div class="coursewishlist_btn_wrapper">
+                                                    <button class="th-btn style6 mt-35 mb-2 me-3 mb-0 p-2">
+                                                        Get started
+                                                    </button>
+                                                    <button class="th-btn style6 mt-35  mb-0 p-2">
+                                                        Dismiss
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab_1_all_courses_card_container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3">
+                                <div class="tab_1_all_courses_card">
+                                    <div class="tab_1_all_courses_card_wrapper">
+                                        <div class="tab_1_courses_card_container">
+                                            <div class="tab_1_thumbnail_images_container">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DmLCy9PSJfFqO55mNTYOQLx3x8THsbokkw&s" />
+                                            </div>
+                                            <div class="tab_1_card_content_container">
+                                                <h5 class="tab_1_card_heading">
+                                                    The Complete 2024 Web Development Bootcamp
+                                                </h5>
+                                                <p class="tab_1_card_para">
+                                                    Dr. Angela Yu, Developer and Lead....
+                                                </p>
+                                                <div class="tab_1_card_progressBar my-2">
+                                                    <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+                                                        <div class="progress-bar" style="width: 25%"></div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="progrecss_data">
+                                                            <p class="tab_1_card_para">
+                                                                25% complete
+                                                            </p>
+                                                        </div>
+                                                        <div class="tab_1_card_leave_rating">
+                                                            <a href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                                                <div class="tab_1_card_course_rating">
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                </div>
+                                                                <div class="tab_1_card_course_txt">
+                                                                    <p class="tab_1_card_para">
+                                                                        Leaving Rating
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="coursewishlite_tab_content" id="myLists">
+        <div class="container">
+            <div class="courseWishList_mylist_tab">
+                <h4 class="courseWishList_mylist_heading">
+                    Organize and access your courses faster!
+                </h4>
+                <p class="courseWishList_mylist_heading">
+                    <a href="#">
+                        Go to the All Courses tab
+                    </a>
+                    to create a list.
+                </p>
+            </div>
+        </div>    
+    </div>
+    <div class="coursewishlite_tab_content my-5" id="wishlist">
+        <div class="container">
+            <div class="courseWishlist_tab_page">
+                <div class="row">
+                    <div class="col-sm-0 col-md-8">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        @* styled input *@
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <input class="text-input coursewishlist_tab_third_search" id="wishlist-search" type="text" placeholder="Search My Courses">
+                                <button class="third_tab_search_btn" type="button">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                        @* end  *@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="tab_1_all_courses_card">
+                            <div class="tab_1_all_courses_card_wrapper">
+                                <div class="tab_1_courses_card_container">
+                                    <div>
+                                        <div class="wishlist_thumbnail_images_container">
+                                            <span class="wishlist_thumbnail_icon">
+                                                <i id="wishlist_card_icon" onclick="courseWishlistLike()" class="fa-regular fa-heart"></i>
+                                            </span>
+
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DmLCy9PSJfFqO55mNTYOQLx3x8THsbokkw&s" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="tab_1_card_content_container">
+                                        <h5 class="tab_1_card_heading">
+                                            JavaScript
+                                        </h5>
+                                        <p class="tab_1_card_para">
+                                            Beginner Level
+                                        </p>
+                                        <div class="tab_1_card_leave_rating">
+                                            <a href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                                <div class="tab_1_card_course_rating">
+                                                    <span class="tab_1_card_course_rating_text">
+                                                        4.9
+                                                    </span>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                    <span class="tab_1_card_course_rating_text">
+                                                        (2,855)
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="tab_1_card_leave_rate">
+                                            <p class="tab_1_card_para">
+                                                6 Months
+                                            </p>
+                                            <p class="tab_course_para_price">
+                                                ₹549 <s>₹3,099</s>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>             
+    </div>
+
+            @* <div class="coursewishlist_tab_4">
+            </div>
+            <div class="coursewishlist_tab_5">
+            </div> *@
+            
+</section>
+@* model  *@
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            @* <div class="modal-header"> *@
+            <div class="row">
+                <
+                    div class="col-10">
+                    <div class="btn-model-heading-wrapper">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                            How Would You Rate This Course
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="btn-model-close-btn-wrapper">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="leave-rating-model-star-container">
+                <div class="leave-rating-model-star">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+            </div>
+
+
+            @* </div> *@
+            @* <div class="modal-body"> *@
+            @* </div> *@
+            @* <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+            </div>
+            *@
+        </div>
+    </div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function courseWishlistLike() {
+        let iconElement = document.getElementById("wishlist_card_icon");
+        ;
+        if (iconElement.style.fontWeight != "900") {
+            iconElement.style.fontWeight = "900";
+        }
+        else if (iconElement.style.fontWeight != "0") {
+            iconElement.style.fontWeight != "0";
+        }
+      
+        // console.log("djos jod josdjo jodjo osjo pop kp");
+    }
+</script>
+
+  
+
+<script>
+    function wihslistTab(evt,navList){
+        
+
+        // document.getElementById("coursewishlist_tab_all_courses").style.display = "block";
+        // document.getElementById("coursewishlist_tab_my_lists").style.display = "block";
+        // document.getElementById("coursewishlist_tab_wishlist").style.display = "block";
+
+
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("coursewishlite_tab_content");
+        console.log(tabcontent.item);
+
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("courseWishlist_tab_link");
+        console.log(tablinks.item);
+
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("active", "");
+        }
+        document.getElementById(navList).style.display = "block";
+        evt.currentTarget.className += " active";
+
+    }
+</script>

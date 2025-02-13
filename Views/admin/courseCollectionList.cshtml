@@ -1,0 +1,171 @@
+﻿@model The_One_Web_Technology.Models.coursecollectionModelList
+@{
+
+    ViewData["Title"] = "courseCollectionList";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#courseCollectionModel">
+                    Add Course
+                </button>
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+               Status 
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1 ; 
+        }
+        @foreach(var item in Model.coursecollectionlist)
+        {
+            <tr>
+                <td>@i
+                    @{
+                        i++;
+                    }
+
+                </td>
+                <td>@item.courseName</td>
+                <td>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" onchange="coursecStatusUpdate(this.checked,@item.id)" checked="@item.courseStatus" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                    </div>
+                </td> 
+                <td>
+                    <a href="#" onclick="courseCollectionEdit(@item.id)" data-bs-toggle="modal" data-bs-target="#EditcourseModel">
+                        Edit
+                    </a>
+                    <a class="mx-5" asp-action="coursecollectionDelete" asp-route-id="@item.id">
+                        Delete
+                    </a>                 
+                </td>
+
+            </tr>  
+        }
+    </tbody>
+</table>
+
+@* model *@
+<!-- Edit Modal -->
+<div class="modal fade" id="EditcourseModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Course Data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="coursecollectionEdit">
+                <div class="modal-body">
+                   
+                    <div>
+                        <input type="hidden" asp-for="id" />
+                    </div>
+                    <div>
+                        <input type="text" asp-for="courseName" placeholder="Enter Service" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Add Modal -->
+<div class="modal fade" id="courseCollectionModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Course</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="coursecollectionAdd">
+                <div class="modal-body">
+                    
+                    <div>
+                        <input type="text" asp-for="courseName" placeholder="Enter Service" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // function selectRow(data,id) {
+    //     var fetchRow = data.parentElement.parentElement;
+    //     console.log(fetchRow);
+    //     document.getElementById("courseName").value = fetchRow.children[1].innerText;
+    //     document.getElementById("id").value = id ; 
+    // }
+
+    function courseCollectionEdit(getId) {
+        $.ajax({
+            type:"POST",
+            url: "@Url.Action("courseCollectionDetails", "admin")",
+            data:{
+                id : getId
+            },
+            success: function(data) {
+                document.getElementById("courseName").value = data.courseName;
+                document.getElementById("id").value = data.id;
+                console.log(data);
+            },
+            error: function(data) {
+                console.log("error");
+            }
+        });
+    }
+
+    function coursecStatusUpdate(getstatus,getid){
+        $.ajax({
+            type:"Post",
+            url: "@Url.Action("courseCollectionStatusUpdate", "admin")",
+            data:{
+                id: getid,
+                findStatus: getstatus
+            },
+            success: function(data) {
+                console.log("success");
+            },
+            error: function (data) {
+                console.log("error");
+            }
+
+        });
+    }
+</script>
+
+
+
+

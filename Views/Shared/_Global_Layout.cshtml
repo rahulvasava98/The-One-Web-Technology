@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @await RenderSectionAsync("meta", required: false)
+
+
+    <link rel="stylesheet" href="~/css/training_main.css" />
+    <!-- fav icon -->
+    <link rel="icon" href="~/assets/images/logo/owt-logo.png">
+
+    <!-- bootstarp -->
+    <link rel="stylesheet" href="~/css/vendors/bootstrap.min.css">
+
+    <!-- animate.css file -->
+    <link rel="stylesheet" href="~/css/vendors/animate.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="~/css/vendors/swiper-bundle.min.css">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="~/css/vendors/flaticon/flaticon.css">
+
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="~/css/vendors/all.min.css">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="~/css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css">
+
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="~/css/vendors/jquery.fancybox.min.css">
+
+    <!-- fonts site preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+
+    <!-- fonts site preconnect -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Family -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+
+    <!-- main-LTR -->
+    <link rel="stylesheet" href="~/css/main-LTR.css">
+
+    @* admin style *@
+
+    @* <link rel="stylesheet" href="~/css/adminStyle.css" /> *@
+
+    <!-- about us custom css  -->
+
+
+
+    <link rel="stylesheet" href="~/css/about-custom.css" />
+    @* <link rel="stylesheet" href="~/css/training_main.css"/> *@
+    <link rel="stylesheet" href="~/css/courses.css" />
+
+
+    @await RenderSectionAsync("Header", required: false)
+
+    @await RenderSectionAsync("style", required: false)
+
+
+
+
+</head>
+
+
+<body class=" dark-theme ">
+    <!--Start Page Header-->
+    <header class=" page-header   content-always-light header-basic" id="page-header">
+        <div class="header-search-box">
+            <div class="close-search"></div>
+            <form class="nav-search search-form" role="search" method="get" action="#">
+                <div class="search-wrapper">
+                    <label class="search-lbl">Search for:</label>
+                    <input class="search-input" type="search" placeholder="Search..." name="searchInput" autofocus="autofocus" />
+                    <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <nav class="menu-navbar">
+                <div class="header-logo"><a class="logo-link" asp-action="index" asp-controller="home"><img class="logo-img light-logo" loading="lazy" src="~/assets/images/logo/owt-logo.png" alt="logo" /><img class="logo-img  dark-logo" loading="lazy" src="~/assets/images/logo/owt-logo.png" alt="logo" /></a></div>
+                <div class="links menu-wrapper ">
+                    <ul class="list-js links-list">
+                        <li class="menu-item has-sub-menu">
+                            <a class="menu-link   active" asp-controller="home" asp-action="index">home </a>
+                        </li>
+                        <li class="menu-item has-sub-menu">
+                            <a class="menu-link  " asp-action="about" asp-controller="home">about us </a>
+                            <ul class="sub-menu ">
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " href="/home/about#our-team">Our Team</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " href="/home/about#mission">Mission</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " href="/home/about#infrastructure">Infrastructure</a></li>
+
+                            </ul>
+
+                        </li>
+                        <li class=" has-sub-menu pt2">
+                            <a class="menu-link  " asp-action="services" asp-controller="Home">services</a>
+                            <div class="sub-menu  full-width-sub-menu">
+                                <div class="row">
+
+                                    <span class="backbtn">back</span>
+
+                                    <div class="col-12 col-md-12 col-lg-4">
+                                        <div class="sub-menu-des">
+                                            <div class="sub-menu-haading">
+                                                <h6 class="sub-h6 featured-text">Our Services</h6>
+                                            </div>
+                                            <p class="sub-para">
+                                                We combine creativity, technical expertise, and industry insights to deliver bespoke solutions tailored to your unique needs.
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-12 col-lg-3">
+
+                                        <div>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="webdevelopment" asp-controller="services">@* <i class="flaticon-web-development font-icon nav-logo-services"> </i>  *@ Web Development</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="softwaredevelopment" asp-controller="services">@* <i class="flaticon-web-development font-icon nav-logo-services"> </i>  *@ Software Development</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="mobileapp" asp-controller="services"> Mobile App</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="embededsystem" asp-controller="services"> Embeded System</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="graphicdesign" asp-controller="services"> Grpahic Design</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="azure" asp-controller="services"> Cloud</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="webdomainmaintenance" asp-controller="services">Web Domain and Maintenence </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-3">
+                                        <div></div>
+
+                                        <div>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="seooptimazation" asp-controller="services"> SEO Optimization</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="bulksmsandemail" asp-controller="services"> Bulk SMS and Email </a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="business" asp-controller="services"> Buisness  </a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="businessconsultant" asp-controller="services"> Buisness Consultant  </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+
+                        <li class="menu-item has-sub-menu">
+                            <a class="menu-link  " asp-action="training" asp-controller="Home">Training</a>
+
+                            <ul class="sub-menu ">
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " asp-action="training" asp-controller="Home">Training</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " asp-action="internship" asp-controller="Training">Internship</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  " asp-action="payafterplacement" asp-controller="Training">Pay after placement</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li class=" has-sub-menu pt2">
+                            <a class="menu-link  " asp-action="digitalmarketing" asp-controller="Home">Digital Marketing</a>
+                            <div class="sub-menu  full-width-sub-menu">
+                                <div class="row">
+
+                                    <span class="backbtn">back</span>
+
+                                    <div class="col-12 col-md-12 col-lg-4">
+                                        <div class="sub-menu-des">
+                                            <div class="sub-menu-haading">
+                                                <h6 class="sub-h6 featured-text">Digital Marketing</h6>
+                                            </div>
+                                            <p class="sub-para">
+                                                We combine creativity, technical expertise, and industry insights to deliver bespoke solutions tailored to your unique needs.
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 col-md-12 col-lg-4">
+
+                                        <div>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="facebookmarketingandoptimization" asp-controller="digitalmarketing">@* <i class="flaticon-web-development font-icon nav-logo-services"> </i>  *@ Facebook Marketing / Optimization </a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="instagrammarketingandoptimization" asp-controller="digitalmarketing"> Instagram Marketing / Optimization</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="googlemybusiness" asp-controller="digitalmarketing"> Google My Business</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="localandglobalseo" asp-controller="digitalmarketing"> Local / Global SEO</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="hastaganalysis" asp-controller="digitalmarketing">Hashtag Analysis </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-4">
+                                        <div></div>
+
+                                        <div>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="contentwriting" asp-controller="digitalmarketing"> Content Writing</a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="postdesign" asp-controller="digitalmarketing"> Post Design </a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="leadgeneration" asp-controller="digitalmarketing"> Lead Generation  </a>
+                                            <a class="menu-link sub-menu-link tempmenu " asp-action="googleadds" asp-controller="digitalmarketing"> Google Ads  </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+                        <li class="menu-item"><a class="menu-link  " asp-action="franfranchise" asp-controller="Home">Franchisee </a></li>
+                        <li class="menu-item"><a class="menu-link  " asp-action="carrer" asp-controller="Home">Career </a></li>
+                        <li class="menu-item"><a class="menu-link  " asp-action="contactus" asp-controller="Home">Contact us </a></li>
+                        <li class=" login_nav_custom">
+                            <div class="menu-item login_navigation_list nav_custom_login_sub custom_d_none_nav">
+                                <div class="control  custom-icon nav_custom_mr"><a class="info nav_link_custom" href="tel:+9033961309"> <i class="fa-solid fa-phone"></i></a></div>
+                                @* <div class="control header-search-btn custom-icon"><i class="fa-regular fa-envelope"></i></div> *@
+                                <div class="control  custom-icon navigation_Login_logo_container custom_d_none_nav"><a class="nav_link_custom" asp-action="contactus" asp-controller="home">  <i class="fa-solid fa-user login"></i></a></div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="controls-box">
+
+                    <div class="control  custom-icon custom-d-none"><a class="info" href="tel:+9033961309"> <i class="fa-solid fa-phone"></i></a></div>
+                    @* <div class="control header-search-btn custom-icon"><i class="fa-regular fa-envelope"></i></div> *@
+                    <div class="control  custom-icon navigation_Login_logo_container custom-d-none"><a asp-action="trainingLoginform" asp-controller="training">  <i class="fa-solid fa-user login"></i></a></div>
+                    <div class="control  custom-icon navigation_Login_logo_container custom-d-none">
+                        <a asp-action="cart" asp-controller="training">                              
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>
+                    
+                    <!--Dark/Light mode button-->
+                    @* 
+                    <div class="mode-switcher ">
+                        <div class="switch-inner go-light " title="Switch To Light Mode "><i class="bi bi-sun icon "></i></div>
+                        <div class="switch-inner go-dark" title="Switch To Dark Mode "><i class="bi bi-moon icon "></i></div>
+                    </div>
+ *@                    <!--mini shoping cart-->
+                    <!--Menu Toggler button-->
+                    <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+                    <!--search Icon button-->
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!--End Page Header-->
+    @RenderBody()
+
+    <!-- Start  page-footer Section-->
+    <!-- Start  page-footer Section-->
+    <footer class="page-footer dark-color-footer" id="page-footer">
+        <div class="overlay-photo-image-bg" data-bg-img="assets/images/sections-bg-images/footer-bg-1.jpg" data-bg-opacity=".25"></div>
+        <div class="container">
+            <div class="row footer-cols">
+                <div class="col-12 col-md-9 col-lg-4  footer-col ">
+                    <img class="img-fluid footer-logo" loading="lazy" src="~/assets/images/logo/owt-logo.png" alt="logo" />
+                    <div class="footer-col-content-wrapper">
+                        <p class="footer-text-about-us ">
+                            The One Web Technology delivers extensive web services ranging from custom website design to development of complex enterprise web applications.
+
+                        </p>
+                    </div>
+                    <div class="form-area ">
+                        <div class="mailchimp-form ">
+                            <form class="one-field-form" method="post" action="#0">
+                                <div class="field-group ">
+                                    <label class="email-label" for="email-input"> Subscribe to our news letter</label>
+                                    <input class="email-input " type="email" value="" name="EMAIL" id="email-input" placeholder="Email Address" autocomplete="off" />
+                                    <div class="cta-area">
+                                        <input class="btn-solid subscribe-btn" type="submit" value="Subscribe" name="subscribe" />
+                                    </div>
+                                </div><span class="email-notice">*we will not share your personal info</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2  footer-col ">
+                    <h2 class=" footer-col-title    ">useful links</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu ">
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="index" asp-controller="home">Home</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="about" asp-controller="home">About us</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="services" asp-controller="home">Services</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="training" asp-controller="home">Training</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="digitalmarketing" asp-controller="home">Digital Marketing</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="carrer" asp-controller="home">Franchisee</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="carrer" asp-controller="home">Carrer</a>
+                            </li>
+
+
+                            @*  <li class="footer-menu-item">
+                            <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" href="#0">Dribbble</a>
+                            </li>
+                            *@
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="contactus" asp-controller="home">Contact us</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="trainingLoginform" asp-controller="training">Login</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="TrainingregistrationForm" asp-controller="training">Registration</a>
+                            </li>
+                            @*  <li class="footer-menu-item">
+                            <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" href="#0">wikipedia</a>
+                            </li> *@
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 footer-col ">
+                    <h2 class=" footer-col-title    ">Services</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="webdevelopment" asp-controller="Services"> Web Development </a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="softwaredevelopment" asp-controller="Services"> Software Development</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="training" asp-controller="home"> Pay after placement</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="training" asp-controller="home"> Internship</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="digitalmarketing" asp-controller="home">Social Media Marketing</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="seooptimazation" asp-controller="Services">SEO</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="businessconsultant" asp-controller="Services">Business Consulting</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="serviceUserLogin" asp-controller="Services">Login</a>
+                            </li>
+                            <li class="footer-menu-item">
+                                <i class="bi bi-arrow-right icon "></i><a class="footer-menu-link" asp-action="serviceRegistrationForm" asp-controller="Services">Registration</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12     col-lg-4 footer-col ">
+                    <h2 class=" footer-col-title    ">contact information</h2>
+                    <div class="footer-col-content-wrapper">
+                        <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a class="text-lowercase  info" href="mailto:info@theonewebtechnology.com">info@theonewebtechnology.com</a></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info" href="tel:9033961309"> (+91)9033961309   </a>, <a class="info" href="tel:7778901754">(+91)7778901754</a>  </div>
+
+                        <div class="contact-info-card">
+                            <i class="bi bi-geo-alt icon"></i><a class="info" href="https://maps.app.goo.gl/qJ5VoAnfUjWF94n27">
+                                <span class="info">
+                                    FF/37, Alankar Complex, Aurobindo Ghosh Rd, Near DairyDen circle, Near Sayajigunj Police Station, Sarod, Sayajiganj, Vadodara, Gujarat 390005
+                                </span>
+                            </a>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="social-icons">
+                                <div class="sc-wrapper dir-row sc-size-32">
+                                    <ul class="sc-list">
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="https://www.instagram.com/theonewebtechnology_services/" title="theonewebtechnology_services-instagram"><i class="fab fa-instagram sc-icon"></i></a></li>
+                                        <li class="sc-item " title="Facebook"><a class="sc-link" href="https://www.facebook.com/TheOneWebTechnology" title="TheOneWebTechnology-facebook"><i class="fab fa-facebook-f sc-icon"></i></a></li>
+                                        <li class="sc-item " title="youtube"><a class="sc-link" href="https://www.youtube.com/channel/UCEmJUZ9rzXyV-nBqW3s2K1g/videos?app=desktop&view=0&sort=dd&shelf_id=0" title="TheOneWebTechnology-youtube"><i class="fab fa-youtube sc-icon"></i></a></li>
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="https://www.instagram.com/theonewebtechnology/" title="theonewebtechnology-instagram"><i class="fab fa-instagram sc-icon"></i></a></li>
+                                        <li class="sc-item " title="twitter"><a class="sc-link" href="https://x.com/i/flow/login?redirect_after_login=%2FTheOneWebTechn1" title="theonewebtechnology-twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="creadits">
+
+
+                            &copy; 2024
+                            Created by:
+
+                            <a class="link" href="#0">The One Web Technology</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end footer_copyright_TandC_container">
+                        <div class="terms-links">
+                            <a href="#0">Terms of Use </a>
+                            | <a href="#0" data-bs-toggle="modal" data-bs-target="#">Privacy Policy.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End  page-footer Section-->
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top">
+        <i class="bi bi-arrow-up icon "></i>
+    </div>
+    <!-- End back-to-top Button-->
+    <!-- Start privacy-policy-modal-->
+    <div class="modal privacy-policy-modal fade" id="privacyPolicyModal" aria-labelledby="PrivacyPolicyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl ">
+            <div class="modal-content text-dark">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="PrivacyPolicyModalLabel">Privacy Policy Modal Title</h2>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                    <div class="content">
+                        <h4>privacy policy item Title goes here </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores saepe, labore sequi libero nesciunt optio quidem iste, dolorum nostrum ex at. Recusandae ducimus aut autem temporibus tempore rerum, consequuntur doloribus perspiciatis, labore totam dolorem veritatis repellendus omnis illo sint ut?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-solid" type="button" data-bs-dismiss="modal" aria-label="Close">Click to close</button>
+                    <button class="btn-outline" type="button">Do somthing else</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End privacy-policy-modal-->
+    @await RenderSectionAsync("Scripts", required: false)
+    <!--     JQuery     -->
+    <script src="~/js/vendors/jquery-3.6.1.min.js"></script>
+
+    <!--     appear     -->
+    <script src="~/js/vendors/appear.min.js"></script>
+
+    <!--     bootstrap     -->
+    <script src="~/js/vendors/bootstrap.bundle.min.js"></script>
+
+    <!--     countTo     -->
+    <script src="~/js/vendors/jquery.countTo.js"></script>
+
+    <!--     wow     -->
+    <script src="~/js/vendors/wow.min.js"></script>
+
+    <!--     swiper     -->
+    <script src="~/js/vendors/swiper-bundle.min.js"></script>
+
+    <!--     particles     -->
+    <script src="~/js/vendors/particles.min.js"></script>
+
+    <!--     Vanilla-tilt     -->
+    <script src="~/js/vendors/vanilla-tilt.min.js"></script>
+
+    <!--     isotope     -->
+    <script src="~/js/vendors/isotope-min.js"></script>
+
+    <!--     fancybox     -->
+    <script src="~/js/vendors/jquery.fancybox.min.js"></script>
+
+    <!--     main     -->
+    <script src="~/js/main.js"></script>
+    
+    @section Scripts {
+    
+            @* for Alert popup *@
+        <script>
+            window.setTimeout(function () {
+
+                $('#popupAlert').alert('close');
+
+            }, 3000);
+        </script>
+
+    }
+
+            
+</body>
+</html>
+
