@@ -38,7 +38,10 @@ namespace The_One_Web_Technology.Data
 
         //coursePayMentMst
         public DbSet<coursePaymentRequestMst> coursePaymentRequestMsts { get; set; }
-        
+
+        //Course Refreall Mst
+        public DbSet<CourseReffrealMst> courseReffrealMsts { get;set; }
+
 
     }
 }

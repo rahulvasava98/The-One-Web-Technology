@@ -32,8 +32,9 @@ namespace The_One_Web_Technology.Repository
 
         public void AddCourseModuleData(courseModuleModelList courseModuleModelList)
         {
-            var data = new courseModuleDetailsMst() { 
-               
+            var data = new courseModuleDetailsMst()
+            {
+
                 SectionName = courseModuleModelList.SectionName,
                 courseId = courseModuleModelList.courseId
             };
@@ -42,9 +43,9 @@ namespace The_One_Web_Technology.Repository
         }
 
         public void EditCourseModuleData(courseModuleModelList courseModuleModelList)
-        {   
+        {
             var data = new courseModuleDetailsMst()
-            {   
+            {
                 courseModuleId = courseModuleModelList.courseModuleId,
                 SectionName = courseModuleModelList.SectionName,
                 courseId = courseModuleModelList.courseId
@@ -58,6 +59,26 @@ namespace The_One_Web_Technology.Repository
             var data = _datacontext.courseModuleDetailsMsts.Find(id);
             _datacontext.courseModuleDetailsMsts.Remove(data);
             _datacontext.SaveChanges();
+        }
+
+        public List<CourseReffrealModelList> courserefrealllist()
+        {
+            List<CourseReffrealModelList> list = new List<CourseReffrealModelList>();
+            var data = _datacontext.courseReffrealMsts.ToList();
+            foreach (var item in data)
+            {
+                CourseReffrealModelList courseReffrealModel = new CourseReffrealModelList()
+                {
+                    id = item.id,
+                    creffrealpoint = item.creffrealpoint,
+                    startingdate = item.startingdate,
+                    endingdate = (DateTime)item.endingdate,
+                    courseid = item.courseid,
+                    status = item.status
+                };
+                list.Add(courseReffrealModel);
+            }
+            return list;
         }
     }
 }
