@@ -102,6 +102,13 @@ namespace The_One_Web_Technology.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
+        [HttpGet]
+        public IActionResult Brand360()
+        {
+            return View();
+        }
+
+
     }
 }
