@@ -1,0 +1,144 @@
+﻿@model The_One_Web_Technology.Models.CourseReffrealModelList
+@{
+    ViewData["Title"] = "coursePayment";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<style>
+
+    .addedPositionOfAlert {
+        position: absolute !important;
+        right: 3rem !important;
+        top: 7rem !important;
+    }
+
+    .admin-custom-header {
+        background: #f8f8f8;
+        padding: 15px;
+    }
+
+    .admin-custom-heading {
+        font-size: 1.2rem;
+    }
+
+    .admin-custom-btn-container a {
+        color: var(--bs-white);
+    }
+
+    .admin-custom-card-data {
+        background: #f8f8f8;
+    }
+
+    .admin-custom-card-heading {
+        line-height: 2.1;
+        font-size: 1rem;
+    }
+
+    .movesvg {
+        transform: rotate(180deg);
+        transition: 1s ease;
+    }
+
+</style>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Course Refreall Form Add
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Course Refreall Form</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="courserefreallform">
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Course Name</label>
+                        <select class="form-select" aria-label="Default select example" asp-for="courseid">
+                            <option selected>Open this select menu</option>
+                            @foreach (var item in Model.courseDetailsMsts)
+                            {
+                                <option value="@item.courseId">@item.courseName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Course Points</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="creffrealpoint">
+                    </div>
+                    <div class="mb-3">
+                        <input type="hidden" class="form-control" id="exampleInputPassword1" asp-for="startingdate">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Ending Date</label>
+                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="endingdate">
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="form-check-input" type="hidden" role="switch" id="flexSwitchCheckDefault" asp-for="status" value="false">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Course Id</th>
+            <th>Course Points</th>
+            <th>Starting Date</th>
+            <th>Ending Date</th>
+            <th>Status</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var iteam in Model.CourseReffrealModelLists)
+        {
+            <tr>
+                <td>@iteam.id</td>
+                <td>@iteam.courseid</td>
+                <td>@iteam.creffrealpoint</td>
+                <td>@iteam.startingdate.ToString()</td>
+                <td>@iteam.endingdate.ToString()</td>
+                <td><input checked="@iteam.status" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onchange="GetStatus(checked,@iteam.id)"></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    <script>        
+        function GetStatus(coureseStatus, id) {
+          
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("UpdateCourseRefreallStatus", "admin")",
+                data: {
+                    status : coureseStatus,
+                    cid : id
+                },
+                success: function (data) {                  
+                },
+                error: function (data) {
+                    console.log("Error");
+                }
+            });
+        }
+    </script>
+}

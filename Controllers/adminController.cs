@@ -23,9 +23,9 @@ namespace The_One_Web_Technology.Controllers
         private readonly courseLectureRepository _courseLectureRepository;
         private readonly CourseModuleAndLectureRepository _courseModuleAndLectureRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        
-        
-		public adminController(Datacontext datacontext,IWebHostEnvironment webHostEnvironment)
+
+
+        public adminController(Datacontext datacontext, IWebHostEnvironment webHostEnvironment)
         {
             _datacontext = datacontext;
             _webHostEnvironment = webHostEnvironment;
@@ -33,8 +33,8 @@ namespace The_One_Web_Technology.Controllers
             _contactRepository = new contactRepository(datacontext);
             _serviceRepository = new serviceRepository(datacontext);
             _serviceRegistrationRepository = new serviceRegistrationRepository(datacontext);
-            _trainingRegistrationRepository = new trainingRegistrationRepository(datacontext,webHostEnvironment);
-            
+            _trainingRegistrationRepository = new trainingRegistrationRepository(datacontext, webHostEnvironment);
+
             _coursecollectionRepository = new coursecollectionRepository(datacontext);
             _categoriesRepository = new categoriesRepository(datacontext);
             _courseDetailsRepository = new courseDetailsRepository(datacontext);
@@ -107,7 +107,7 @@ namespace The_One_Web_Technology.Controllers
         public IActionResult serviceRegistrationList()
         {
             //return View();
-           return View(_serviceRegistrationRepository.serviceRegistrationList());
+            return View(_serviceRegistrationRepository.serviceRegistrationList());
         }
 
         [HttpGet]
@@ -151,7 +151,7 @@ namespace The_One_Web_Technology.Controllers
         public JsonResult serviceStatus(int id, bool serviceStatusData)
         {
             var data = _datacontext.serviceMsts.Where(s => s.Id == id).FirstOrDefault();
-            if(data != null)
+            if (data != null)
             {
                 data.serviceStatus = serviceStatusData;
                 _datacontext.serviceMsts.Update(data);
@@ -170,12 +170,12 @@ namespace The_One_Web_Technology.Controllers
         //coursecollectionMst   
         [HttpGet]
         public IActionResult coursecollectionlist()
-        {   
-            
+        {
+
             coursecollectionModelList coursecollectionModelList = new coursecollectionModelList();
             coursecollectionModelList.coursecollectionlist = _coursecollectionRepository.coursecollectionList();
             return View(coursecollectionModelList);
-          
+
         }
 
         [HttpPost]
@@ -200,10 +200,10 @@ namespace The_One_Web_Technology.Controllers
 
         }
         [HttpPost]
-        public JsonResult courseCollectionStatusUpdate(int id , bool findStatus)
+        public JsonResult courseCollectionStatusUpdate(int id, bool findStatus)
         {
             var Data = _datacontext.coursecollectionMsts.Where(s => s.id == id).FirstOrDefault();
-            if(Data != null)
+            if (Data != null)
             {
                 Data.courseStatus = findStatus;
                 _datacontext.coursecollectionMsts.Update(Data);
@@ -224,12 +224,12 @@ namespace The_One_Web_Technology.Controllers
         {
             categoriesModelList categoriesModelList = new categoriesModelList();
             categoriesModelList.categoriesList = _categoriesRepository.categoriesList();
-            
+
             return View(categoriesModelList);
         }
 
         [HttpPost]
-        public IActionResult categorieAdd(categoriesModelList categoriesModelList) 
+        public IActionResult categorieAdd(categoriesModelList categoriesModelList)
         {
             _categoriesRepository.AddCategories(categoriesModelList);
             return RedirectToAction("categoriesList");
@@ -250,10 +250,10 @@ namespace The_One_Web_Technology.Controllers
         }
 
         [HttpPost]
-        public JsonResult categoriesStatus(int id,bool findStatus)
+        public JsonResult categoriesStatus(int id, bool findStatus)
         {
             var data = _datacontext.categoriesMsts.Where(s => s.categoriesId == id).FirstOrDefault();
-            if(data != null)
+            if (data != null)
             {
                 data.categoriestatus = findStatus;
                 _datacontext.categoriesMsts.Update(data);
@@ -301,8 +301,8 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public JsonResult courseDetailsgetDetails(int id)
         {
-          var data = _datacontext.courseDetailsMsts.Find(id);
-           return Json(data);
+            var data = _datacontext.courseDetailsMsts.Find(id);
+            return Json(data);
         }
 
         [HttpPost]
@@ -310,7 +310,7 @@ namespace The_One_Web_Technology.Controllers
         {
 
             _courseDetailsRepository.deleteCourseDetails(id);
-            return RedirectToAction("courseDetailslist"); 
+            return RedirectToAction("courseDetailslist");
 
         }
         //[HttpPost]
@@ -331,11 +331,11 @@ namespace The_One_Web_Technology.Controllers
         [HttpGet]
         public IActionResult CourseModuleDetails()
         {
-                courseModuleModelList courseModuleModel = new courseModuleModelList();
-                courseModuleModel.courseDetailsMstsList = _datacontext.courseDetailsMsts.ToList();
-                courseModuleModel.courseModuleList = _courseModuleRepository.courseModuleMstList();
-                
-                
+            courseModuleModelList courseModuleModel = new courseModuleModelList();
+            courseModuleModel.courseDetailsMstsList = _datacontext.courseDetailsMsts.ToList();
+            courseModuleModel.courseModuleList = _courseModuleRepository.courseModuleMstList();
+
+
 
             return View(courseModuleModel);
         }
@@ -344,7 +344,7 @@ namespace The_One_Web_Technology.Controllers
         {
             _courseModuleRepository.AddCourseModuleData(courseModuleModel);
             TempData["AddSection"] = "New Section Added ";
-            return RedirectToAction("CourseModuleDetails");     
+            return RedirectToAction("CourseModuleDetails");
         }
 
         [HttpPost]
@@ -360,7 +360,7 @@ namespace The_One_Web_Technology.Controllers
 
             _courseModuleRepository.EditCourseModuleData(courseModuleModelList);
             TempData["ModuleEdited"] = "Section Data Updated ";
-            
+
             return RedirectToAction("CourseModuleDetails");
 
         }
@@ -369,8 +369,8 @@ namespace The_One_Web_Technology.Controllers
         {
             _courseModuleRepository.DeleteModuleDataRe(id);
 
-            TempData["SectionDeleted"] = "Section Deleted !"; 
-            
+            TempData["SectionDeleted"] = "Section Deleted !";
+
             return RedirectToAction("CourseModuleDetails");
         }
 
@@ -379,7 +379,8 @@ namespace The_One_Web_Technology.Controllers
 
 
         [HttpGet]
-        public IActionResult CourseLectureDetails(){
+        public IActionResult CourseLectureDetails()
+        {
 
             courseLectureDetailsModelList courseLectureDetailsModelList = new courseLectureDetailsModelList();
             courseLectureDetailsModelList.courseModuleDetailsMstsList = _datacontext.courseModuleDetailsMsts.ToList();
@@ -418,7 +419,7 @@ namespace The_One_Web_Technology.Controllers
 
         }
 
-                             
+
         [HttpGet]
         public IActionResult AddCourseModuleAndLecture()
         {
@@ -429,14 +430,14 @@ namespace The_One_Web_Technology.Controllers
             return View(courseModuleLecture);
         }
 
-   
+
 
         [HttpPost]
         public IActionResult AddLectureDataFromAddCourseModuleAndLecture(CourseModuleAndLectureModelList courseModuleAndLectureModel)
-        {       
-                _courseModuleAndLectureRepository.AddDataToLectureFromAdminView(courseModuleAndLectureModel);
-                TempData["AddLectureMessage"] = "New Lecture Added"; 
-                return RedirectToAction("AddCourseModuleAndLecture");
+        {
+            _courseModuleAndLectureRepository.AddDataToLectureFromAdminView(courseModuleAndLectureModel);
+            TempData["AddLectureMessage"] = "New Lecture Added";
+            return RedirectToAction("AddCourseModuleAndLecture");
         }
 
         [HttpPost]
@@ -457,7 +458,7 @@ namespace The_One_Web_Technology.Controllers
         public IActionResult DeleteLectureDataFromAddCourseModuleAndLecture(int id)
         {
             _courseModuleAndLectureRepository.DeleteLectureFromAdminView(id);
-            TempData["DeleteLecture"] = "Lecture Deleted !"; 
+            TempData["DeleteLecture"] = "Lecture Deleted !";
             return RedirectToAction("AddCourseModuleAndLecture");
         }
 
@@ -465,7 +466,7 @@ namespace The_One_Web_Technology.Controllers
         public IActionResult addNewModule(CourseModuleAndLectureModelList courseModuleAndLecture)
         {
             _courseModuleAndLectureRepository.AddModule(courseModuleAndLecture);
-            TempData["AddModule"] = " Section Added "; 
+            TempData["AddModule"] = " Section Added ";
             return RedirectToAction("AddCourseModuleAndLecture");
         }
 
@@ -477,16 +478,18 @@ namespace The_One_Web_Technology.Controllers
             return RedirectToAction("AddCourseModuleAndLecture");
         }
 
-        public IActionResult deleteModuleAndrelatedLecture(int id) {
+        public IActionResult deleteModuleAndrelatedLecture(int id)
+        {
             _courseModuleAndLectureRepository.DeleteModuleAndLecture(id);
-            TempData["ModuleDelete"] = "Section Deleted !"; 
+            TempData["ModuleDelete"] = "Section Deleted !";
             return RedirectToAction("AddCourseModuleAndLecture");
         }
 
         [HttpPost]
         public JsonResult updateUsingAjax(CourseModuleAndLectureModel modal)
         {
-            var courselectureMst = new courseLectureDetailsMst() { 
+            var courselectureMst = new courseLectureDetailsMst()
+            {
                 courseLectureId = modal.courseLectureId,
                 LectureName = modal.LectureName,
                 LectureLink = modal.LectureLink,
@@ -503,12 +506,13 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public JsonResult AddLectureUsingAjaxMe(CourseModuleAndLectureModel modal)
         {
-            var lectureMst = new courseLectureDetailsMst() { 
+            var lectureMst = new courseLectureDetailsMst()
+            {
                 //courseLectureId=modal.courseLectureId,
-                LectureName=modal.LectureName,
-                LectureLink=modal.LectureLink,
-                LectureUploadDate=System.DateTime.Now,
-                courseModuleId =modal.courseModuleId    
+                LectureName = modal.LectureName,
+                LectureLink = modal.LectureLink,
+                LectureUploadDate = System.DateTime.Now,
+                courseModuleId = modal.courseModuleId
             };
             _datacontext.courseLectureDetailsMsts.Add(lectureMst);
             _datacontext.SaveChanges();
@@ -518,7 +522,7 @@ namespace The_One_Web_Technology.Controllers
         [HttpGet]
         public JsonResult CreateListUsingAjax(CourseModuleAndLectureModelList listLectureModel)
         {
-            
+
             CourseModuleAndLectureModelList courseModuleAndLectureModelList = new CourseModuleAndLectureModelList();
             courseModuleAndLectureModelList.courseLectureList = _datacontext.courseLectureDetailsMsts.ToList();
             courseModuleAndLectureModelList.courseModuleList = _datacontext.courseModuleDetailsMsts.ToList();
@@ -536,34 +540,77 @@ namespace The_One_Web_Technology.Controllers
         }
 
         [HttpPost]
-        public JsonResult UpdateCourseStatus(bool status,int payId)
+        public JsonResult UpdateCourseStatus(bool status, int payId)
         {
             var data = _datacontext.coursePaymentRequestMsts.Find(payId);
-            var paymentData = new coursePaymentRequestMst() { 
-            
+            var paymentData = new coursePaymentRequestMst()
+            {
+
                 paymentId = payId,
                 PaymentStatus = status
-                                
+
             };
             var exitingData = _datacontext.coursePaymentRequestMsts.Find(paymentData.paymentId);
-            if (exitingData != null) { 
+            if (exitingData != null)
+            {
                 exitingData.PaymentStatus = paymentData.PaymentStatus;
                 _datacontext.SaveChanges();
             }
-            
+
             return Json(paymentData);
 
         }
-        
+
         public IActionResult DeleteCoursePaymentDetails(int id)
         {
             var findData = _datacontext.coursePaymentRequestMsts.Find(id);
 
             _datacontext.coursePaymentRequestMsts.Remove(findData);
             _datacontext.SaveChanges();
-            TempData["coursePaymentDetails"] = "Course Payment Details Deleted"; 
+            TempData["coursePaymentDetails"] = "Course Payment Details Deleted";
             return RedirectToAction("coursePayment");
         }
-     
+
+        [HttpGet]
+        public IActionResult courserefreallform()
+        {
+            CourseReffrealModelList courseReffrealModelList = new CourseReffrealModelList();
+            courseReffrealModelList.courseDetailsMsts = _datacontext.courseDetailsMsts.ToList();
+            courseReffrealModelList.CourseReffrealModelLists = _courseModuleRepository.courserefrealllist();
+            return View(courseReffrealModelList);
+        }
+
+        [HttpPost]
+        public IActionResult courserefreallform(CourseReffrealModelList refrealladd)
+        {
+            CourseReffrealMst courseReffrealMst = new CourseReffrealMst()
+            {
+                courseid = refrealladd.courseid,
+                creffrealpoint = refrealladd.creffrealpoint,
+                startingdate = refrealladd.startingdate,
+                endingdate = refrealladd.endingdate,
+                status = refrealladd.status
+            };
+            _datacontext.courseReffrealMsts.Add(courseReffrealMst);
+            _datacontext.SaveChanges();
+
+            return RedirectToAction("courserefreallform");
+
+        }
+
+        [HttpPost]
+        public JsonResult UpdateCourseRefreallStatus(Boolean status, int cid)
+        {
+            var data = _datacontext.courseReffrealMsts.Where(r => r.id == cid).FirstOrDefault();
+            if (data != null)
+            {
+                data.status = status;
+                _datacontext.courseReffrealMsts.Update(data);
+                _datacontext.SaveChanges();
+            }
+            return Json(data);
+
+        }
+
     }
 }
