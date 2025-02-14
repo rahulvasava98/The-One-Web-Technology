@@ -42,6 +42,8 @@ namespace The_One_Web_Technology.Data
         //Course Refreall Mst
         public DbSet<CourseReffrealMst> courseReffrealMsts { get;set; }
 
+        public DbSet<CourseRefreallMangeMst> courseRefreallMangeMsts { get; set; }
+
 
     }
 }

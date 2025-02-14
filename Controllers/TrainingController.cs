@@ -670,6 +670,10 @@ namespace The_One_Web_Technology.Controllers
             return Json(new { Data.LectureLink ,Id, Data.courseModuleId});
         }
 
+
+
+    
+
        
         
 

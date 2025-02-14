@@ -612,5 +612,13 @@ namespace The_One_Web_Technology.Controllers
 
         }
 
+        //Refreall Course 
+        [HttpGet]
+        public IActionResult courserefreall(int id)
+        {
+
+            return View();
+        }
+
     }
 }
