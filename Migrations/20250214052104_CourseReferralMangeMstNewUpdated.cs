@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace The_One_Web_Technology.Migrations
 {
     /// <inheritdoc />
-    public partial class CourseRefreallManageMst : Migration
+    public partial class CourseReferralMangeMstNewUpdated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "courseRefreallMangeMsts",
+                name: "CourseReferralMangeMst",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -24,18 +24,18 @@ namespace The_One_Web_Technology.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_courseRefreallMangeMsts", x => x.id);
+                    table.PrimaryKey("PK_CourseReferralMangeMst", x => x.id);
                     table.ForeignKey(
-                        name: "FK_courseRefreallMangeMsts_courseReffrealMsts_refreallid",
+                        name: "FK_CourseReferralMangeMst_CourseReferralMst_refreallid",
                         column: x => x.refreallid,
-                        principalTable: "courseReffrealMsts",
+                        principalTable: "CourseReferralMst",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_courseRefreallMangeMsts_refreallid",
-                table: "courseRefreallMangeMsts",
+                name: "IX_CourseReferralMangeMst_refreallid",
+                table: "CourseReferralMangeMst",
                 column: "refreallid");
         }
 
@@ -43,7 +43,7 @@ namespace The_One_Web_Technology.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "courseRefreallMangeMsts");
+                name: "CourseReferralMangeMst");
         }
     }
 }

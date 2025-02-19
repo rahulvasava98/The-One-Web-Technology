@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using System.Reflection.Metadata.Ecma335;
 using The_One_Web_Technology.Data;
+using The_One_Web_Technology.Migrations;
 using The_One_Web_Technology.Models;
 using The_One_Web_Technology.Repository;
 
@@ -488,7 +489,7 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public JsonResult updateUsingAjax(CourseModuleAndLectureModel modal)
         {
-            var courselectureMst = new courseLectureDetailsMst()
+            var courselectureMst = new Data.courseLectureDetailsMst()
             {
                 courseLectureId = modal.courseLectureId,
                 LectureName = modal.LectureName,
@@ -506,7 +507,7 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public JsonResult AddLectureUsingAjaxMe(CourseModuleAndLectureModel modal)
         {
-            var lectureMst = new courseLectureDetailsMst()
+            var lectureMst = new Data.courseLectureDetailsMst()
             {
                 //courseLectureId=modal.courseLectureId,
                 LectureName = modal.LectureName,
@@ -583,7 +584,7 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public IActionResult courserefreallform(CourseReffrealModelList refrealladd)
         {
-            CourseReffrealMst courseReffrealMst = new CourseReffrealMst()
+            var data = new CourseReferralMst()
             {
                 courseid = refrealladd.courseid,
                 creffrealpoint = refrealladd.creffrealpoint,
@@ -591,7 +592,7 @@ namespace The_One_Web_Technology.Controllers
                 endingdate = refrealladd.endingdate,
                 status = refrealladd.status
             };
-            _datacontext.courseReffrealMsts.Add(courseReffrealMst);
+            _datacontext.CourseReferralMst.Add(data);
             _datacontext.SaveChanges();
 
             return RedirectToAction("courserefreallform");
@@ -601,24 +602,17 @@ namespace The_One_Web_Technology.Controllers
         [HttpPost]
         public JsonResult UpdateCourseRefreallStatus(Boolean status, int cid)
         {
-            var data = _datacontext.courseReffrealMsts.Where(r => r.id == cid).FirstOrDefault();
+            var data = _datacontext.CourseReferralMst.Where(r => r.id == cid).FirstOrDefault();
             if (data != null)
             {
                 data.status = status;
-                _datacontext.courseReffrealMsts.Update(data);
+                _datacontext.CourseReferralMst.Update(data);
                 _datacontext.SaveChanges();
             }
             return Json(data);
 
         }
-
-        //Refreall Course 
-        [HttpGet]
-        public IActionResult courserefreall(int id)
-        {
-
-            return View();
-        }
+        
 
     }
 }

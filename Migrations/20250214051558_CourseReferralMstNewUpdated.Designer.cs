@@ -12,8 +12,8 @@ using The_One_Web_Technology.Data;
 namespace The_One_Web_Technology.Migrations
 {
     [DbContext(typeof(Datacontext))]
-    [Migration("20250214040036_CourseRefreallManageMst")]
-    partial class CourseRefreallManageMst
+    [Migration("20250214051558_CourseReferralMstNewUpdated")]
+    partial class CourseReferralMstNewUpdated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace The_One_Web_Technology.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("The_One_Web_Technology.Data.CourseReffrealMst", b =>
+            modelBuilder.Entity("The_One_Web_Technology.Data.CourseReferralMst", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -52,34 +52,7 @@ namespace The_One_Web_Technology.Migrations
 
                     b.HasIndex("courseid");
 
-                    b.ToTable("courseReffrealMsts");
-                });
-
-            modelBuilder.Entity("The_One_Web_Technology.Data.CourseRefreallMangeMst", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("refreallid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("userid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("usershareid")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("refreallid");
-
-                    b.ToTable("courseRefreallMangeMsts");
+                    b.ToTable("CourseReferralMst");
                 });
 
             modelBuilder.Entity("The_One_Web_Technology.Data.cartMst", b =>
@@ -513,7 +486,7 @@ namespace The_One_Web_Technology.Migrations
                     b.ToTable("trainingRegistrationmsts");
                 });
 
-            modelBuilder.Entity("The_One_Web_Technology.Data.CourseReffrealMst", b =>
+            modelBuilder.Entity("The_One_Web_Technology.Data.CourseReferralMst", b =>
                 {
                     b.HasOne("The_One_Web_Technology.Data.courseDetailsMst", "courseDetailsMst")
                         .WithMany()
@@ -522,17 +495,6 @@ namespace The_One_Web_Technology.Migrations
                         .IsRequired();
 
                     b.Navigation("courseDetailsMst");
-                });
-
-            modelBuilder.Entity("The_One_Web_Technology.Data.CourseRefreallMangeMst", b =>
-                {
-                    b.HasOne("The_One_Web_Technology.Data.CourseReffrealMst", "CourseReffrealMst")
-                        .WithMany()
-                        .HasForeignKey("refreallid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CourseReffrealMst");
                 });
 
             modelBuilder.Entity("The_One_Web_Technology.Data.courseLectureDetailsMst", b =>

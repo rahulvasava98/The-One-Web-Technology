@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace The_One_Web_Technology.Data
 {
-    public class CourseReffrealMst
+    public class CourseReferralMst
     {
         [Key]
         public int id { get; set; }

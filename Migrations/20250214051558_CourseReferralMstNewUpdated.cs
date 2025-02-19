@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace The_One_Web_Technology.Migrations
 {
     /// <inheritdoc />
-    public partial class CourseRefreallMst : Migration
+    public partial class CourseReferralMstNewUpdated : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,7 @@ namespace The_One_Web_Technology.Migrations
                 oldType: "nvarchar(max)");
 
             migrationBuilder.CreateTable(
-                name: "courseReffrealMsts",
+                name: "CourseReferralMst",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -33,9 +33,9 @@ namespace The_One_Web_Technology.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_courseReffrealMsts", x => x.id);
+                    table.PrimaryKey("PK_CourseReferralMst", x => x.id);
                     table.ForeignKey(
-                        name: "FK_courseReffrealMsts_courseDetailsMsts_courseid",
+                        name: "FK_CourseReferralMst_courseDetailsMsts_courseid",
                         column: x => x.courseid,
                         principalTable: "courseDetailsMsts",
                         principalColumn: "courseId",
@@ -43,8 +43,8 @@ namespace The_One_Web_Technology.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_courseReffrealMsts_courseid",
-                table: "courseReffrealMsts",
+                name: "IX_CourseReferralMst_courseid",
+                table: "CourseReferralMst",
                 column: "courseid");
         }
 
@@ -52,7 +52,7 @@ namespace The_One_Web_Technology.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "courseReffrealMsts");
+                name: "CourseReferralMst");
 
             migrationBuilder.AlterColumn<string>(
                 name: "categoriesName",

@@ -63,22 +63,22 @@ namespace The_One_Web_Technology.Repository
 
         public List<CourseReffrealModelList> courserefrealllist()
         {
-            List<CourseReffrealModelList> list = new List<CourseReffrealModelList>();
-            var data = _datacontext.courseReffrealMsts.ToList();
-            foreach (var item in data)
-            {
-                CourseReffrealModelList courseReffrealModel = new CourseReffrealModelList()
-                {
-                    id = item.id,
-                    creffrealpoint = item.creffrealpoint,
-                    startingdate = item.startingdate,
-                    endingdate = (DateTime)item.endingdate,
-                    courseid = item.courseid,
-                    status = item.status
-                };
-                list.Add(courseReffrealModel);
-            }
-            return list;
+            //List<CourseReffrealModelList> list = new List<CourseReffrealModelList>();
+            //var data = _datacontext.courseReffrealMsts.ToList();
+            //foreach (var item in data)
+            //{
+            //    CourseReffrealModelList courseReffrealModel = new CourseReffrealModelList()
+            //    {
+            //        id = item.id,
+            //        creffrealpoint = item.creffrealpoint,
+            //        startingdate = item.startingdate,
+            //        endingdate = (DateTime)item.endingdate,
+            //        courseid = item.courseid,
+            //        status = item.status
+            //    };
+            //    list.Add(courseReffrealModel);
+            //}
+            return null;
         }
     }
 }
