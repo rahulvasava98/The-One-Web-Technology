@@ -64,6 +64,7 @@ namespace The_One_Web_Technology.Repository
         public List<CourseReffrealModelList> courserefrealllist()
         {
             List<CourseReffrealModelList> list = new List<CourseReffrealModelList>();
+            //var data = _datacontext.courseReffrealMsts.ToList();
             var data = _datacontext.courseReffrealMsts.ToList();
             foreach (var item in data)
             {

@@ -109,6 +109,11 @@ namespace The_One_Web_Technology.Controllers
             return View();
         }
 
+        public IActionResult DemoBanner()
+        {
+            return View();
+        }
+
 
     }
 }

@@ -587,7 +587,7 @@ namespace The_One_Web_Technology.Controllers
             {
                 courseid = refrealladd.courseid,
                 creffrealpoint = refrealladd.creffrealpoint,
-                startingdate = refrealladd.startingdate,
+                startingdate = System.DateTime.Now,
                 endingdate = refrealladd.endingdate,
                 status = refrealladd.status
             };

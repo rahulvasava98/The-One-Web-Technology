@@ -37,7 +37,9 @@
     </style>
 }
 
-<table class="table">
+
+
+<table class="table" id="coursePayment">
     <thead>
         <tr style="text-align:center">
             <td>paymentId</td>
@@ -175,5 +177,15 @@
                 }
             });
         }
+    </script>
+
+    <script>
+        var js = jQuery.noConflict(true);
+
+        js(document).ready(function () {
+            js('#coursePayment').DataTable({
+
+            });
+        });
     </script>
 }

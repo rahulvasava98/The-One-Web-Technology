@@ -10,7 +10,7 @@
 <h1>CourseModuleDetails</h1>
 
 
-<table class="table">
+<table class="table" id="moduleDetails">
     <thead>
         <tr>
             <!-- Button trigger modal -->
@@ -181,4 +181,15 @@
 
         });
     }
+</script>
+
+
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#moduleDetails').DataTable({
+
+        });
+    });
 </script>

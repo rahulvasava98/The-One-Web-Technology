@@ -106,10 +106,13 @@
                         </div>
                     </div>
 
+
+             
+
                     <div class="collapse" id="collapse-@moduleData.courseModuleId">
                         <div class="card card-body">
                             <div class="admin-custom-data-container">
-                                <table class="table pt-2">
+                                <table class="table pt-2" id="lectureList">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -516,5 +519,15 @@
             let getElement = document.getElementById(`collapse-${courseModuleId}`);
             getElement.classList.add('show');
 
+    </script>
+
+    <script>
+        var js = jQuery.noConflict(true);
+
+        js(document).ready(function () {
+            js('#lectureList').DataTable({
+
+            });
+        });
     </script>
 } 

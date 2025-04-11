@@ -1,6 +1,6 @@
 ﻿@model The_One_Web_Technology.Models.CourseReffrealModelList
 @{
-    ViewData["Title"] = "coursePayment";
+    ViewData["Title"] = "courserefreallform";
     Layout = "~/Views/Shared/_admin_layout.cshtml";
 }
 
@@ -94,7 +94,9 @@
     </div>
 </div>
 
-<table class="table">
+
+
+<table class="table" id="refereleForm">
     <thead>
         <tr>
             <th>ID</th>
@@ -142,3 +144,13 @@
         }
     </script>
 }
+
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#refereleForm').DataTable({
+
+        });
+    });
+</script>

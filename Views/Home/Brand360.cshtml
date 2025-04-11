@@ -1,91 +1,1425 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Brand360";
 }
-@section style{
+
+<!-- #region style -->
+@section style {
     <style>
+        /* banner */
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            /* background-color:azure; */
+            /* D: \Main_OWT\The-One-Web-Technology\The One Web Technology\wwwroot\assets\images\Brand_360_Web_Page\7.png */
+            background-image: url("../assets/images/Brand_360_Web_Page/5.png ");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        /* ---- stats.js ---- */
+
+        .brander-banner-container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        .brand360-banner-btn {
+            transition: 1s ease;
+            background: linear-gradient(90deg, rgba(8,93,124,1) 18%, rgba(12,73,102,1) 50%, rgba(19,26,51,1) 91%);
+        }
+
+            .brand360-banner-btn:focus-visible {
+                outline: 0;
+            }
+
+            .brand360-banner-btn:hover {
+                transition: 1s ease;
+                background: linear-gradient(90deg, rgba(19,26,51,1) 8%, rgba(12,73,102,1) 51%, rgba(8,93,124,1) 86%);
+            }
+
+        .banner-media-icon li {
+            background: linear-gradient(90deg, rgba(8,93,124,1) 18%, rgba(12,73,102,1) 50%, rgba(19,26,51,1) 91%);
+            color: white;
+        }
+
+            .banner-media-icon li:hover {
+                transition: 1s ease;
+                background: linear-gradient(90deg, rgba(19, 26, 51, 1) 8%, rgba(12, 73, 102, 1) 51%, rgba(8, 93, 124, 1) 86%);
+                color: black !important;
+            }
+        /* banner end */
+
         .mt-3rem {
             margin-top: 6rem;
         }
-    
+
+        .brand-review-section_wrapper {
+            padding: 10px 0;
+            position: relative;
+        }
+
+            .brand-review-section_wrapper::before {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: var(--clr-main-variation);
+                width: 100%;
+                height: 100%;
+                opacity: 0.2;
+                border-radius: 1rem;
+                box-shadow: 10px 10px 20px black;
+            }
+
+
+        .brand-review-section_item {
+            position: relative;
+        }
+
+        .review-web-nav {
+            position: absolute;
+            top: 25px;
+            right: 50px;
+        }
+
+        .brande-review-block_wrapper {
+            background-color: var(--clr-main-variation);
+        }
+
+        .brand-review-swipper-wrapper {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 1px -1px 9px var(--clr-main);
+        }
+
+
+        .brand-review-card {
+            background-color: var(--clr-main-variation);
+        }
+
+        .brand-review-card_img_container {
+            width: 70px;
+            height: 70px;
+        }
+
+        .info-reviewer {
+            color: var(--clr-main);
+            font-size: 0.7rem;
+        }
+
+
+        .success-stories-content {
+            border-radius: 0.5rem;
+        }
+
+        .success-stories-content-count {
+            box-shadow: 0px 1px 7px black;
+            border-radius: 10px;
+        }
+
+        .customer-count {
+            font-size: 2rem;
+        }
+
+        .success-stories-icon-container i {
+            font-size: 2rem;
+        }
+
+        .success-stories-content-item {
+        }
+
+
+        .success-stories-content-thumbnail-img-container img {
+            border-radius: 1rem;
+        }
+
+        .services-component-cards-item {
+            transition: 1s ease;
+        }
+
+            .services-component-cards-item:hover {
+                background-color: var(--clr-main);
+            }
+
+        .feature_content_icon_container {
+            padding: 18px 23px 10px 23px;
+            opacity: 1;
+            position: relative;
+            z-index: 10;
+            font-size: 2rem;
+        }
+
+            .feature_content_icon_container::before {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0.1;
+                z-index: 0;
+                background-color: var(--clr-main);
+                border-radius: 50%;
+            }
+
+        .process_icon_number_growth_feature {
+            padding: 10px 15px;
+            background-color: var(--clr-main);
+            position: absolute;
+            font-size: 1rem;
+            top: 0;
+            border-radius: 50%;
+        }
+
+
         .swiper {
-             width: 100%; 
-            height: 300px;
+            width: 100%;
+            height: 100%;
         }
 
         .swiper-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            background: #ddd;
+            width: 100%;
+            background-color: var(--clr-main);
         }
 
-    </style>    
-}
 
-<section class="brandThree mt-3rem">
-    <div class="container">        
-        <div class="brand-review-section_wrapper p-5">
-            <div class="brand-review-section">
-                <div class="row">
-                    <div class="col-5">
-                        <div class="brand-review-section_item">
-                            <div class="text-area">
-                                <h5 class="color-primary mb-16">Testimonials</h5>
-                                <h3 class="h1 bold lightest-black">What our clients think about us?</h3>
+        /* .swiper-button-next {
+                            position: absolute;
+                            top: 2rem;
+                            right: 1.5rem;
+                        }
+
+                        .swiper-button-prev {
+                            position: absolute;
+                            top: 2rem;
+                            left: 35rem;
+                        } */
+
+        /* new swiper  */
+        .service-header-swiper-content {
+            font-size: 2.5rem;
+        }
+
+
+        /* contact 360 */
+        .brandethreesixty-contact-details {
+            height: 300px;
+            background-image: url("../assets/images/brand_360_Web_page/7.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            margin: 0;
+            position: relative;
+        }
+
+            .brandethreesixty-contact-details::before {
+                content: " ";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(90deg, rgba(8,93,124,1) 18%, rgba(12,73,102,1) 50%, rgba(19,26,51,1) 91%);
+                opacity: 0.8;
+                z-index: 1;
+            }
+
+        .brandethreesixty-contact-details-wrapper {
+            position: absolute;
+            z-index: 3;
+            width: 100%;
+        }
+
+        /* tab compoennt */
+        .nav-pills .nav-link.active {
+            color: var(--white) !important;
+            background-color: initial !important;
+        }
+
+        .nav-link:focus-visible {
+            outline: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .serveice-tab-nav-title {
+            font-size: 1.75rem;
+            color: var(--clr-main);
+        }
+
+        .serveice-tab-nav-para {
+            font-size: 1rem;
+        }
+
+        .service-body-content {
+            max-height: 418px;
+            overflow: hidden;
+        }
+
+        .services-tab-nav-body {
+            max-height: 418px;
+            overflow: auto;
+        }
+        /* For WebKit-based browsers (Chrome, Edge, Safari) */
+        /* Width and height */
+        ::-webkit-scrollbar {
+            width: 10px; /* For vertical scrollbar */
+            height: 10px; /* For horizontal scrollbar */
+        }
+
+        /* Scrollbar track (background) */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        /* Scrollbar handle (thumb) */
+        ::-webkit-scrollbar-thumb {
+            background: var(--clr-main);
+            border-radius: 10px;
+        }
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        /* services component */
+        .services {
+            /*  background: black;
+                        color: white; */
+        }
+
+        .py-80 {
+            padding: clamp(48px, 4.167vw, 160px) 0;
+        }
+
+        .py-48 {
+            padding: clamp(24px, 2.5vw, 96px) 0;
+        }
+
+        .mb-48 {
+            margin-bottom: clamp(24px, 2.5vw, 96px);
+        }
+
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+
+        .mb-32 {
+            margin-bottom: clamp(20px, 2vw, 32px);
+            /* margin-bottom: 32px; */
+        }
+
+        .cus-btn {
+            position: relative;
+            background: white;
+            transition: 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow: hidden;
+            height: clamp(40px, 2.917vw, 64px);
+            padding: 0 clamp(20px, 1.66vw, 48px);
+            text-transform: uppercase;
+            border: none;
+            color: #1e1f20;
+            flex-shrink: 0;
+            width: fit-content;
+            font-size: clamp(13px, 0.833vw, 22px);
+            font-weight: 600;
+            box-sizing: border-box;
+        }
+
+            .cus-btn:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -2;
+                background-color: #fafafa !important;
+                transform: translateX(0);
+                box-sizing: border-box;
+                transition: 0.5s ease-in-out;
+            }
+
+            .cus-btn:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                background: linear-gradient(90deg, rgba(253, 220, 139, 0.95) 0%, rgba(40, 208, 232, 0.95) 100%);
+                transform: translateX(-100%);
+                box-sizing: border-box;
+                transition: 0.5s ease-in-out;
+            }
+
+            .cus-btn svg {
+                width: clamp(16px, 1.042vw, 24px);
+                height: clamp(16px, 1.042vw, 24px);
+            }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: unset;
+        }
+
+        .lightest-gray {
+            color: #eaeaec !important;
+        }
+
+
+        .gradient-stroke-text {
+            background: linear-gradient(90deg, rgba(253, 220, 139, 0.95) 0%, rgba(40, 208, 232, 0.95) 100%);
+            /*-webkit-background-clip: text;*/
+            -webkit-text-stroke: 2px transparent;
+            color: #141414;
+        }
+
+        span {
+            display: inline-block;
+        }
+
+
+        h4,
+        .h4 {
+            font-size: clamp(33px, 2.865vw, 110px);
+            font-weight: 500;
+            line-height: 120%;
+        }
+
+    </style>
+}
+<!-- #endregion -->
+
+
+<!-- #region Banner -->
+<section style="height:100vh">
+    <div class="banner-brand-360">
+        <!-- particles.js container -->
+        <div id="particles-js">
+            <!-- <div class="container"> -->
+            <div class="brander-banner-container">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-sm-12 col-md-6 h-100 d-flex align-items-center justify-content-center">
+                            <!-- d-flex align-items-center justify-content-center h-100 -->
+                            <div class="brandeThreeSixtyBanner-body px-5">
+                                <!-- <div> -->
+                                <div class="brand-btn-element-container">
+                                    <div class="brand-btn-element-wrapper pe-5">
+                                        <div class="w-100 d-flex gap-3 align-items-center px-3  py-2  cus-border second rounded-pill" style="box-shadow: 1px 0px 5px;">
+                                            <button class="brand360-banner-btn px-3 px-lg-5 py-2 rounded-pill p5-color bg3-color" onclick="scrollToSection()">
+                                                Services
+                                            </button>
+                                            <span>
+                                                Delivering Superior Services IT Solutions
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="brandeThreeSixtyBanner-header my-3">
+                                    <h1 class="slide-title  " style="font-size: 3rem;">
+                                        Innovate. Transform. Elevate. Complete 360° IT Solutions.
+
+                                        <span class="featured-text">IT Solutions </span>
+
+                                        <span class="design-element rounded-shape stripes"></span>
+                                    </h1>
+                                    @* <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, porro.</h1> *@
+                                </div>
+                                <div b-vexwhsukdk="" class="contact-info-card">
+                                    <div b-vexwhsukdk="" class="social-icons">
+                                        <div b-vexwhsukdk="" class="sc-wrapper dir-row sc-size-32">
+                                            <ul b-vexwhsukdk="" class="sc-list banner-media-icon">
+                                                <li b-vexwhsukdk="" class="sc-item " title="instagram"><a b-vexwhsukdk="" class="sc-link" href="https://www.instagram.com/theonewebtechnology_services/" title="theonewebtechnology_services-instagram"><i b-vexwhsukdk="" class="fab fa-instagram sc-icon"></i></a></li>
+                                                <li b-vexwhsukdk="" class="sc-item " title="Facebook"><a b-vexwhsukdk="" class="sc-link" href="https://www.facebook.com/TheOneWebTechnology" title="TheOneWebTechnology-facebook"><i b-vexwhsukdk="" class="fab fa-facebook-f sc-icon"></i></a></li>
+                                                <li b-vexwhsukdk="" class="sc-item " title="youtube"><a b-vexwhsukdk="" class="sc-link" href="https://www.youtube.com/channel/UCEmJUZ9rzXyV-nBqW3s2K1g/videos?app=desktop&amp;view=0&amp;sort=dd&amp;shelf_id=0" title="TheOneWebTechnology-youtube"><i b-vexwhsukdk="" class="fab fa-youtube sc-icon"></i></a></li>
+                                                @*           <li b-vexwhsukdk="" class="sc-item " title="instagram"><a b-vexwhsukdk="" class="sc-link" href="https://www.instagram.com/theonewebtechnology/" title="theonewebtechnology-instagram"><i b-vexwhsukdk="" class="fab fa-instagram sc-icon"></i></a></li>
+                                                <li b-vexwhsukdk="" class="sc-item " title="twitter"><a b-vexwhsukdk="" class="sc-link" href="https://x.com/i/flow/login?redirect_after_login=%2FTheOneWebTechn1" title="theonewebtechnology-twitter"><i b-vexwhsukdk="" class="fa-brands fa-x-twitter"></i></a></li> *@
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- </div> -->
+
+
+        </div> <!-- stats - count particles -->
+
+    </div>
+
+</section>
+<!-- #endregion -->
+
+
+@* service component *@
+<section class="services-component-sec my-5">
+    <div class="container">
+        @* service we offfres *@
+        <div class="services-component">
+            <div class="services-component-wrapper px-5">
+                <div class="services-component-header">
+                    <div class="servies-component-header-wrapper">
+                        <div class="row">
+                            <div class="sec-heading  ">
+                                <div class="content-area">
+                                    <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">services</span>
+                                    <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">services</span>
+                                        <span class="featured-text">we offer</span>
+                                    </h2>
+                                    <p class="subtitle   wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                                        Upskill and Advance Yourself in Master In-Demand IT Skills and Become IT Professionals. <br> Register Now and Lead the Tech World!
+                                    </p>
+                                </div>
+                                <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">see all services <i class="bi bi-arrow-right icon "></i></a></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-7">
-                        <div class="brand-review-section_item">
-                            <div class="brande-review-block_wrapper">
-                                <div class="brande-review-block">
-                                    <div class="border border-primary rounded">
-                                        <div class="swiper mySwiper">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">Slide 1</div>
-                                                <div class="swiper-slide">Slide 2</div>
-                                                <div class="swiper-slide">Slide 3</div>
-                                            </div>
-
-                                            <!-- Optional navigation buttons -->
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
-
-                                            <!-- Optional pagination -->
-                                            <div class="swiper-pagination"></div>
+                </div>
+                <div class="services-component-cards">
+                    <div class="services-component-cards-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <a asp-action="webDevelopment" asp-controller="services">
+                                    <div class="box service-box services-component-cards-item  wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                        <div class="service-icon" style=" font-size:3rem;text-align: center;">
+                                            <i class="bi bi-code-slash"></i>
+                                        </div><span class="service-num hollow-text">    </span>
+                                        <div class="service-content" style="text-align: center;">
+                                            <h3 class="service-title">Web Development</h3>
+                                            <p class="service-text">
+                                                We specializes in web development, creating stunning, responsive, and user-friendly websites that enhance brand identity, improve user experience, and drive business growth.
+                                            </p>
                                         </div>
+                                    </div>
+                                </a>
 
+                            </div>
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <a asp-action="seooptimazation" asp-controller="services">
+                                    <div class="box service-box services-component-cards-item  wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                        <div class="service-icon" style=" font-size:3rem;text-align: center;">
+                                            <i class="flaticon-search font-icon"></i>
+                                        </div><span class="service-num hollow-text">    </span>
+                                        <div class="service-content" style="text-align: center;">
+                                            <h3 class="service-title">SEO services</h3>
+                                            <p class="service-text">
+                                                Our SEO service Will improve your website to increase its visibility in Google and other search engines whenever people search for your Products or Service related Keywords.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <a asp-action="digitalmarketing" asp-controller="Home">
+                                    <div class="box service-box services-component-cards-item  wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                        <div class="service-icon" style=" font-size:3rem;text-align: center;">
+                                            <i class="fa-solid fa-laptop"></i>
+                                        </div><span class="service-num hollow-text">    </span>
+                                        <div class="service-content" style="text-align: center;">
+                                            <h3 class="service-title">Digital Marketing</h3>
+                                            <p class="service-text">
+                                                Our Digital Marketing service is a results-driven digital marketing provider specializing in PPC, social media to help businesses grow their online presence and drive conversions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* End service component *@
+
+@* growth features component *@
+<section class="growth-feature-card-component-sec">
+    <div class="container">
+        @* how we help your business Grow component *@
+        <div class="growth-feature-card-component my-5">
+            <div class="services-component-wrapper px-5">
+                <div class="services-component-header">
+                    <div class="servies-component-header-wrapper">
+                        <div class="row">
+                            <div class="sec-heading  ">
+                                <div class="content-area text-center">
+                                    <span class="pre-title       wow fadeInUp" data-wow-delay="2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;display:inline-block;">Our Process Flow</span>
+                                    <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">How We Help</span> of Your Business Grow And <span class="featured-text">Successful</span></h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="services-component-cards">
+                    <div class="services-component-cards-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+
+                                <div class="box service-box   wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                    <div class="service-icon  growth-icon-container" style=" font-size:3rem;text-align: center;">
+                                        <span class="feature_content_icon_container">
+                                            @* <i class="flaticon-search font-icon"></i> *@
+                                            <i class="fa-solid fa-chess-rook"></i>
+                                            <span class="process_icon_number_growth_feature">
+                                                01
+                                            </span>
+                                        </span>
+                                    </div><span class="service-num hollow-text">    </span>
+                                    <div class="service-content" style="text-align: center;">
+                                        <h3 class="service-title pt-3" style="font-size:1.5rem">Strategy & Research</h3>
+                                        <p class="service-text">
+                                            Identify target audience, analyze competitors, and set clear marketing goals
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <div class="box service-box   wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                    <div class="service-icon" style=" font-size:3rem;text-align: center;">
+                                        <span class="feature_content_icon_container">
+                                            @* <i class="flaticon-search font-icon"></i> *@
+                                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                                            <span class="process_icon_number_growth_feature">
+                                                02
+                                            </span>
+
+                                        </span>
+                                    </div><span class="service-num hollow-text">    </span>
+                                    <div class="service-content" style="text-align: center;">
+                                        <h3 class="service-title pt-3" style="font-size:1.5rem">Implementation & Optimization</h3>
+                                        <p class="service-text">
+                                            Execute campaigns across SEO, PPC, social media, and content marketing, continuously optimizing for performance.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="col-sm-12 col-md-4 my-3 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <div class="box service-box wow fadeInUp reveal-start p-3" data-wow-offset="0" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                    <div class="service-icon" style=" font-size:3rem;text-align: center;">
+                                        <span class="feature_content_icon_container">
+                                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                            <span class="process_icon_number_growth_feature">
+                                                03
+                                            </span>
+
+                                        </span>
+                                    </div>
+                                    <span class="service-num hollow-text">    </span>
+                                    <div class="service-content" style="text-align: center;">
+                                        <h3 class="service-title pt-3" style="font-size:1.5rem">Analysis & Growth</h3>
+                                        <p class="service-text">
+                                            Track key metrics, analyze results, and refine strategies to maximize ROI and long-term success.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+@*End growth features component *@
+
+@* /* services start */ *@
+<section class="services py-80" id="Allservices">
+        <div class="container">
+            <div class="row align-items-center mb-48">
+            <div class="sec-heading  ">
+                <div class="content-area">
+                    <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">services</span>
+                    <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">What We </span> <span class="featured-text"> Offer</span></></h2>
+                    
+                </div>
+                <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">see all services <i class="bi bi-arrow-right icon "></i></a></div>
+            </div>
+                @* <div class="col-md-9">
+                    <h2 class="mb-24">Explore Our Range of <span class="gradient-stroke-text">SERVICES</span></h2>
+                </div>
+                <div class="col-md-3">
+                    <a href="contact.html" class="cus-btn ms-md-auto mb-64">all services <svg
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                            <path
+                                d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                                stroke="#1E1F20" stroke-width="2"></path>
+                        </svg></a>
+                </div> *@
+            </div>
+            @* block-one *@
+            <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                    <div class="col-md-6">
+                    <h4 class="mb-4p featured-text"><span >01</span> -</h4>
+                    <h4 class="mb-16">Strong Digital <span class="featured-text"> Presence</span></h4>
+                    <p class="lightest-gray mb-32">
+                        In today’s digital era, a strong online presence is crucial for business success. We specializes in SEO, social media, content marketing, and paid advertising to enhance visibility, engage audiences, and drive growth. Our expert strategies ensure your brand stands out, attracts customers, and thrives in the competitive digital landscape.
+                        
+                        </p>
+                       @*  <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="none">
+                                <path
+                                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                                    stroke="#1E1F20" stroke-width="2"></path>
+                            </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                    </div>
+                    <div class="col-md-6 col-sm-8 text-end">
+                    <img src="../assets/images/Brand_360_Web_Page/4.png" style="height:318px" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            @* block-two *@
+            <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                    <div class="col-md-6 col-sm-8 order-md-1 order-2">
+                    <img src="../assets/images/Brand_360_Web_PAge/6.png" style="height:318px" alt="Effective Digital" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 order-md-2 order-1">
+                    <h4 class="mb-4p featured-text"><span>02</span> -</h4>
+                    <h4 class="mb-16">
+                        Effective Digital
+                        
+                        <span class="featured-text">Marketing</span></h4>
+                        <p class="lightest-gray mb-32">
+                        Boost your brand with our result-driven digital marketing strategies. From SEO and social media to paid ads and content marketing, we create tailored campaigns that drive engagement, increase conversions, and maximize ROI. Let us help you grow your online presence and reach the right audience effectively.
+                        </p>
+                        @* <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="none">
+                                <path
+                                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                                    stroke="#1E1F20" stroke-width="2"></path>
+                            </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                    </div>
+                </div>
+            </div>
+
+            @* block-three *@
+            <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                <div class="col-md-6">
+                    <h4 class="mb-4p featured-text"><span>03</span> -</h4>
+                    <h4 class="mb-16"> Cost-Effective <span class="featured-text">Solutions</span></h4>
+                    <p class="lightest-gray mb-32">
+                        Maximize your marketing impact without overspending. Our cost-effective digital marketing solutions are designed to deliver high ROI through strategic planning, data-driven campaigns, and targeted outreach. Whether it's SEO, PPC, or social media marketing, we optimize every dollar to ensure your brand achieves maximum growth at minimal cost.
+                    </p>
+                    @*  <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="none">
+                    <path
+                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                    stroke="#1E1F20" stroke-width="2"></path>
+                    </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                </div>
+                <div class="col-md-6 col-sm-8 text-end">
+                    <img src="../assets/images/Brand_360_Web_Page/cost-effective_1_croped.jpg" style="height:318px" alt="cost-effective" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        @* block-four *@
+        <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                <div class="col-md-6 col-sm-8 order-md-1 order-2">
+                    <img src="../assets/images/Brand_360_Web_Page/brand_building.png" style="height:318px" alt="brande building" class="img-fluid">
+                </div>
+                <div class="col-md-6 order-md-2 order-1">
+                    <h4 class="mb-4p featured-text"><span>04</span> -</h4>
+                    <h4 class="mb-16">Brand <span class="featured-text">Building</span></h4>
+                    <p class="lightest-gray mb-32">
+                        Establish a powerful brand identity with our expert brand-building strategies. We craft compelling narratives, design visually striking assets, and implement targeted marketing campaigns to enhance brand recognition. From logo creation to brand messaging, we help businesses build trust, loyalty, and a strong presence in the digital landscape.
+                    </p>
+                    @* <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="none">
+                    <path
+                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                    stroke="#1E1F20" stroke-width="2"></path>
+                    </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                </div>
+            </div>
+        </div>
+
+        @* block-fifth *@
+        <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                <div class="col-md-6">
+                    <h4 class="mb-4p featured-text"><span>05</span> -</h4>
+                    <h4 class="mb-16">
+                        Lead Management &
+                        <span class="featured-text">CRM Integration</span>
+                    </h4>
+                    <p class="lightest-gray mb-32">
+                       
+                        Streamline your sales process with our advanced lead management and CRM integration solutions. We help you capture, track, and nurture leads efficiently, ensuring seamless communication and higher conversions. Optimize customer relationships with automated workflows, real-time analytics, and personalized engagement to drive business growth and maximize your ROI.
+
+                    </p>
+                    @*  <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="none">
+                    <path
+                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                    stroke="#1E1F20" stroke-width="2"></path>
+                    </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                </div>
+                <div class="col-md-6 col-sm-8 text-end">
+                    <img src="../assets/images/Brand_360_Web_Page/CRM_Integration.jpg" style="height:318px" alt="crm integration" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        @* block-sixth *@
+        <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                <div class="col-md-6 col-sm-8 order-md-1 order-2">
+                    <img src="../assets/images/Brand_360_Web_Page/Advanced_Marketing.webp" style="height:318px" alt="Advanced Marketing" class="img-fluid">
+                </div>
+                <div class="col-md-6 order-md-2 order-1">
+                    <h4 class="mb-4p featured-text"><span>06</span> -</h4>
+                    <h4 class="mb-16">
+                        Advanced Marketing &
+                        <span class="featured-text">Promotion</span>
+                    </h4>
+                    <p class="lightest-gray mb-32">
+                        We drive impactful marketing and promotion through guerrilla marketing, Google & Facebook Ads, social media marketing, optimization, and influencer collaborations. Our data-driven approach boosts brand visibility, engages target audiences, and maximizes ROI. From creative campaigns to strategic ad placements, we ensure your IT company stands out and thrives in the digital landscape.
+
+
+
+
+
+
+
+
+                    </p>
+                    @* <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="none">
+                    <path
+                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                    stroke="#1E1F20" stroke-width="2"></path>
+                    </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                </div>
+            </div>
+        </div>
+        @* block-seventh *@
+        <div class="service-block py-48">
+            <div class="row align-items-center row-gap-4 justify-content-center mb-48 wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                <div class="col-md-6">
+                    <h4 class="mb-4p featured-text"><span>07</span> -</h4>
+                    <h4 class="mb-16">
+                        Training & Strong
+                        
+                        <span class="featured-text">Foundation</span>
+                    </h4>
+                    <p class="lightest-gray mb-32">
+
+                        Empower your skills with our expert-led training programs. We provide in-depth guidance in software development and digital marketing, ensuring a strong foundation for success. Our hands-on approach, real-world projects, and industry insights help you gain the expertise needed to excel in a competitive digital landscape.
+
+
+
+
+
+
+
+                    </p>
+                    @*  <a href="pricing.html" class="cus-btn">let's create <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20" fill="none">
+                    <path
+                    d="M13.3545 17C13.3545 14 16.1545 10 19.3545 10M19.3545 10C17.5212 10 13.3545 9 13.3545 3M19.3545 10H0.354492"
+                    stroke="#1E1F20" stroke-width="2"></path>
+                    </svg></a> *@
+                    <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " href="/home/services">Let's Create <i class="bi bi-arrow-right icon "></i></a></div>
+                </div>
+                <div class="col-md-6 col-sm-8 text-end">
+                    <img src="../assets//images/Brand_360_Web_Page/traingin.webp"  alt="traning"  class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+@* /* services end*/ *@
+
+@* service swiper *@
+<section class="services-swiper-title">
+    <div class="container-fluid">
+        <div class="service-header_swiper">
+            <div class="service-header-swiper-wrappper">
+                <!-- Swiper -->
+                <div class="brand-review-swiper-part_2">
+                    <div class="swiper-wrapper" style="transition-timing-function: linear !important; ">
+
+                        <div class="swiper-slide py-5">
+
+                            @* <h2 class="service-header-swiper-content text-center">
+                            -
+                            </h2> *@
+                            <h2 class="service-header-swiper-content text-center">
+                                -<span class="px-2"> Web Development </span>-
+                            </h2>
+                            @* <h2 class="service-header-swiper-content text-center">
+                            -
+                            </h2>                                *@
+                        </div>
+                        <div class="swiper-slide py-5">
+                            <h2 class="service-header-swiper-content text-center">
+                                -<span class="px-2"> Degital Marketing </span>-
+                            </h2>
+                        </div>
+                        <div class="swiper-slide py-5">
+                            <h2 class="service-header-swiper-content text-center">
+                                -<span class="px-2"> Bussiness Consultent </span>-
+                            </h2>
+                        </div>
+                        <div class="swiper-slide py-5 ">
+                            <h2 class="service-header-swiper-content text-center">
+                                -<span class="px-2"> SEO Services </span>-
+                            </h2>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Optional pagination -->
+                    @* <div class="swiper-pagination">
+                    </div> *@
+                </div>
+
+            </div>
+        </div>
+
+        @* contact  component*@
+
+    </div>
+
+</section>
+@*end service swiper *@
+
+@* tab component *@
+<section class="expore-services-feture-content my-5">
+    <div class="container">
+        <div class="sec-heading ">
+            <div class="content-area">
+                <h2 class="title    wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">Explore Our Range Of <span class="featured-text">Services</span></span></h2>
+            </div>
+
+        </div>
+
+        <div class="expore-services-feture-content-body wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+            <!-- <div class="d-flex align-items-start"> -->
+            <div class="row align-items-start">
+                <div class="col-sm-12 col-md-8">
+                    <div class="service-body-content">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                                <img src="https://uiparadox.co.uk/templates/nexus/assets/media/process/p-3.jpg" width="100" alt="">
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                                <img src="https://uiparadox.co.uk/templates/nexus/assets/media/process/p-1.jpg" width="100" alt="">
+                            </div>
+
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
+                                <img src="https://uiparadox.co.uk/templates/nexus/assets/media/process/p-4.jpg" width="100" alt="">
+                            </div>
+
+                            <!-- added -->
+                            <div class="tab-pane fade" id="v-pills-service-fourth" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
+                                <img src="https://img.freepik.com/premium-photo/man-holding-phone-with-training-concept-icons-business-concept_218381-8366.jpg?semt=ais_hybrid" width="100" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="services-tab-nav-body">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <!-- <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">  -->
+                            <button class="nav-link  active text-start serveice-tab-nav-title" onclick="showPara(this)" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                Web Development
+                                <p id="nav-para-first" class="btn-size-normal nav-btn-para serveice-tab-nav-para d-none">
+                                    We build responsive, SEO-friendly websites and custom web solutions to enhance user experience, drive growth, and elevate your business online.
+                                </p>
+                            </button>
+
+                            <button class="nav-link  text-start serveice-tab-nav-title" onclick="showPara(this)" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                SEO Solution
+                                <p id="nav-para-second" class="btn-size-normal nav-btn-para serveice-tab-nav-para d-none">
+                                    We provide expert SEO services to boost rankings, increase traffic, and enhance online visibility, ensuring your business stands out.
+                                </p>
+                            </button>
+
+                            <button class="nav-link  text-start serveice-tab-nav-title" onclick="showPara(this)" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                Digital Marketing
+                                <p id="nav-para-three" class=" nav-btn-para serveice-tab-nav-para d-none">
+                                    We offer result-driven digital marketing services, including SEO, PPC, social media, and content marketing, to boost brand visibility, drive traffic, and generate leads effectively.
+                                </p>
+                            </button>
+
+
+                            <button class="nav-link  text-start serveice-tab-nav-title" onclick="showPara(this)" id="v-pills-service-fourth-tab" data-bs-toggle="pill" data-bs-target="#v-pills-service-fourth" type="button" role="tab" aria-controls="v-pills-service-fourth" aria-selected="false">
+                                Training
+                                <p id="nav-para-four" class=" nav-btn-para serveice-tab-nav-para  d-none">
+                                    We provide expert IT training programs, covering the latest technologies, software development, cybersecurity, and digital skills to empower professionals and enhance career growth.
+                                </p>
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+</section>
+@* tab component *@
+
+
+@* brand-states-data *@
+<section class="brand-states-data">
+    <div class="container">
+        @* stats component *@
+        <div class=" brand-review-section_wrapper p-5 my-5 wow fadeInUp reveal-start my-5" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+            <div class="brand-review-section">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 d-flex align-items-center">
+                        <div class="success-stories-content">
+                            <div class="success-stories-content-wrapper">
+                                <div class="content-area">
+                                    <span class="pre-title      wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                                        Why Choose Us
+                                    </span>
+                                    <h2 class="title  why wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                                        The One,
+                                        <span class="hollow-text">Web Technology</span>
+                                    </h2>
+                                    <div class="info-content">
+                                        @* <h3 class="info-title">worldwide services  </h3> *@
+                                        <p class="info-text"> We have been delivering web development services of any complexity to clients globally. We also offer global consulting and asset leveraged solution.</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="success-stories-content-count">
+                                            <div class="success-stories-content-count-wrapper p-1">
+                                                <div class="success-stories-content-item p-2">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span class="customer-count">
+                                                                1270
+
+                                                            </span>
+                                                            <span class="customer-count">
+                                                                +
+                                                            </span>
+                                                            <h5>
+                                                                Happy Customers
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-4 d-flex align-items-center justify-content-center">
+                                                            <span class="success-stories-icon-container">
+                                                                <i class="fa-solid fa-user"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="success-stories-content-count">
+                                            <div class="success-stories-content-count-wrapper p-1">
+                                                <div class="success-stories-content-item p-2">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span class="customer-count">
+                                                                100
+                                                            </span>
+                                                            <span class="customer-count">
+                                                                %
+                                                            </span>
+                                                            <h5>
+                                                                Happy Customers
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-4 d-flex align-items-center justify-content-center">
+                                                            <span class="success-stories-icon-container">
+                                                                <i class="fa-solid fa-circle-user"></i>
+
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="success-stories-content-thumbnail">
+                            <div class="success-stories-content-thumbnail-img-container">
+                                <img src="https://uiparadox.co.uk/templates/flynow/v2/assets/media/images/achievement-image.png" alt="Alternate Text" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@* end brand-states-data *@
+
+@* brand review *@
+<section class="brande-review-section mt-3">
+    <div class="container">
+        <!-- #region name -->
+        @* //review component *@
+        <div class="brand-review-section_wrapper p-5 my-5 wow fadeInUp reveal-start" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+            <div class="brand-review-section">
+                <div class="row">
+                    <div class="col-sm-12 col-md-5 d-flex align-items-center">
+                        <div class="brand-review-section_item">
+                            <div class="text-area">
+                                @* <h5 class="pre-title wow fadeInUp">Testimonials</h5>
+                                <h3 class="title    wow fadeInUp"></h3> *@
+
+                                <div class="sec-heading  ">
+                                    <div class="content-area">
+                                        <span class="pre-title       wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">Testimonials</span>
+                                        <h2 class="title    wow fadeInUp py-2" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><span class="hollow-text">services</span> What our clients think about us?</h2>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-7">
+                        <div class="brand-review-section_item">
+                            <div class="brande-review-block_wrapper">
+                                <div class="brande-review-block">
+                                    <div class="brand-review-swipper-wrapper">
+                                        <div class="brand-review-swiper">
+                                            <div class="swiper-wrapper">
+
+                                                <div class="swiper-slide">
+                                                    <div class="brand-review-card p-5">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="brand-review-card_img">
+                                                                    <div class="brand-review-card_img_wrapper">
+                                                                        <div class="brand-review-card_img_container">
+                                                                            <img class="rounded-circle" src="https://media.gettyimages.com/id/156511743/photo/rome-italy-actress-clara-ponsot-attends-the-cosimo-e-nicole-press-conference-during-the-7th.jpg?s=612x612&w=gi&k=20&c=jkszmKMFz6snacRnuyqaLBp9p5DpQO3zduCJ6S2Q-J8=" alt="user_img" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="brand-review-card_review">
+                                                                    <h6 class="subtitle py-2">
+                                                                        I had an excellent experience with this digital marketing service! Their team is highly skilled, delivering impressive results in SEO, social media, and PPC campaigns. My website traffic and engagement skyrocketed, leading to increased conversions. Professional, responsive, and results-driven—highly recommend for anyone looking to grow their online presence! ⭐⭐⭐⭐⭐
+                                                                    </h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <h5 class="">Mr John Deo</h5>
+                                                                <p class="info-reviewer">CEO at FlyNow</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <!-- Optional navigation buttons -->
+                                            @* <div class="d-flex justify-content-around" style="width:100px">
+                                                <div class="swiper-button-next">
+                                                </div>
+                                                <div class="swiper-button-prev">
+                                                </div>
+
+                                            </div> *@
+                                            
+                                            
+                                            <!-- Optional pagination -->
+                                            @* <div class="swiper-pagination">
+                                            </div> *@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @* dd *@
+                            <div class="review-web-nav d-flex justify-content-around" style="width:100px">
+                                <div class="swiper-button-next">
+                                </div>
+                                <div class="swiper-button-prev">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion -->
+    </div>
+</section>
+@* end brand review *@
+
+
+
+@* brande contact *@
+<section class="brande-threesixty-contact">
+    <div class="brandethreesixty-contact-component">
+        <div class="brandethreesixty-contact-wrapper">
+            <div class="brandethreesixty-contact-details">
+                <div class="brandethreesixty-contact-details-wrapper">
+                    <div class="container">
+                        <div class="row justify-content-end ">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="brandethreesixty-contact-feature-wrapper py-5 ">
+                                    <div class="brandethreesixty-contact-feature-details">
+
+                                        <div class="content-area wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                            <span class="pre-title      wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                                                We Carry More Than Just Good coding Skills
+                                            </span>
+                                            <h2 class="title  why wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                                                Let's Discuss
+                                                <span class="hollow-text">Your Projects</span>
+                                            </h2>
+                                            <div class="info-content">
+                                                <p class="info-text">
+                                                    We pride ourselves with our ability to perform and deliver results. Use the form below to discuss your project needs with our team, we will get back asap.
+                                                </p>
+                                            </div>
+                                            <div class="brandethreesixty-contact-btn-container">
+                                                <div class="cta-area   wow fadeInUp" data-wow-delay=".8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;"><a class="cta-btn btn-solid    " asp-controller="home" asp-action="contactus">Contact Us <i class="bi bi-telephone-fill ps-2"></i></a></div>
+                                            </div>
+
+                                        </div>
+
+
+                                        @*  <P>
+                                        We Carry More Than Just Good coding Skills
+                                        </P>
+                                        <h1>
+                                        Let's Discuss Your Projects
+                                        </h1>
+                                        <P>
+
+                                        </P> *@
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+@* brande contact end *@
+
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper(".mySwiper", {
+        var swiper = new Swiper(".brand-review-swiper", {
             loop: true,
             autoplay: {
-                delay: 2000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            slidesPerView: 1,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            // effect: 'flip'
         });
     });
 
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper(".brand-review-swiper-part_2", {
+            
+            loop: true, // Infinite loop
+            speed: 4000, // Set the transition speed (lower value for smoothness)
+            autoplay: {
+                delay: 0, // Continuous movement
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                560: {
+                    slidesPerView: 1,
+                },
+                880: {
+                    slidesPerView: 2,
+                },
+                1300: {
+                    slidesPerView: 3,
+                },
+             
+            },
+            // slidesPerView: 3, // Adjust number of visible slides
+            freeMode: true, // Enable free scrolling
+            freeModeMomentum: false, // Disable acceleration
+
+            // effect: 'flip'
+        });
+    });
+
+
+    // tab component script
+
+    function showPara(getValue) {
+
+        let getPara = getValue.children[0];
+        console.log(getPara.classList.contains("d-none"));
+        let firstPara = document.getElementById("nav-para-first");
+        let secondPara = document.getElementById("nav-para-second");
+        let thirdPara = document.getElementById("nav-para-three");
+        let fourthPara = document.getElementById("nav-para-four");
+
+        let mainTabchidren = document.getElementById("v-pills-tabContent").children;
+        console.log(mainTabchidren.length);
+
+        
+
+        for (let index = 0; index < mainTabchidren.length; index++) {
+            console.log(mainTabchidren[index].classList.contains("active"));
+            if ((mainTabchidren[index].classList.contains("active")) == true) {
+                if (getPara.classList.contains("d-none") == true) {
+                    getPara.classList.remove("d-none");
+                    getPara.classList.add("d-block");
+                }
+            }
+        }
+
+        
+        console.log("fistPara " + firstPara.id);
+
+
+        if (getPara.id != firstPara.id) {
+            if ((firstPara.classList.contains("d-block")) == true) {
+                firstPara.classList.remove("d-block");
+                console.log("first's d-block removed");
+                firstPara.classList.add("d-none");
+            }
+        }
+
+        if (getPara.id != secondPara.id) {
+            if ((secondPara.classList.contains("d-block")) == true) {
+                secondPara.classList.remove("d-block");
+                console.log("second's d-block removed");
+                secondPara.classList.add("d-none");
+            }
+        }
+
+        if (getPara.id != thirdPara.id) {
+            if ((thirdPara.classList.contains("d-block")) == true) {
+                thirdPara.classList.remove("d-block");
+                console.log("third's d-block removed");
+                thirdPara.classList.add("d-none");
+            }
+        }
+
+        if (getPara.id != fourthPara.id) {
+
+            if ((fourthPara.classList.contains("d-block")) == true) {
+                fourthPara.classList.remove("d-block");
+                console.log("third's d-block removed");
+                fourthPara.classList.add("d-none");
+            }
+
+        }
+    }
+
+    function scrollToSection() {
+        document.getElementById("Allservices").scrollIntoView({ behavior: "smooth" });
+    }
+
 </script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle"
+            },
+            "opacity": {
+                "value": 0.5
+            },
+            "size": {
+                "value": 3
+            },
+            "move": {
+                "enable": true,
+                "speed": 3
+            }
+        }
+    });
+</script>
+

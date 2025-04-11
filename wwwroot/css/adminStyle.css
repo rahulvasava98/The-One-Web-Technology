@@ -36,9 +36,9 @@
     padding-top: 0px !important;
 }
 
-.layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page{
+/*.layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page{
     padding-top: 50px !important;
-}
+}*/
 /* Navbar page z-index issue solution */
 .content-wrapper .navbar {
     z-index: auto;

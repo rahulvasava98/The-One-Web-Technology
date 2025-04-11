@@ -5,7 +5,10 @@
     Layout = "~/Views/Shared/_admin_layout.cshtml";
 }
 
-<table class="table">
+
+
+
+<table class="table" id="courseCOllectionList">
     <thead>
         <tr>
             <td>
@@ -164,6 +167,15 @@
 
         });
     }
+</script>
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#courseCOllectionList').DataTable({
+
+        });
+    });
 </script>
 
 

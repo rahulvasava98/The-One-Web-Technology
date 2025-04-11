@@ -54,12 +54,15 @@
     @* <link rel="stylesheet" href="~/css/adminStyle.css" /> *@
 
     <!-- about us custom css  -->
-
-
-
     <link rel="stylesheet" href="~/css/about-custom.css" />
     @* <link rel="stylesheet" href="~/css/training_main.css"/> *@
     <link rel="stylesheet" href="~/css/courses.css" />
+
+    @* particleJS *@
+
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    @* particleJS *@
 
 
     @await RenderSectionAsync("Header", required: false)
@@ -152,7 +155,7 @@
 
                             </div>
                         </li>
-
+                        <li class="menu-item"><a class="menu-link  " asp-action="Brand360" asp-controller="Home">Brand360 </a></li>
 
                         <li class="menu-item has-sub-menu">
                             <a class="menu-link  " asp-action="training" asp-controller="Home">Training</a>

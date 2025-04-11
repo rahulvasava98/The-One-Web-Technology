@@ -13,12 +13,13 @@
 
 </style>
 
+
 <section>
     <div class="tutor-course-details-page space-top space-extra-bottom container-fluid">
         <div class="row">
             <div class="col-xxl-12 col-lg-12">
                 <div class="custom_content_wrapper">
-                    <table class="table">
+                    <table class="table" id="serviceReference">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -89,3 +90,13 @@
 </section>
 
 
+
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#serviceReference').DataTable({
+
+        });
+    });
+</script>

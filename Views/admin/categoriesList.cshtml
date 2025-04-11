@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/_admin_layout.cshtml";
 }
 
-<table class="table">
+
+
+
+<table class="table" id="categoriesList">
     <thead>
         <tr>
             <th>
@@ -154,6 +157,15 @@
    
 </script>
 
+<script>
+    var js = jQuery.noConflict(true);
+
+    js(document).ready(function () {
+        js('#categoriesList').DataTable({
+
+        });
+    });
+</script>
 
 
 
